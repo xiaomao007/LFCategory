@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 live Interactive. All rights reserved.
 //
 
-#import "LFUIImage+Addtional.h"
+#import "LFUIImage+Scale.h"
 #import <ImageIO/ImageIO.h>
 #import "LFCategory.h"
 

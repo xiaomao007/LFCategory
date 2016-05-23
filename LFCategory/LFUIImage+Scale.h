@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UIImage (LFAdditions)
+@interface UIImage (LFScaleAdditions)
 // 缩放图片
 //scale 适应于位图的缩放系数。如果制定这个值为0.0，那么这个缩放系数就被设置成设备主屏幕的缩放系数
 + (UIImage *)scaleImage:(UIImage *)image scaleToSize:(CGSize)size scale:(CGFloat)scale;

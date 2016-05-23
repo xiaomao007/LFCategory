@@ -55,7 +55,7 @@
 #import "LFUIDevice+Add.h"
 #import "LFUIFont+Add.h"
 #import "LFUIGestureRecognizer+Add.h"
-#import "LFUIImage+Addtional.h"
+#import "LFUIImage+Scale.h"
 #import "LFUIImage+Add.h"
 #import "LFUIImage+Resource.h"
 #import "LFUINavigationController+Add.h"

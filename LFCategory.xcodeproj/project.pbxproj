@@ -34,8 +34,8 @@
 		09ED7EC61CED803200F0E12F /* LFUIFont+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E901CED803200F0E12F /* LFUIFont+Add.m */; };
 		09ED7EC71CED803200F0E12F /* LFUIGestureRecognizer+Add.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E911CED803200F0E12F /* LFUIGestureRecognizer+Add.h */; };
 		09ED7EC81CED803200F0E12F /* LFUIGestureRecognizer+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E921CED803200F0E12F /* LFUIGestureRecognizer+Add.m */; };
-		09ED7EC91CED803200F0E12F /* LFUIImage+Addtional.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E931CED803200F0E12F /* LFUIImage+Addtional.h */; };
-		09ED7ECA1CED803200F0E12F /* LFUIImage+Addtional.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E941CED803200F0E12F /* LFUIImage+Addtional.m */; };
+		09ED7EC91CED803200F0E12F /* LFUIImage+Scale.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E931CED803200F0E12F /* LFUIImage+Scale.h */; };
+		09ED7ECA1CED803200F0E12F /* LFUIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E941CED803200F0E12F /* LFUIImage+Scale.m */; };
 		09ED7ECB1CED803200F0E12F /* LFUIImage+AudioIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E951CED803200F0E12F /* LFUIImage+AudioIcon.h */; };
 		09ED7ECC1CED803200F0E12F /* LFUIImage+AudioIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E961CED803200F0E12F /* LFUIImage+AudioIcon.m */; };
 		09ED7ECD1CED803200F0E12F /* LFUIImage+CutScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E971CED803200F0E12F /* LFUIImage+CutScreen.h */; };
@@ -149,8 +149,8 @@
 		09ED7E901CED803200F0E12F /* LFUIFont+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIFont+Add.m"; sourceTree = "<group>"; };
 		09ED7E911CED803200F0E12F /* LFUIGestureRecognizer+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIGestureRecognizer+Add.h"; sourceTree = "<group>"; };
 		09ED7E921CED803200F0E12F /* LFUIGestureRecognizer+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIGestureRecognizer+Add.m"; sourceTree = "<group>"; };
-		09ED7E931CED803200F0E12F /* LFUIImage+Addtional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+Addtional.h"; sourceTree = "<group>"; };
-		09ED7E941CED803200F0E12F /* LFUIImage+Addtional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+Addtional.m"; sourceTree = "<group>"; };
+		09ED7E931CED803200F0E12F /* LFUIImage+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+Scale.h"; sourceTree = "<group>"; };
+		09ED7E941CED803200F0E12F /* LFUIImage+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+Scale.m"; sourceTree = "<group>"; };
 		09ED7E951CED803200F0E12F /* LFUIImage+AudioIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+AudioIcon.h"; sourceTree = "<group>"; };
 		09ED7E961CED803200F0E12F /* LFUIImage+AudioIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+AudioIcon.m"; sourceTree = "<group>"; };
 		09ED7E971CED803200F0E12F /* LFUIImage+CutScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+CutScreen.h"; sourceTree = "<group>"; };
@@ -360,8 +360,8 @@
 				09ED7E901CED803200F0E12F /* LFUIFont+Add.m */,
 				09ED7E911CED803200F0E12F /* LFUIGestureRecognizer+Add.h */,
 				09ED7E921CED803200F0E12F /* LFUIGestureRecognizer+Add.m */,
-				09ED7E931CED803200F0E12F /* LFUIImage+Addtional.h */,
-				09ED7E941CED803200F0E12F /* LFUIImage+Addtional.m */,
+				09ED7E931CED803200F0E12F /* LFUIImage+Scale.h */,
+				09ED7E941CED803200F0E12F /* LFUIImage+Scale.m */,
 				09ED7E951CED803200F0E12F /* LFUIImage+AudioIcon.h */,
 				09ED7E961CED803200F0E12F /* LFUIImage+AudioIcon.m */,
 				09ED7E971CED803200F0E12F /* LFUIImage+CutScreen.h */,
@@ -454,7 +454,7 @@
 				0919ADC91CED6F920092DA5B /* LFCategory.h in Headers */,
 				09ED7ED71CED803200F0E12F /* LFUITableView+Add.h in Headers */,
 				09ED7F2F1CED804200F0E12F /* LFNSString+URLString.h in Headers */,
-				09ED7EC91CED803200F0E12F /* LFUIImage+Addtional.h in Headers */,
+				09ED7EC91CED803200F0E12F /* LFUIImage+Scale.h in Headers */,
 				09ED7F191CED804200F0E12F /* LFNSDate+Ext.h in Headers */,
 				09ED7F341CED804D00F0E12F /* LFCategoryMacro.h in Headers */,
 				09ED7F0D1CED804200F0E12F /* LFClassInfo.h in Headers */,
@@ -546,7 +546,7 @@
 				09ED7ED21CED803200F0E12F /* LFUIImage+Resource.m in Sources */,
 				09ED7EC21CED803200F0E12F /* LFUIControl+Add.m in Sources */,
 				09ED7EB81CED803200F0E12F /* LFUIBarButtonItem+Image.m in Sources */,
-				09ED7ECA1CED803200F0E12F /* LFUIImage+Addtional.m in Sources */,
+				09ED7ECA1CED803200F0E12F /* LFUIImage+Scale.m in Sources */,
 				09ED7FB31CF29CB800F0E12F /* LFWeakProxy.m in Sources */,
 				09ED7F671CEDE23700F0E12F /* LFNSDate+Format.m in Sources */,
 				09ED7F531CEDB10C00F0E12F /* readme.md in Sources */,

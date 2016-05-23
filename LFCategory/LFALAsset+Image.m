@@ -9,7 +9,7 @@
 #import "LFALAsset+Image.h"
 #import "LFCategoryMacro.h"
 #import <ImageIO/ImageIO.h>
-#import "LFUIImage+Addtional.h"
+#import "LFUIImage+Scale.h"
 
 
 @implementation ALAsset (LFALAssetImageAdditions)
