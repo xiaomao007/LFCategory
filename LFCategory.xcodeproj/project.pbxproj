@@ -42,8 +42,6 @@
 		09ED7ECE1CED803200F0E12F /* LFUIImage+CutScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E981CED803200F0E12F /* LFUIImage+CutScreen.m */; };
 		09ED7ECF1CED803200F0E12F /* LFUIImage+Add.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E991CED803200F0E12F /* LFUIImage+Add.h */; };
 		09ED7ED01CED803200F0E12F /* LFUIImage+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E9A1CED803200F0E12F /* LFUIImage+Add.m */; };
-		09ED7ED11CED803200F0E12F /* LFUIImage+Resource.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E9B1CED803200F0E12F /* LFUIImage+Resource.h */; };
-		09ED7ED21CED803200F0E12F /* LFUIImage+Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E9C1CED803200F0E12F /* LFUIImage+Resource.m */; };
 		09ED7ED31CED803200F0E12F /* LFUINavigationController+Add.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E9D1CED803200F0E12F /* LFUINavigationController+Add.h */; };
 		09ED7ED41CED803200F0E12F /* LFUINavigationController+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E9E1CED803200F0E12F /* LFUINavigationController+Add.m */; };
 		09ED7ED51CED803200F0E12F /* LFUIScrollView+Add.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E9F1CED803200F0E12F /* LFUIScrollView+Add.h */; };
@@ -157,8 +155,6 @@
 		09ED7E981CED803200F0E12F /* LFUIImage+CutScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+CutScreen.m"; sourceTree = "<group>"; };
 		09ED7E991CED803200F0E12F /* LFUIImage+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+Add.h"; sourceTree = "<group>"; };
 		09ED7E9A1CED803200F0E12F /* LFUIImage+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+Add.m"; sourceTree = "<group>"; };
-		09ED7E9B1CED803200F0E12F /* LFUIImage+Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+Resource.h"; sourceTree = "<group>"; };
-		09ED7E9C1CED803200F0E12F /* LFUIImage+Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+Resource.m"; sourceTree = "<group>"; };
 		09ED7E9D1CED803200F0E12F /* LFUINavigationController+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUINavigationController+Add.h"; sourceTree = "<group>"; };
 		09ED7E9E1CED803200F0E12F /* LFUINavigationController+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUINavigationController+Add.m"; sourceTree = "<group>"; };
 		09ED7E9F1CED803200F0E12F /* LFUIScrollView+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIScrollView+Add.h"; sourceTree = "<group>"; };
@@ -368,8 +364,6 @@
 				09ED7E981CED803200F0E12F /* LFUIImage+CutScreen.m */,
 				09ED7E991CED803200F0E12F /* LFUIImage+Add.h */,
 				09ED7E9A1CED803200F0E12F /* LFUIImage+Add.m */,
-				09ED7E9B1CED803200F0E12F /* LFUIImage+Resource.h */,
-				09ED7E9C1CED803200F0E12F /* LFUIImage+Resource.m */,
 				09ED7E9D1CED803200F0E12F /* LFUINavigationController+Add.h */,
 				09ED7E9E1CED803200F0E12F /* LFUINavigationController+Add.m */,
 				09ED7E9F1CED803200F0E12F /* LFUIScrollView+Add.h */,
@@ -428,7 +422,6 @@
 				09ED7F5E1CEDC81700F0E12F /* LFNSMutableArray+Add.h in Headers */,
 				09ED7EC71CED803200F0E12F /* LFUIGestureRecognizer+Add.h in Headers */,
 				09ED7F381CED869300F0E12F /* LFALAsset+Property.h in Headers */,
-				09ED7ED11CED803200F0E12F /* LFUIImage+Resource.h in Headers */,
 				09ED7F1B1CED804200F0E12F /* LFNSDictionary+Add.h in Headers */,
 				09ED7EBF1CED803200F0E12F /* LFUIColor+Add.h in Headers */,
 				09ED7EB71CED803200F0E12F /* LFUIBarButtonItem+Image.h in Headers */,
@@ -543,7 +536,6 @@
 				09ED7ECE1CED803200F0E12F /* LFUIImage+CutScreen.m in Sources */,
 				09ED7F0E1CED804200F0E12F /* LFClassInfo.m in Sources */,
 				09ED7F391CED869300F0E12F /* LFALAsset+Property.m in Sources */,
-				09ED7ED21CED803200F0E12F /* LFUIImage+Resource.m in Sources */,
 				09ED7EC21CED803200F0E12F /* LFUIControl+Add.m in Sources */,
 				09ED7EB81CED803200F0E12F /* LFUIBarButtonItem+Image.m in Sources */,
 				09ED7ECA1CED803200F0E12F /* LFUIImage+Scale.m in Sources */,

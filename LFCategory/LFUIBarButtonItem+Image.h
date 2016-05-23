@@ -50,7 +50,7 @@
 @interface UIToolbar(UIToolbar_Image)
 
 // 设置底边条背景图片
-- (void)setToolBarWithImageKey:(NSString *)imageKey;
+//- (void)setToolBarWithImageKey:(NSString *)imageKey;
 
 - (void)setToolBarWithImage:(UIImage *)image;
 // 清空底边条的背景图片，使恢复到系统默认状态

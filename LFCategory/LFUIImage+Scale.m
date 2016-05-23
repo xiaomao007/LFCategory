@@ -35,7 +35,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     CGContextRestoreGState(context);
 }
 
-@implementation UIImage (LFAdditions)
+@implementation UIImage (LFScaleAdditions)
 
 + (UIImage *)scaleImage:(UIImage *)image scaleToSize:(CGSize)size scale:(CGFloat)scale{
     if (!image) {
@@ -112,10 +112,10 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     return smallImage;
 }
 
-+ (UIImage*)middleStretchableImageWithKey:(NSString*)key {
-    UIImage *image = [UIImage imageForKey:key];
-    return [image stretchableImageWithLeftCapWidth:image.size.width/2 topCapHeight:image.size.height/2];
-}
+//+ (UIImage*)middleStretchableImageWithKey:(NSString*)key {
+//    UIImage *image = [UIImage imageForKey:key];
+//    return [image stretchableImageWithLeftCapWidth:image.size.width/2 topCapHeight:image.size.height/2];
+//}
 
 //中间拉伸图片,不支持换肤
 + (UIImage *)middleStretchableImageWithOutSupportSkin:(NSString *)key {

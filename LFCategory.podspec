@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version      = '1.0.0'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { 'wangzhiwei' => 'wangzhiwei01@youku.com' }
-  s.social_media_url = ''
+  s.social_media_url = 'https://github.com/LaiFengiOS'
   s.homepage     = 'https://github.com/LaiFengiOS'
   s.platform     = :ios, '7.0'
   s.ios.deployment_target = '7.0'

@@ -57,7 +57,6 @@
 #import "LFUIGestureRecognizer+Add.h"
 #import "LFUIImage+Scale.h"
 #import "LFUIImage+Add.h"
-#import "LFUIImage+Resource.h"
 #import "LFUINavigationController+Add.h"
 #import "LFUIScrollView+Add.h"
 #import "LFUITableView+Add.h"

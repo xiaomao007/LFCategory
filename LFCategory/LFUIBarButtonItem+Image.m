@@ -303,10 +303,10 @@
 @implementation UIToolbar(UIToolbar_Image)
 
 // 设置导航条背景图片 navigation_bar_bg.png
-- (void)setToolBarWithImageKey:(NSString *)imageKey{
-    UIImage *image = [UIImage imageForKey:imageKey];
-    [self setBackgroundImage:image forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
-}
+//- (void)setToolBarWithImageKey:(NSString *)imageKey{
+//    UIImage *image = [UIImage imageForKey:imageKey];
+//    [self setBackgroundImage:image forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
+//}
 
 - (void)setToolBarWithImage:(UIImage *)image
 {

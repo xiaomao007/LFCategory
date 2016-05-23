@@ -17,7 +17,7 @@
 + (UIImage*)clipImage:(UIImage *)originalImage rect:(CGRect)rect;
 
 //中间拉伸自动宽高
-+ (UIImage*)middleStretchableImageWithKey:(NSString*)key ;
+//+ (UIImage*)middleStretchableImageWithKey:(NSString*)key ;
 //中间拉伸图片,不支持换肤
 + (UIImage *)middleStretchableImageWithOutSupportSkin:(NSString *)key;
 

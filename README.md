@@ -25,10 +25,21 @@ LFCategory 与原工程中内容差异方法
 
 删除的引用
 #import "NSObject+LFPersistence.h"
+#import "LFUIImage+Resource.h"
 // Text
 #import "NSAttributedString+LFText.h"
 #import "NSParagraphStyle+LFText.h"
 #import "LFRichTextRunDelegate.h"
+
+3，删除LFUIImage+Resource.h .m 文件
+
+4，LFUIBarButtonItem+Image.h 
+//>删除方法
+- (void)setToolBarWithImageKey:(NSString *)imageKey;
+
+5，LFUIImage+Scale.h
+//>删除方法
+middleStretchableImageWithKey
 
 
 
