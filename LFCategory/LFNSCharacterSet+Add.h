@@ -16,7 +16,7 @@
 /**
  Returns a character set containing all Apple Emoji.
  */
-+ (NSCharacterSet *)emojiCharacterSet;
++ (NSCharacterSet *)lf_emojiCharacterSet;
 
 @end
 
@@ -30,6 +30,6 @@
 /**
  Returns a character set containing all Apple Emoji.
  */
-+ (NSMutableCharacterSet *)emojiCharacterSet;
++ (NSMutableCharacterSet *)lf_emojiCharacterSet;
 
 @end

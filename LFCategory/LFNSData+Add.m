@@ -13,11 +13,11 @@
 
 @implementation NSData (LFHashAdditions)
 
-- (NSString *)md5 {
-    return [self md5String];
+- (NSString *)lf_md5 {
+    return [self lf_md5String];
 }
 
-- (NSString *)md2String {
+- (NSString *)lf_md2String {
     unsigned char result[CC_MD2_DIGEST_LENGTH];
     CC_MD2(self.bytes, (CC_LONG)self.length, result);
     return [NSString stringWithFormat:
@@ -29,13 +29,13 @@
             ];
 }
 
-- (NSData *)md2Data {
+- (NSData *)lf_md2Data {
     unsigned char result[CC_MD2_DIGEST_LENGTH];
     CC_MD2(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_MD2_DIGEST_LENGTH];
 }
 
-- (NSString *)md4String {
+- (NSString *)lf_md4String {
     unsigned char result[CC_MD4_DIGEST_LENGTH];
     CC_MD4(self.bytes, (CC_LONG)self.length, result);
     return [NSString stringWithFormat:
@@ -47,13 +47,13 @@
             ];
 }
 
-- (NSData *)md4Data {
+- (NSData *)lf_md4Data {
     unsigned char result[CC_MD4_DIGEST_LENGTH];
     CC_MD4(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_MD4_DIGEST_LENGTH];
 }
 
-- (NSString *)md5String {
+- (NSString *)lf_md5String {
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(self.bytes, (CC_LONG)self.length, result);
     return [NSString stringWithFormat:
@@ -65,13 +65,13 @@
             ];
 }
 
-- (NSData *)md5Data {
+- (NSData *)lf_md5Data {
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_MD5_DIGEST_LENGTH];
 }
 
-- (NSString *)sha1String {
+- (NSString *)lf_sha1String {
     unsigned char result[CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(self.bytes, (CC_LONG)self.length, result);
     NSMutableString *hash = [NSMutableString
@@ -82,13 +82,13 @@
     return hash;
 }
 
-- (NSData *)sha1Data {
+- (NSData *)lf_sha1Data {
     unsigned char result[CC_SHA1_DIGEST_LENGTH];
     CC_SHA1(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_SHA1_DIGEST_LENGTH];
 }
 
-- (NSString *)sha224String {
+- (NSString *)lf_sha224String {
     unsigned char result[CC_SHA224_DIGEST_LENGTH];
     CC_SHA224(self.bytes, (CC_LONG)self.length, result);
     NSMutableString *hash = [NSMutableString
@@ -99,13 +99,13 @@
     return hash;
 }
 
-- (NSData *)sha224Data {
+- (NSData *)lf_sha224Data {
     unsigned char result[CC_SHA224_DIGEST_LENGTH];
     CC_SHA224(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_SHA224_DIGEST_LENGTH];
 }
 
-- (NSString *)sha256String {
+- (NSString *)lf_sha256String {
     unsigned char result[CC_SHA256_DIGEST_LENGTH];
     CC_SHA256(self.bytes, (CC_LONG)self.length, result);
     NSMutableString *hash = [NSMutableString
@@ -116,13 +116,13 @@
     return hash;
 }
 
-- (NSData *)sha256Data {
+- (NSData *)lf_sha256Data {
     unsigned char result[CC_SHA256_DIGEST_LENGTH];
     CC_SHA256(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_SHA256_DIGEST_LENGTH];
 }
 
-- (NSString *)sha384String {
+- (NSString *)lf_sha384String {
     unsigned char result[CC_SHA384_DIGEST_LENGTH];
     CC_SHA384(self.bytes, (CC_LONG)self.length, result);
     NSMutableString *hash = [NSMutableString
@@ -133,13 +133,13 @@
     return hash;
 }
 
-- (NSData *)sha384Data {
+- (NSData *)lf_sha384Data {
     unsigned char result[CC_SHA384_DIGEST_LENGTH];
     CC_SHA384(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_SHA384_DIGEST_LENGTH];
 }
 
-- (NSString *)sha512String {
+- (NSString *)lf_sha512String {
     unsigned char result[CC_SHA512_DIGEST_LENGTH];
     CC_SHA512(self.bytes, (CC_LONG)self.length, result);
     NSMutableString *hash = [NSMutableString
@@ -150,7 +150,7 @@
     return hash;
 }
 
-- (NSData *)sha512Data {
+- (NSData *)lf_sha512Data {
     unsigned char result[CC_SHA512_DIGEST_LENGTH];
     CC_SHA512(self.bytes, (CC_LONG)self.length, result);
     return [NSData dataWithBytes:result length:CC_SHA512_DIGEST_LENGTH];
@@ -193,65 +193,65 @@
     return [NSData dataWithBytes:result length:size];
 }
 
-- (NSString *)hmacMD5StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacMD5StringWithKey:(NSString *)key {
     return [self hmacStringUsingAlg:kCCHmacAlgMD5 withKey:key];
 }
 
-- (NSData *)hmacMD5DataWithKey:(NSData *)key {
+- (NSData *)lf_hmacMD5DataWithKey:(NSData *)key {
     return [self hmacDataUsingAlg:kCCHmacAlgMD5 withKey:key];
 }
 
-- (NSString *)hmacSHA1StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA1StringWithKey:(NSString *)key {
     return [self hmacStringUsingAlg:kCCHmacAlgSHA1 withKey:key];
 }
 
-- (NSData *)hmacSHA1DataWithKey:(NSData *)key {
+- (NSData *)lf_hmacSHA1DataWithKey:(NSData *)key {
     return [self hmacDataUsingAlg:kCCHmacAlgSHA1 withKey:key];
 }
 
-- (NSString *)hmacSHA224StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA224StringWithKey:(NSString *)key {
     return [self hmacStringUsingAlg:kCCHmacAlgSHA224 withKey:key];
 }
 
-- (NSData *)hmacSHA224DataWithKey:(NSData *)key {
+- (NSData *)lf_hmacSHA224DataWithKey:(NSData *)key {
     return [self hmacDataUsingAlg:kCCHmacAlgSHA224 withKey:key];
 }
 
-- (NSString *)hmacSHA256StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA256StringWithKey:(NSString *)key {
     return [self hmacStringUsingAlg:kCCHmacAlgSHA256 withKey:key];
 }
 
-- (NSData *)hmacSHA256DataWithKey:(NSData *)key {
+- (NSData *)lf_hmacSHA256DataWithKey:(NSData *)key {
     return [self hmacDataUsingAlg:kCCHmacAlgSHA256 withKey:key];
 }
 
-- (NSString *)hmacSHA384StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA384StringWithKey:(NSString *)key {
     return [self hmacStringUsingAlg:kCCHmacAlgSHA384 withKey:key];
 }
 
-- (NSData *)hmacSHA384DataWithKey:(NSData *)key {
+- (NSData *)lf_hmacSHA384DataWithKey:(NSData *)key {
     return [self hmacDataUsingAlg:kCCHmacAlgSHA384 withKey:key];
 }
 
-- (NSString *)hmacSHA512StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA512StringWithKey:(NSString *)key {
     return [self hmacStringUsingAlg:kCCHmacAlgSHA512 withKey:key];
 }
 
-- (NSData *)hmacSHA512DataWithKey:(NSData *)key {
+- (NSData *)lf_hmacSHA512DataWithKey:(NSData *)key {
     return [self hmacDataUsingAlg:kCCHmacAlgSHA512 withKey:key];
 }
 
-- (NSString *)crc32String {
+- (NSString *)lf_crc32String {
     uLong result = crc32(0, self.bytes, (uInt)self.length);
     return [NSString stringWithFormat:@"%08x", (uint32_t)result];
 }
 
-- (uint32_t)crc32 {
+- (uint32_t)lf_crc32 {
     uLong result = crc32(0, self.bytes, (uInt)self.length);
     return (uint32_t)result;
 }
 
-- (NSData *)dataNamed:(NSString *)name {
+- (NSData *)lf_dataNamed:(NSString *)name {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@""];
     NSData *data = [NSData dataWithContentsOfFile:path];
     return data;
@@ -261,7 +261,7 @@
 
 @implementation NSData (LFEncryptionAdditions)
 
-- (NSData *)aes256EncryptWithKey:(NSData *)key iv:(NSData *)iv {
+- (NSData *)lf_aes256EncryptWithKey:(NSData *)key iv:(NSData *)iv {
     if (key.length != 16 && key.length != 24 && key.length != 32) {
         return nil;
     }
@@ -295,7 +295,7 @@
     }
 }
 
-- (NSData *)aes256DecryptWithkey:(NSData *)key iv:(NSData *)iv {
+- (NSData *)lf_aes256DecryptWithkey:(NSData *)key iv:(NSData *)iv {
     if (key.length != 16 && key.length != 24 && key.length != 32) {
         return nil;
     }
@@ -334,14 +334,14 @@
 
 @implementation NSData (LFEncodeAddditions)
 
-- (NSString *)utf8String {
+- (NSString *)lf_utf8String {
     if (self.length > 0) {
         return [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
     }
     return @"";
 }
 
-- (NSString *)hexString {
+- (NSString *)lf_hexString {
     NSUInteger length = self.length;
     NSMutableString *result = [NSMutableString stringWithCapacity:length * 2];
     const unsigned char *byte = self.bytes;
@@ -351,7 +351,7 @@
     return result;
 }
 
-+ (NSData *)dataWithHexString:(NSString *)hexStr {
++ (NSData *)lf_dataWithHexString:(NSString *)hexStr {
     hexStr = [hexStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     hexStr = [hexStr lowercaseString];
     NSUInteger len = hexStr.length;
@@ -374,7 +374,7 @@
     return result;
 }
 
-- (id)jsonValueDecoded {
+- (id)lf_jsonValueDecoded {
     NSError *error = nil;
     id value = [NSJSONSerialization JSONObjectWithData:self options:kNilOptions error:&error];
     if (error) {
@@ -387,7 +387,7 @@
 
 @implementation NSData (LFCompressionAdditions)
 
-- (NSData *)gzipInflate {
+- (NSData *)lf_gzipInflate {
     if ([self length] == 0) return self;
     
     unsigned full_length = (unsigned)[self length];
@@ -427,7 +427,7 @@
     } else return nil;
 }
 
-- (NSData *)gzipDeflate {
+- (NSData *)lf_gzipDeflate {
     if ([self length] == 0) return self;
     
     z_stream strm;
@@ -469,7 +469,7 @@
     return [NSData dataWithData:compressed];
 }
 
-- (NSData *)zlibInflate {
+- (NSData *)lf_zlibInflate {
     if ([self length] == 0) return self;
     
     NSUInteger full_length = [self length];
@@ -510,7 +510,7 @@
     } else return nil;
 }
 
-- (NSData *)zlibDeflate {
+- (NSData *)lf_zlibDeflate {
     if ([self length] == 0) return self;
     
     z_stream strm;

@@ -12,31 +12,31 @@
 @interface UIImage (LFScaleAdditions)
 // 缩放图片
 //scale 适应于位图的缩放系数。如果制定这个值为0.0，那么这个缩放系数就被设置成设备主屏幕的缩放系数
-+ (UIImage *)scaleImage:(UIImage *)image scaleToSize:(CGSize)size scale:(CGFloat)scale;
++ (UIImage *)lf_scaleImage:(UIImage *)image scaleToSize:(CGSize)size scale:(CGFloat)scale;
 
-+ (UIImage*)clipImage:(UIImage *)originalImage rect:(CGRect)rect;
++ (UIImage*)lf_clipImage:(UIImage *)originalImage rect:(CGRect)rect;
 
 //中间拉伸自动宽高
 //+ (UIImage*)middleStretchableImageWithKey:(NSString*)key ;
 //中间拉伸图片,不支持换肤
-+ (UIImage *)middleStretchableImageWithOutSupportSkin:(NSString *)key;
++ (UIImage *)lf_middleStretchableImageWithOutSupportSkin:(NSString *)key;
 
-+ (UIImage *)createRoundedRectImage:(UIImage*)image size:(CGSize)size cornerRadius:(CGFloat)radius;
++ (UIImage *)lf_createRoundedRectImage:(UIImage*)image size:(CGSize)size cornerRadius:(CGFloat)radius;
 
 // 缩放图片并且剧中截取
-+ (UIImage *)middleScaleImage:(UIImage *)image scaleToSize:(CGSize)size;
++ (UIImage *)lf_middleScaleImage:(UIImage *)image scaleToSize:(CGSize)size;
 //宽高取小缩放，取大居中截取
-+ (UIImage *)suitableScaleImage:(UIImage *)image scaleToSize:(CGSize)size;
++ (UIImage *)lf_suitableScaleImage:(UIImage *)image scaleToSize:(CGSize)size;
 //等比缩放到多少倍
-+ (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize;
++ (UIImage *)lf_scaleImage:(UIImage *)image toScale:(float)scaleSize;
 //等比例缩放
-+(UIImage*)scaleToSize:(UIImage*)image size:(CGSize)size;
++(UIImage*)lf_scaleToSize:(UIImage*)image size:(CGSize)size;
 // zhengzheng
 //等比缩放
-+ (UIImage *) scaleImageForImage:(UIImage *)image toScale:(float)scaleSize;
-- (UIImage *)fixOrientation;
++ (UIImage *) lf_scaleImageForImage:(UIImage *)image toScale:(float)scaleSize;
+- (UIImage *)lf_fixOrientation;
 
-+ (UIImage *)cutIntoImageToSquare:(UIImage *)image;
++ (UIImage *)lf_cutIntoImageToSquare:(UIImage *)image;
 
 //截取部分图像(区分高分屏或者低分屏)
 /* ++++++++++++++++++++++++++++++++++++++
@@ -48,16 +48,16 @@
  @param rect 截取的范围
  @return 返回截取后的图片
  */
-+ (UIImage*)getSubImage:(UIImage *)img scale:(CGFloat)scale rect:(CGRect)rect;
++ (UIImage*)lf_getSubImage:(UIImage *)img scale:(CGFloat)scale rect:(CGRect)rect;
 /* ------------------------------------- */
 
 // 判断是否超长超宽图（宽高比大于4）
-+ (BOOL)isLongwidePhoto:(UIImage*)image;
++ (BOOL)lf_isLongwidePhoto:(UIImage*)image;
 
 // 将宽高比大于4的图，截取顶部的宽高 1：2 的部分
-+ (UIImage*)longwidePhotoToNormal:(UIImage*)image;
++ (UIImage*)lf_longwidePhotoToNormal:(UIImage*)image;
 
-+ (UIImage *)compressImageIfNeed:(UIImage *)originImage;
++ (UIImage *)lf_compressImageIfNeed:(UIImage *)originImage;
 
 /**
  * @brief 裁剪图片
@@ -65,8 +65,8 @@
  * @param size 需要裁剪的长度和宽度（两者都是size）
  * @returns 裁剪后的图片
  */
-+ (UIImage *)scaleAndRotateImage:(UIImage *)image size:(NSInteger)size;
++ (UIImage *)lf_scaleAndRotateImage:(UIImage *)image size:(NSInteger)size;
 
-+ (CGSize)imageSizeWithData:(NSData *)data;
++ (CGSize)lf_imageSizeWithData:(NSData *)data;
 
 @end

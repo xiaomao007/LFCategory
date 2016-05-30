@@ -45,7 +45,7 @@
 #define XMLPref @"_"
 
 - (void)textEnd {
-    _text = _text.stringByTrim.mutableCopy;
+    _text = _text.lf_stringByTrim.mutableCopy;
     if (_text.length) {
         NSMutableDictionary *top = _stack.lastObject;
         id existing = top[XMLText];
@@ -156,12 +156,12 @@
 
 @implementation NSDictionary (LFNSDictionaryAdditions)
 
-- (NSArray *)allKeysSorted {
+- (NSArray *)lf_allKeysSorted {
     return [[self allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
-- (NSArray *)allValuesSortedByKeys {
-    NSArray *sortedKeys = [self allKeysSorted];
+- (NSArray *)lf_allValuesSortedByKeys {
+    NSArray *sortedKeys = [self lf_allKeysSorted];
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     for (id key in sortedKeys) {
         [arr addObject:self[key]];
@@ -169,11 +169,11 @@
     return arr;
 }
 
-- (BOOL)containsObjectForKey:(id)key {
+- (BOOL)lf_containsObjectForKey:(id)key {
     return [[self allKeys] containsObject:key];
 }
 
-- (NSDictionary *)entriesForKeys:(NSArray *)keys {
+- (NSDictionary *)lf_entriesForKeys:(NSArray *)keys {
     NSMutableDictionary *dic = @{}.mutableCopy;
     for (id key in keys) {
         id value = self[key];
@@ -182,7 +182,7 @@
     return dic;
 }
 
-- (NSString *)jsonStringEncoded {
+- (NSString *)lf_jsonStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:0 error:&error];
@@ -192,7 +192,7 @@
     return nil;
 }
 
-- (NSString *)jsonPrettyStringEncoded {
+- (NSString *)lf_jsonPrettyStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
@@ -202,7 +202,7 @@
     return nil;
 }
 
-+ (NSDictionary *)dictionaryWithXML:(id)xml {
++ (NSDictionary *)lf_dictionaryWithXML:(id)xml {
     _LFXMLDictionaryParser *parser = nil;
     if ([xml isKindOfClass:[NSString class]]) {
         parser = [[_LFXMLDictionaryParser alloc] initWithString:xml];
@@ -217,14 +217,14 @@
 
 @implementation NSMutableDictionary (LFNSMutableDictionaryAdditions)
 
-- (id)popObjectForKey:(id)aKey {
+- (id)lf_popObjectForKey:(id)aKey {
     if (!aKey) return nil;
     id value = self[aKey];
     [self removeObjectForKey:aKey];
     return value;
 }
 
-- (NSDictionary *)popEntriesForKeys:(NSArray *)keys {
+- (NSDictionary *)lf_popEntriesForKeys:(NSArray *)keys {
     NSMutableDictionary *dic = @{}.mutableCopy;
     for (id key in keys) {
         id value = self[key];

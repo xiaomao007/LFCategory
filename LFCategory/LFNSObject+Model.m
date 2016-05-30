@@ -848,7 +848,7 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                                         if (!cls) cls = meta->_genericCls; // for xcode code coverage
                                     }
                                     NSObject *newOne = [cls new];
-                                    [newOne modelSetWithDictionary:one];
+                                    [newOne lf_modelSetWithDictionary:one];
                                     if (newOne) [objectArr addObject:newOne];
                                 }
                             }
@@ -888,7 +888,7 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                                         if (!cls) cls = meta->_genericCls; // for xcode code coverage
                                     }
                                     NSObject *newOne = [cls new];
-                                    [newOne modelSetWithDictionary:(id)oneValue];
+                                    [newOne lf_modelSetWithDictionary:(id)oneValue];
                                     if (newOne) dic[oneKey] = newOne;
                                 }
                             }];
@@ -923,7 +923,7 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                                     if (!cls) cls = meta->_genericCls; // for xcode code coverage
                                 }
                                 NSObject *newOne = [cls new];
-                                [newOne modelSetWithDictionary:one];
+                                [newOne lf_modelSetWithDictionary:one];
                                 if (newOne) [set addObject:newOne];
                             }
                         }
@@ -956,7 +956,7 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                         one = ((id (*)(id, SEL))(void *) objc_msgSend)((id)model, meta->_getter);
                     }
                     if (one) {
-                        [one modelSetWithDictionary:value];
+                        [one lf_modelSetWithDictionary:value];
                     } else {
                         Class cls = meta->_cls;
                         if (meta->_hasCustomClassFromDictionary) {
@@ -964,7 +964,7 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                             if (!cls) cls = meta->_genericCls; // for xcode code coverage
                         }
                         one = [cls new];
-                        [one modelSetWithDictionary:value];
+                        [one lf_modelSetWithDictionary:value];
                         ((void (*)(id, SEL, id))(void *) objc_msgSend)((id)model, meta->_setter, (id)one);
                     }
                 }
@@ -1391,12 +1391,12 @@ static NSString *ModelDescription(NSObject *model) {
     return dic;
 }
 
-+ (instancetype)modelWithJSON:(id)json {
++ (instancetype)lf_modelWithJSON:(id)json {
     NSDictionary *dic = [self _yy_dictionaryWithJSON:json];
-    return [self modelWithDictionary:dic];
+    return [self lf_modelWithDictionary:dic];
 }
 
-+ (instancetype)modelWithDictionary:(NSDictionary *)dictionary {
++ (instancetype)lf_modelWithDictionary:(NSDictionary *)dictionary {
     if (!dictionary || dictionary == (id)kCFNull) return nil;
     if (![dictionary isKindOfClass:[NSDictionary class]]) return nil;
     
@@ -1407,16 +1407,16 @@ static NSString *ModelDescription(NSObject *model) {
     }
     
     NSObject *one = [cls new];
-    if ([one modelSetWithDictionary:dictionary]) return one;
+    if ([one lf_modelSetWithDictionary:dictionary]) return one;
     return nil;
 }
 
-- (BOOL)modelSetWithJSON:(id)json {
+- (BOOL)lf_modelSetWithJSON:(id)json {
     NSDictionary *dic = [NSObject _yy_dictionaryWithJSON:json];
-    return [self modelSetWithDictionary:dic];
+    return [self lf_modelSetWithDictionary:dic];
 }
 
-- (BOOL)modelSetWithDictionary:(NSDictionary *)dic {
+- (BOOL)lf_modelSetWithDictionary:(NSDictionary *)dic {
     if (!dic || dic == (id)kCFNull) return NO;
     if (![dic isKindOfClass:[NSDictionary class]]) return NO;
     
@@ -1454,7 +1454,7 @@ static NSString *ModelDescription(NSObject *model) {
     return YES;
 }
 
-- (id)modelToJSONObject {
+- (id)lf_modelToJSONObject {
     /*
      Apple said:
      The top level object is an NSArray or NSDictionary.
@@ -1468,19 +1468,19 @@ static NSString *ModelDescription(NSObject *model) {
     return nil;
 }
 
-- (NSData *)modelToJSONData {
-    id jsonObject = [self modelToJSONObject];
+- (NSData *)lf_modelToJSONData {
+    id jsonObject = [self lf_modelToJSONObject];
     if (!jsonObject) return nil;
     return [NSJSONSerialization dataWithJSONObject:jsonObject options:0 error:NULL];
 }
 
-- (NSString *)modelToJSONString {
-    NSData *jsonData = [self modelToJSONData];
+- (NSString *)lf_modelToJSONString {
+    NSData *jsonData = [self lf_modelToJSONData];
     if (jsonData.length == 0) return nil;
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
-- (id)modelCopy{
+- (id)lf_modelCopy{
     if (self == (id)kCFNull) return self;
     _LFModelMeta *modelMeta = [_LFModelMeta metaWithClass:self.class];
     if (modelMeta->_nsType) return [self copy];
@@ -1559,7 +1559,7 @@ static NSString *ModelDescription(NSObject *model) {
     return one;
 }
 
-- (void)modelEncodeWithCoder:(NSCoder *)aCoder {
+- (void)lf_modelEncodeWithCoder:(NSCoder *)aCoder {
     if (!aCoder) return;
     if (self == (id)kCFNull) {
         [((id<NSCoding>)self)encodeWithCoder:aCoder];
@@ -1616,7 +1616,7 @@ static NSString *ModelDescription(NSObject *model) {
     }
 }
 
-- (id)modelInitWithCoder:(NSCoder *)aDecoder {
+- (id)lf_modelInitWithCoder:(NSCoder *)aDecoder {
     if (!aDecoder) return self;
     if (self == (id)kCFNull) return self;    
     _LFModelMeta *modelMeta = [_LFModelMeta metaWithClass:self.class];
@@ -1663,7 +1663,7 @@ static NSString *ModelDescription(NSObject *model) {
     return self;
 }
 
-- (NSUInteger)modelHash {
+- (NSUInteger)lf_modelHash {
     if (self == (id)kCFNull) return [self hash];
     _LFModelMeta *modelMeta = [_LFModelMeta metaWithClass:self.class];
     if (modelMeta->_nsType) return [self hash];
@@ -1679,7 +1679,7 @@ static NSString *ModelDescription(NSObject *model) {
     return value;
 }
 
-- (BOOL)modelIsEqual:(id)model {
+- (BOOL)lf_modelIsEqual:(id)model {
     if (self == model) return YES;
     if (![model isMemberOfClass:self.class]) return NO;
     _LFModelMeta *modelMeta = [_LFModelMeta metaWithClass:self.class];
@@ -1697,7 +1697,7 @@ static NSString *ModelDescription(NSObject *model) {
     return YES;
 }
 
-- (NSString *)modelDescription {
+- (NSString *)lf_modelDescription {
     return ModelDescription(self);
 }
 
@@ -1730,7 +1730,7 @@ static NSString *ModelDescription(NSObject *model) {
     NSMutableArray *result = [NSMutableArray new];
     for (NSDictionary *dic in arr) {
         if (![dic isKindOfClass:[NSDictionary class]]) continue;
-        NSObject *obj = [cls modelWithDictionary:dic];
+        NSObject *obj = [cls lf_modelWithDictionary:dic];
         if (obj) [result addObject:obj];
     }
     return result;
@@ -1764,7 +1764,7 @@ static NSString *ModelDescription(NSObject *model) {
     NSMutableDictionary *result = [NSMutableDictionary new];
     for (NSString *key in dic.allKeys) {
         if (![key isKindOfClass:[NSString class]]) continue;
-        NSObject *obj = [cls modelWithDictionary:dic[key]];
+        NSObject *obj = [cls lf_modelWithDictionary:dic[key]];
         if (obj) result[key] = obj;
     }
     return result;

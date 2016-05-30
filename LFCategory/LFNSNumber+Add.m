@@ -13,8 +13,8 @@
 
 @implementation NSNumber (LFAdditions)
 
-+ (NSNumber *)numberWithString:(NSString *)string {
-    NSString *str = [[string stringByTrim] lowercaseString];
++ (NSNumber *)lf_numberWithString:(NSString *)string {
+    NSString *str = [[string lf_stringByTrim] lowercaseString];
     if (!str || !str.length) {
         return nil;
     }
@@ -39,7 +39,7 @@
     return [formatter numberFromString:string];
 }
 
-- (NSString *)wrappedDescription {
+- (NSString *)lf_wrappedDescription {
     if (self.longLongValue <= 9999) {
         return self.description;
     } else {
@@ -48,7 +48,7 @@
 }
 
 
-- (NSString *)toDecimalStyleString
+- (NSString *)lf_toDecimalStyleString
 {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;

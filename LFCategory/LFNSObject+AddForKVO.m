@@ -55,7 +55,7 @@ static const int block_key;
 
 @implementation NSObject (LFAddForKVO)
 
-- (void)addObserverBlockForKeyPath:(NSString *)keyPath block:(void (^)(__weak id obj, id oldVal, id newVal))block {
+- (void)lf_addObserverBlockForKeyPath:(NSString *)keyPath block:(void (^)(__weak id obj, id oldVal, id newVal))block {
     if (!keyPath || !block) return;
     _LFNSObjectKVOBlockTarget *target = [[_LFNSObjectKVOBlockTarget alloc] initWithBlock:block];
     NSMutableDictionary *dic = [self _lf_allNSObjectObserverBlocks];
@@ -68,7 +68,7 @@ static const int block_key;
     [self addObserver:target forKeyPath:keyPath options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
 }
 
-- (void)removeObserverBlocksForKeyPath:(NSString *)keyPath {
+- (void)lf_removeObserverBlocksForKeyPath:(NSString *)keyPath {
     if (!keyPath) return;
     NSMutableDictionary *dic = [self _lf_allNSObjectObserverBlocks];
     NSMutableArray *arr = dic[keyPath];
@@ -77,7 +77,7 @@ static const int block_key;
     }];
 }
 
-- (void)removeObserverBlocks {
+- (void)lf_removeObserverBlocks {
     NSMutableDictionary *dic = [self _lf_allNSObjectObserverBlocks];
     [dic enumerateKeysAndObjectsUsingBlock: ^(NSString *key, NSArray *arr, BOOL *stop) {
         [arr enumerateObjectsUsingBlock: ^(id obj, NSUInteger idx, BOOL *stop) {

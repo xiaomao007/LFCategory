@@ -16,85 +16,85 @@
 
 @implementation NSString (LFAdditions)
 
-- (NSString *)md5 {
-    return [self md5String];
+- (NSString *)lf_md5 {
+    return [self lf_md5String];
 }
 
-- (NSString *)md2String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md2String];
+- (NSString *)lf_md2String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_md2String];
 }
 
-- (NSString *)md4String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
+- (NSString *)lf_md4String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_md4String];
 }
 
-- (NSString *)md5String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
+- (NSString *)lf_md5String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_md5String];
 }
 
-- (NSString *)sha1String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha1String];
+- (NSString *)lf_sha1String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_sha1String];
 }
 
-- (NSString *)sha224String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha224String];
+- (NSString *)lf_sha224String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_sha224String];
 }
 
-- (NSString *)sha256String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha256String];
+- (NSString *)lf_sha256String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_sha256String];
 }
 
-- (NSString *)sha384String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha384String];
+- (NSString *)lf_sha384String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_sha384String];
 }
 
-- (NSString *)sha512String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] sha512String];
+- (NSString *)lf_sha512String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_sha512String];
 }
 
 - (NSString *)crc32String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] crc32String];
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] lf_crc32String];
 }
 
-- (NSString *)hmacMD5StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacMD5StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacMD5StringWithKey:key];
+            lf_hmacMD5StringWithKey:key];
 }
 
-- (NSString *)hmacSHA1StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA1StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA1StringWithKey:key];
+            lf_hmacSHA1StringWithKey:key];
 }
 
-- (NSString *)hmacSHA224StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA224StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA224StringWithKey:key];
+            lf_hmacSHA224StringWithKey:key];
 }
 
-- (NSString *)hmacSHA256StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA256StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA256StringWithKey:key];
+            lf_hmacSHA256StringWithKey:key];
 }
 
-- (NSString *)hmacSHA384StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA384StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA384StringWithKey:key];
+            lf_hmacSHA384StringWithKey:key];
 }
 
-- (NSString *)hmacSHA512StringWithKey:(NSString *)key {
+- (NSString *)lf_hmacSHA512StringWithKey:(NSString *)key {
     return [[self dataUsingEncoding:NSUTF8StringEncoding]
-            hmacSHA512StringWithKey:key];
+            lf_hmacSHA512StringWithKey:key];
 }
 
-- (NSString *)stringByURLEncode {
-    return [self stringByURLEncode:NSUTF8StringEncoding];
+- (NSString *)lf_stringByURLEncode {
+    return [self lf_stringByURLEncode:NSUTF8StringEncoding];
 }
 
-- (NSString *)stringByURLDecode {
-    return [self stringByURLDecode:NSUTF8StringEncoding];
+- (NSString *)lf_stringByURLDecode {
+    return [self lf_stringByURLDecode:NSUTF8StringEncoding];
 }
 
-- (NSString *)stringByURLEncode:(NSStringEncoding)encoding {
+- (NSString *)lf_stringByURLEncode:(NSStringEncoding)encoding {
     NSString *encoded = (__bridge_transfer NSString *)
     CFURLCreateStringByAddingPercentEscapes(
                                             NULL,
@@ -105,7 +105,7 @@
     return encoded;
 }
 
-- (NSString *)stringByURLDecode:(NSStringEncoding)encoding {
+- (NSString *)lf_stringByURLDecode:(NSStringEncoding)encoding {
     CFStringEncoding en = CFStringConvertNSStringEncodingToEncoding(encoding);
     NSString *decoded = [self stringByReplacingOccurrencesOfString:@"+"
                                                         withString:@" "];
@@ -118,7 +118,7 @@
     return decoded;
 }
 
-- (NSString *)stringByEscapingHTML {
+- (NSString *)lf_stringByEscapingHTML {
     NSUInteger len = self.length;
     if (!len) return self;
     
@@ -148,7 +148,7 @@
     return result;
 }
 
-- (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
+- (CGSize)lf_sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
     if (!font) font = [UIFont systemFontOfSize:12];
     if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
@@ -172,13 +172,13 @@
     return CGSizeCeil(result);
 }
 
-- (CGFloat)widthForFont:(UIFont *)font {
-    CGSize size = [self sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
+- (CGFloat)lf_widthForFont:(UIFont *)font {
+    CGSize size = [self lf_sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
     return size.width;
 }
 
-- (CGFloat)heightForFont:(UIFont *)font width:(CGFloat)width {
-    CGSize size = [self sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping];
+- (CGFloat)lf_heightForFont:(UIFont *)font width:(CGFloat)width {
+    CGSize size = [self lf_sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping];
     return size.height;
 }
 
@@ -200,7 +200,7 @@
     return height;
 }
 
-- (CGFloat)heightForFont:(UIFont *)font width:(CGFloat)width line:(NSInteger)line {
+- (CGFloat)lf_heightForFont:(UIFont *)font width:(CGFloat)width line:(NSInteger)line {
     NSMutableString *test = NSMutableString.new;
     for (int i=0; i<line; i++) {
         [test appendString:@"字"];
@@ -210,7 +210,7 @@
     return height > maxHeight ? maxHeight : height;
 }
 
-- (BOOL)matchesRegex:(NSString *)regex {
+- (BOOL)lf_matchesRegex:(NSString *)regex {
     NSError *error = nil;
     NSRegularExpression *pattern = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionAnchorsMatchLines error:&error];
     if (error) {
@@ -220,7 +220,7 @@
     return ([pattern numberOfMatchesInString:self options:0 range:NSMakeRange(0, self.length)] > 0);
 }
 
-- (void)enumerateRegexMatches:(NSString *)regex usingBlock:(void (^)(NSString *match, NSInteger index, NSRange matchRange, BOOL *stop))block {
+- (void)lf_enumerateRegexMatches:(NSString *)regex usingBlock:(void (^)(NSString *match, NSInteger index, NSRange matchRange, BOOL *stop))block {
     NSRegularExpression *pattern = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionAnchorsMatchLines error:nil];
     NSArray *matches = [pattern matchesInString:self options:0 range:NSMakeRange(0, self.length)];
     
@@ -231,7 +231,7 @@
     }
 }
 
-- (void)enumerateRegexMatches:(NSString *)regex caseInsensitive:(BOOL)caseIns usingBlock:(void (^)(NSString *match, NSInteger index, NSRange matchRange, BOOL *stop))block {
+- (void)lf_enumerateRegexMatches:(NSString *)regex caseInsensitive:(BOOL)caseIns usingBlock:(void (^)(NSString *match, NSInteger index, NSRange matchRange, BOOL *stop))block {
     NSRegularExpressionOptions op = NSRegularExpressionAnchorsMatchLines;
     if (caseIns) {
         op |= NSRegularExpressionCaseInsensitive;
@@ -246,7 +246,7 @@
     }
 }
 
-- (NSString *)stringByReplacingRegex:(NSString *)regex withString:(NSString *)replacement {
+- (NSString *)lf_stringByReplacingRegex:(NSString *)regex withString:(NSString *)replacement {
     NSError *error = nil;
     NSRegularExpression *pattern = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionAnchorsMatchLines error:&error];
     if (error) {
@@ -256,24 +256,24 @@
     return [pattern stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:replacement];
 }
 
-- (BOOL)containsEmoji {
-    return [self containsCharacterSet:[NSCharacterSet emojiCharacterSet]];
+- (BOOL)lf_containsEmoji {
+    return [self lf_containsCharacterSet:[NSCharacterSet lf_emojiCharacterSet]];
 }
 
-+ (NSString *)allEmoji {
++ (NSString *)lf_allEmoji {
     static NSMutableString *str = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         str = @"".mutableCopy;
         NSArray *keys = @[@"people", @"nature", @"object", @"places", @"symbols"];
         for (NSString *key in keys) {
-            [str appendString:[self allEmojiByGroup:key]];
+            [str appendString:[self lf_allEmojiByGroup:key]];
         }
     });
     return str;
 }
 
-+ (NSString *)allEmojiByGroup:(NSString *)group {
++ (NSString *)lf_allEmojiByGroup:(NSString *)group {
     static NSDictionary *dic = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -288,21 +288,21 @@
     return group ? dic[group] : nil;
 }
 
-+ (NSArray *)allEmojiArray {
++ (NSArray *)lf_allEmojiArray {
     static NSMutableArray *arr = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         arr = @[].mutableCopy;
         NSArray *keys = @[@"people", @"nature", @"object", @"places", @"symbols"];
         for (NSString *key in keys) {
-            NSArray *one = [self allEmojiArrayByGroup:key];
+            NSArray *one = [self lf_allEmojiArrayByGroup:key];
             [arr addObjectsFromArray:one];
         }
     });
     return arr;
 }
 
-+ (NSArray *)allEmojiArrayByGroup:(NSString *)group {
++ (NSArray *)lf_allEmojiArrayByGroup:(NSString *)group {
     static NSMutableDictionary *dic = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -310,7 +310,7 @@
         NSArray *keys = @[@"people", @"nature", @"object", @"places", @"symbols"];
         for (NSString *key in keys) {
             NSMutableArray *arr = @[].mutableCopy;
-            NSString *str = [self allEmojiByGroup:key];
+            NSString *str = [self lf_allEmojiByGroup:key];
             [str enumerateSubstringsInRange:NSMakeRange(0, str.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock: ^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
                 [arr addObject:substring];
             }];
@@ -338,24 +338,24 @@
     return group ? dic[group] : nil;
 }
 
-+ (NSString *)stringWithUUID {
++ (NSString *)lf_stringWithUUID {
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     CFStringRef string = CFUUIDCreateString(NULL, uuid);
     CFRelease(uuid);
     return (__bridge_transfer NSString *)string;
 }
 
-- (NSString *)stringByTrim {
+- (NSString *)lf_stringByTrim {
     NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     return [self stringByTrimmingCharactersInSet:set];
 }
 
-- (NSString *)stringByAppendingNameScale:(CGFloat)scale {
+- (NSString *)lf_stringByAppendingNameScale:(CGFloat)scale {
     if (scale - 1 <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
     return [self stringByAppendingFormat:@"@%@x", @(scale)];
 }
 
-- (NSString *)stringByAppendingPathScale:(CGFloat)scale {
+- (NSString *)lf_stringByAppendingPathScale:(CGFloat)scale {
     if (scale - 1 <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
     NSString *ext = self.pathExtension;
     NSRange extRange = NSMakeRange(self.length - ext.length, 0);
@@ -364,17 +364,17 @@
     return [self stringByReplacingCharactersInRange:extRange withString:scaleStr];
 }
 
-- (CGFloat)pathScale {
+- (CGFloat)lf_pathScale {
     if (self.length == 0 || [self hasSuffix:@"/"]) return 1;
     NSString *name = self.stringByDeletingPathExtension;
     __block CGFloat scale = 1;
-    [name enumerateRegexMatches:@"@[0-9]+\\.?[0-9]*x$" usingBlock: ^(NSString *match, NSInteger index, NSRange matchRange, BOOL *stop) {
+    [name lf_enumerateRegexMatches:@"@[0-9]+\\.?[0-9]*x$" usingBlock: ^(NSString *match, NSInteger index, NSRange matchRange, BOOL *stop) {
         scale = [match substringWithRange:NSMakeRange(1, match.length - 2)].doubleValue;
     }];
     return scale;
 }
 
-- (BOOL)isNotBlank {
+- (BOOL)lf_isNotBlank {
     NSCharacterSet *blank = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     for (NSInteger i = 0; i < self.length; ++i) {
         unichar c = [self characterAtIndex:i];
@@ -385,35 +385,35 @@
     return NO;
 }
 
-- (BOOL)containsString:(NSString *)string {
+- (BOOL)lf_containsString:(NSString *)string {
     if (string == nil) return NO;
     return [self rangeOfString:string].location != NSNotFound;
 }
 
-- (BOOL)containsCharacterSet:(NSCharacterSet *)set {
+- (BOOL)lf_containsCharacterSet:(NSCharacterSet *)set {
     if (set == nil) return NO;
     return [self rangeOfCharacterFromSet:set].location != NSNotFound;
 }
 
-- (NSNumber *)numberValue {
-    return [NSNumber numberWithString:self];
+- (NSNumber *)lf_numberValue {
+    return [NSNumber lf_numberWithString:self];
 }
 
-- (NSData *)dataValue {
+- (NSData *)lf_dataValue {
     return [self dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (id)jsonValueDecoded {
-    return [[self dataValue] jsonValueDecoded];
+- (id)lf_jsonValueDecoded {
+    return [[self lf_dataValue] lf_jsonValueDecoded];
 }
 
-- (NSString *)stringNamed:(NSString *)name {
+- (NSString *)lf_stringNamed:(NSString *)name {
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@""];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     return str;
 }
 
-- (NSString *)segmentString {
+- (NSString *)lf_segmentString {
     NSMutableString *str = [NSMutableString stringWithString:self];
     NSInteger count = floorf((CGFloat)self.length / 3);
     if (self.length % 3 == 0) {

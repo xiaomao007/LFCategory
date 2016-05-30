@@ -9,7 +9,7 @@
 #import "LFUIImage+AudioIcon.h"
 
 @implementation UIImage (LFAudioIconAdditions)
--(UIImage*)bringAutoIconImage
+-(UIImage*)lf_bringAutoIconImage
 {
     UIGraphicsBeginImageContextWithOptions(self.size, 0, 1);
     

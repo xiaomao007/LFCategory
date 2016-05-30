@@ -26,33 +26,33 @@ va_start(args, _last_arg_); \
 [NSObject setInv:inv withSig:sig andArgs:args]; \
 va_end(args);
 
-- (id)performSelectorWithArgs:(SEL)sel, ...{
+- (id)lf_performSelectorWithArgs:(SEL)sel, ...{
     INIT_INV(sel, nil);
     [inv invoke];
     return [NSObject getReturnFromInv:inv withSig:sig];
 }
 
-- (void)performSelectorWithArgs:(SEL)sel afterDelay:(NSTimeInterval)delay, ...{
+- (void)lf_performSelectorWithArgs:(SEL)sel afterDelay:(NSTimeInterval)delay, ...{
     INIT_INV(delay, );
     [inv retainArguments];
     [inv performSelector:@selector(invoke) withObject:nil afterDelay:delay];
 }
 
-- (id)performSelectorWithArgsOnMainThread:(SEL)sel waitUntilDone:(BOOL)wait, ...{
+- (id)lf_performSelectorWithArgsOnMainThread:(SEL)sel waitUntilDone:(BOOL)wait, ...{
     INIT_INV(wait, nil);
     if (!wait) [inv retainArguments];
     [inv performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:wait];
     return wait ? [NSObject getReturnFromInv:inv withSig:sig] : nil;
 }
 
-- (id)performSelectorWithArgs:(SEL)sel onThread:(NSThread *)thr waitUntilDone:(BOOL)wait, ...{
+- (id)lf_performSelectorWithArgs:(SEL)sel onThread:(NSThread *)thr waitUntilDone:(BOOL)wait, ...{
     INIT_INV(wait, nil);
     if (!wait) [inv retainArguments];
     [inv performSelector:@selector(invoke) onThread:thr withObject:nil waitUntilDone:wait];
     return wait ? [NSObject getReturnFromInv:inv withSig:sig] : nil;
 }
 
-- (void)performSelectorWithArgsInBackground:(SEL)sel, ...{
+- (void)lf_performSelectorWithArgsInBackground:(SEL)sel, ...{
     INIT_INV(sel, );
     [inv retainArguments];
     [inv performSelectorInBackground:@selector(invoke) withObject:nil];
@@ -306,11 +306,11 @@ else if (size <= 4 * _size_ ) { \
     }
 }
 
-- (void)performSelector:(SEL)selector afterDelay:(NSTimeInterval)delay {
+- (void)lf_performSelector:(SEL)selector afterDelay:(NSTimeInterval)delay {
     [self performSelector:selector withObject:nil afterDelay:delay];
 }
 
-+ (BOOL)swizzleInstanceMethod:(SEL)originalSel with:(SEL)newSel {
++ (BOOL)lf_swizzleInstanceMethod:(SEL)originalSel with:(SEL)newSel {
     Method originalMethod = class_getInstanceMethod(self, originalSel);
     Method newMethod = class_getInstanceMethod(self, newSel);
     if (!originalMethod || !newMethod) return NO;
@@ -329,7 +329,7 @@ else if (size <= 4 * _size_ ) { \
     return YES;
 }
 
-+ (BOOL)swizzleClassMethod:(SEL)originalSel with:(SEL)newSel {
++ (BOOL)lf_swizzleClassMethod:(SEL)originalSel with:(SEL)newSel {
     Class class = object_getClass(self);
     Method originalMethod = class_getInstanceMethod(class, originalSel);
     Method newMethod = class_getInstanceMethod(class, newSel);
@@ -338,27 +338,27 @@ else if (size <= 4 * _size_ ) { \
     return YES;
 }
 
-- (void)setAssociateValue:(id)value withKey:(void *)key {
+- (void)lf_setAssociateValue:(id)value withKey:(void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)setAssociateWeakValue:(id)value withKey:(void *)key {
+- (void)lf_setAssociateWeakValue:(id)value withKey:(void *)key {
     objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (void)removeAssociatedValues {
+- (void)lf_removeAssociatedValues {
     objc_removeAssociatedObjects(self);
 }
 
-- (id)getAssociatedValueForKey:(void *)key {
+- (id)lf_getAssociatedValueForKey:(void *)key {
     return objc_getAssociatedObject(self, key);
 }
 
-+ (NSString *)className {
++ (NSString *)lf_className {
     return NSStringFromClass(self);
 }
 
-- (NSString *)className {
+- (NSString *)lf_className {
     return [NSString stringWithUTF8String:class_getName([self class])];
 }
 

@@ -44,7 +44,7 @@ static const int block_key;
 
 @implementation UIControl (LFAdditions)
 
-- (void)removeAllTargets {
+- (void)lf_removeAllTargets {
     [[self allTargets] enumerateObjectsUsingBlock: ^(id object, BOOL *stop) {
         [self   removeTarget:object
                       action:NULL
@@ -52,7 +52,7 @@ static const int block_key;
     }];
 }
 
-- (void)setTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents {
+- (void)lf_setTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents {
     NSSet *targets = [self allTargets];
     for (id currentTarget in targets) {
         NSArray *actions = [self actionsForTarget:currentTarget forControlEvent:controlEvents];
@@ -64,7 +64,7 @@ static const int block_key;
     [self addTarget:target action:action forControlEvents:controlEvents];
 }
 
-- (void)addBlockForControlEvents:(UIControlEvents)controlEvents
+- (void)lf_addBlockForControlEvents:(UIControlEvents)controlEvents
                            block:(void (^)(id sender))block {
     _LFUIControlBlockTarget *target = [[_LFUIControlBlockTarget alloc]
                                        initWithBlock:block events:controlEvents];
@@ -73,13 +73,13 @@ static const int block_key;
     [targets addObject:target];
 }
 
-- (void)setBlockForControlEvents:(UIControlEvents)controlEvents
+- (void)lf_setBlockForControlEvents:(UIControlEvents)controlEvents
                            block:(void (^)(id sender))block {
-    [self removeAllBlocksForControlEvents:controlEvents];
-    [self addBlockForControlEvents:controlEvents block:block];
+    [self lf_removeAllBlocksForControlEvents:controlEvents];
+    [self lf_addBlockForControlEvents:controlEvents block:block];
 }
 
-- (void)removeAllBlocksForControlEvents:(UIControlEvents)controlEvents {
+- (void)lf_removeAllBlocksForControlEvents:(UIControlEvents)controlEvents {
     NSMutableArray *targets = [self _lf_allUIControlBlockTargets];
     NSMutableArray *removes = [NSMutableArray array];
     [targets enumerateObjectsUsingBlock: ^(id obj, NSUInteger idx, BOOL *stop) {

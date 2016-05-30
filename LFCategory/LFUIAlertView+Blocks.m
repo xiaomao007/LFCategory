@@ -42,7 +42,7 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
 
 @implementation UIAlertView (Blocks)
 
-+ (instancetype)showWithTitle:(NSString *)title
++ (instancetype)lf_showWithTitle:(NSString *)title
                       message:(NSString *)message
                         style:(UIAlertViewStyle)style
             cancelButtonTitle:(NSString *)cancelButtonTitle
@@ -79,13 +79,13 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
 }
 
 
-+ (instancetype)showWithTitle:(NSString *)title
++ (instancetype)lf_showWithTitle:(NSString *)title
                       message:(NSString *)message
             cancelButtonTitle:(NSString *)cancelButtonTitle
             otherButtonTitles:(NSArray *)otherButtonTitles
                      tapBlock:(UIAlertViewCompletionBlock)tapBlock {
     
-    return [self showWithTitle:title
+    return [self lf_showWithTitle:title
                        message:message
                          style:UIAlertViewStyleDefault
              cancelButtonTitle:cancelButtonTitle

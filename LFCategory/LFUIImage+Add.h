@@ -34,7 +34,7 @@
  
  @return 解码后的图像。 (如果图像已经被解码，那直接返回self)
  */
-- (UIImage *)imageByDecoded;
+- (UIImage *)lf_imageByDecoded;
 
 /**
  该图像是否已经被解码 (只是个tint，不会有其他任何影响)
@@ -55,23 +55,23 @@
                  所以这个方法只适合用于显示小gif，例如小表情。
                  如果需要显示较大的gif，最好换成 LFGIFImage
  */
-+ (UIImage *)imageWithSmallGIFData:(NSData *)data scale:(CGFloat)scale;
++ (UIImage *)lf_imageWithSmallGIFData:(NSData *)data scale:(CGFloat)scale;
 
 /**
  判断一个data是否是动画gif。
  只有当是gif并且包含多帧图像时，才返回YES。
  */
-+ (BOOL)isAnimatedGIFData:(NSData *)data;
++ (BOOL)lf_isAnimatedGIFData:(NSData *)data;
 
 /**
  由PDF创建Image。 (如果PDF是多页，则只读取第一页)
  */
-+ (UIImage *)imageWithPDF:(id)dataOrPath;
++ (UIImage *)lf_imageWithPDF:(id)dataOrPath;
 
 /**
  由PDF创建Image。 (如果PDF是多页，则只读取第一页)
  */
-+ (UIImage *)imageWithPDF:(id)dataOrPath size:(CGSize)size;
++ (UIImage *)lf_imageWithPDF:(id)dataOrPath size:(CGSize)size;
 
 /**
  创建一个emoji图片。
@@ -81,22 +81,22 @@
  @param emoji single emoji, such as @"😄".
  @param size  image's size.
  */
-+ (UIImage *)imageWithEmoji:(NSString *)emoji size:(CGFloat)size;
++ (UIImage *)lf_imageWithEmoji:(NSString *)emoji size:(CGFloat)size;
 
 /**
  创建一个 1x1 大小的纯色图片
  */
-+ (UIImage *)imageWithColor:(UIColor *)color;
++ (UIImage *)lf_imageWithColor:(UIColor *)color;
 
 /**
  创建一张纯色图片
  */
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
++ (UIImage *)lf_imageWithColor:(UIColor *)color size:(CGSize)size;
 
 /**
  用QuartZ画出一个图片
  */
-+ (UIImage *)imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock;
++ (UIImage *)lf_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock;
 
 
 #pragma mark - 图片信息
@@ -110,12 +110,12 @@
  @param point  图片内的一个点。范围是 [0, image.width-1],[0, image.height-1]
                超出图片范围则返回nil
  */
-- (UIColor *)colorAtPoint:(CGPoint)point;
+- (UIColor *)lf_colorAtPoint:(CGPoint)point;
 
 /**
  该图片是否有alpha通道
  */
-- (BOOL)hasAlphaChannel;
+- (BOOL)lf_hasAlphaChannel;
 
 
 #pragma mark - 修改图片
@@ -124,16 +124,16 @@
 ///=============================================================================
 
 /// 在rect里绘制图片，支持contentMode。 (需要预先准备GraphContext)
-- (void)drawInRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode clipsToBounds:(BOOL)clips;
+- (void)lf_drawInRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode clipsToBounds:(BOOL)clips;
 
 /// 调整图片大小 (内容可能会被拉伸)
-- (UIImage *)imageByResizeToSize:(CGSize)size;
+- (UIImage *)lf_imageByResizeToSize:(CGSize)size;
 
 /// 调整图片大小 (内容会根据contentMode来调整)
-- (UIImage *)imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
+- (UIImage *)lf_imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
 
 /// 从内部裁剪出一块儿。
-- (UIImage *)imageByCropToRect:(CGRect)rect;
+- (UIImage *)lf_imageByCropToRect:(CGRect)rect;
 
 
 /**
@@ -141,13 +141,13 @@
  @param insets  Inset (positive) for each of the edges, values can be negative to 'outset'.
  @param color   Extend edge's fill color, nil means clear color.
  */
-- (UIImage *)imageByInsetEdge:(UIEdgeInsets)insets withColor:(UIColor *)color;
+- (UIImage *)lf_imageByInsetEdge:(UIEdgeInsets)insets withColor:(UIColor *)color;
 
 /**
  为图片裁剪出圆角
  @param radius  圆角的半径(如果超出图片宽高，内部会调整以适应图片)
  */
-- (UIImage *)imageByRoundCornerRadius:(CGFloat)radius;
+- (UIImage *)lf_imageByRoundCornerRadius:(CGFloat)radius;
 
 /**
  为图片裁剪出圆角
@@ -155,7 +155,7 @@
  @param corners  裁剪哪几个角
  @param borderWidth  可以加一个border
  */
-- (UIImage *)imageByRoundCornerRadius:(CGFloat)radius
+- (UIImage *)lf_imageByRoundCornerRadius:(CGFloat)radius
                               corners:(UIRectCorner)corners
                           borderWidth:(CGFloat)borderWidth;
 
@@ -165,23 +165,23 @@
  @param fitSize   YES: 旋转后，图片大小会扩大以包含全部内容
                   NO: 旋转后，图片大小不变，某些内容会被裁剪
  */
-- (UIImage *)imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize;
+- (UIImage *)lf_imageByRotate:(CGFloat)radians fitSize:(BOOL)fitSize;
 
 
 /// 向左旋转90° ⤺ (图片宽高会对调)
-- (UIImage *)imageByRotateLeft90;
+- (UIImage *)lf_imageByRotateLeft90;
 
 /// 向右旋转90° ⤺ (图片宽高会对调)
-- (UIImage *)imageByRotateRight90;
+- (UIImage *)lf_imageByRotateRight90;
 
 /// 旋转180°
-- (UIImage *)imageByRotate180;
+- (UIImage *)lf_imageByRotate180;
 
 /// 上下翻转 ⥯
-- (UIImage *)imageByFlipVertical;
+- (UIImage *)lf_imageByFlipVertical;
 
 /// 左右翻转 ⇋
-- (UIImage *)imageByFlipHorizontal;
+- (UIImage *)lf_imageByFlipHorizontal;
 
 
 #pragma mark - 图片效果
@@ -190,25 +190,25 @@
 ///=============================================================================
 
 /// 给图片染色(Tint Color) (就像用有色眼镜看图片)
-- (UIImage *)imageByTintColor:(UIColor *)color;
+- (UIImage *)lf_imageByTintColor:(UIColor *)color;
 
 /// 黑白化
-- (UIImage *)imageByGrayscale;
+- (UIImage *)lf_imageByGrayscale;
 
 /// 灰毛玻璃效果 (适合在里面显示任何内容)
-- (UIImage *)imageByBlurSoft;
+- (UIImage *)lf_imageByBlurSoft;
 
 /// 白色毛玻璃效果 (苹果内置)(适合在里面显示任何内容，除了纯白色文本) 和上拉控制中心、桌面文件夹效果一样
-- (UIImage *)imageByBlurLight;
+- (UIImage *)lf_imageByBlurLight;
 
 /// 亮白色毛玻璃效果 (苹果内置)(适合在里面显示深色文字)
-- (UIImage *)imageByBlurExtraLight;
+- (UIImage *)lf_imageByBlurExtraLight;
 
 /// 黑色色毛玻璃效果 (苹果内置)(适合在里面显示浅色文字) 和下拉通知中心的效果一样
-- (UIImage *)imageByBlurDark;
+- (UIImage *)lf_imageByBlurDark;
 
 /// 模糊一张图片，并添加tintColor
-- (UIImage *)imageByBlurWithTint:(UIColor *)tintColor;
+- (UIImage *)lf_imageByBlurWithTint:(UIColor *)tintColor;
 
 /**
  这是苹果官方提供的一个方法，用于调整图片的模糊、饱和度、蒙板等方法。
@@ -238,7 +238,7 @@
  @return               image with effect, or nil if an error occurs (e.g. no
                        enough memory).
  */
-- (UIImage *)imageByBlurRadius:(CGFloat)blurRadius
+- (UIImage *)lf_imageByBlurRadius:(CGFloat)blurRadius
                      tintColor:(UIColor *)tintColor
                       tintMode:(CGBlendMode)tintBlendMode
                     saturation:(CGFloat)saturation
@@ -250,7 +250,7 @@
  *
  * @param radius           模糊半径(力度) iOS7模糊大约是40
  */
-- (UIImage *)blurredImageWithRadius:(CGFloat)radius;
+- (UIImage *)lf_blurredImageWithRadius:(CGFloat)radius;
 
 /**
  * 模糊一张图片
@@ -261,7 +261,7 @@
  * @param tintColorPercent 着色的百分比 (0.0~1.0)
  * @param blendMode        着色的混合模式
  */
-- (UIImage *)blurredImageWithRadius:(CGFloat)radius
+- (UIImage *)lf_blurredImageWithRadius:(CGFloat)radius
                          iterations:(NSUInteger)iterations
                           tintColor:(UIColor *)tintColor
                    tintColorPercent:(CGFloat)tintColorPercent

@@ -17,7 +17,7 @@
  Removes all targets and actions for a particular event (or events)
  from an internal dispatch table.
  */
-- (void)removeAllTargets;
+- (void)lf_removeAllTargets;
 
 /**
  Adds or replaces a target and action for a particular event (or events)
@@ -33,7 +33,7 @@
  @param controlEvents  A bitmask specifying the control events for which the
                        action message is sent.
  */
-- (void)setTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
+- (void)lf_setTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 
 /**
  Adds a block for a particular event (or events) to an internal dispatch table.
@@ -45,7 +45,7 @@
  @param controlEvents  A bitmask specifying the control events for which the
                        action message is sent.
  */
-- (void)addBlockForControlEvents:(UIControlEvents)controlEvents block:(void (^)(id sender))block;
+- (void)lf_addBlockForControlEvents:(UIControlEvents)controlEvents block:(void (^)(id sender))block;
 
 /**
  Adds or replaces a block for a particular event (or events) to an internal
@@ -57,7 +57,7 @@
  @param controlEvents  A bitmask specifying the control events for which the
                        action message is sent.
  */
-- (void)setBlockForControlEvents:(UIControlEvents)controlEvents block:(void (^)(id sender))block;
+- (void)lf_setBlockForControlEvents:(UIControlEvents)controlEvents block:(void (^)(id sender))block;
 
 /**
  Removes all blocks for a particular event (or events) from an internal
@@ -66,6 +66,6 @@
  @param controlEvents  A bitmask specifying the control events for which the
                        action message is sent.
  */
-- (void)removeAllBlocksForControlEvents:(UIControlEvents)controlEvents;
+- (void)lf_removeAllBlocksForControlEvents:(UIControlEvents)controlEvents;
 
 @end

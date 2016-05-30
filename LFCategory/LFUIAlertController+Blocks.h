@@ -33,7 +33,7 @@ typedef void (^UIAlertControllerCompletionBlock) (UIAlertController * __nonnull 
 
 @interface UIAlertController (Blocks)
 
-+ (nonnull instancetype)showInViewController:(nonnull UIViewController *)viewController
++ (nonnull instancetype)lf_showInViewController:(nonnull UIViewController *)viewController
                                    withTitle:(nullable NSString *)title
                                      message:(nullable NSString *)message
                               preferredStyle:(UIAlertControllerStyle)preferredStyle
@@ -43,7 +43,7 @@ typedef void (^UIAlertControllerCompletionBlock) (UIAlertController * __nonnull 
           popoverPresentationControllerBlock:(nullable UIAlertControllerPopoverPresentationControllerBlock)popoverPresentationControllerBlock
                                     tapBlock:(nullable UIAlertControllerCompletionBlock)tapBlock;
 
-+ (nonnull instancetype)showAlertInViewController:(nonnull UIViewController *)viewController
++ (nonnull instancetype)lf_showAlertInViewController:(nonnull UIViewController *)viewController
                                         withTitle:(nullable NSString *)title
                                           message:(nullable NSString *)message
                                 cancelButtonTitle:(nullable NSString *)cancelButtonTitle
@@ -51,7 +51,7 @@ typedef void (^UIAlertControllerCompletionBlock) (UIAlertController * __nonnull 
                                 otherButtonTitles:(nullable NSArray *)otherButtonTitles
                                          tapBlock:(nullable UIAlertControllerCompletionBlock)tapBlock;
 
-+ (nonnull instancetype)showActionSheetInViewController:(nonnull UIViewController *)viewController
++ (nonnull instancetype)lf_showActionSheetInViewController:(nonnull UIViewController *)viewController
                                               withTitle:(nullable NSString *)title
                                                 message:(nullable NSString *)message
                                       cancelButtonTitle:(nullable NSString *)cancelButtonTitle

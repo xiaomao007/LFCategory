@@ -21,7 +21,7 @@
     return targets;
 }
 
-- (void)addNotifName:(NSString *)notifName block:(void(^)(NSNotification *notif))block {
+- (void)lf_addNotifName:(NSString *)notifName block:(void(^)(NSNotification *notif))block {
     if (!notifName || !block) return;
     NSObject *observer = [[NSNotificationCenter defaultCenter] addObserverForName:notifName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         block(note);
@@ -34,7 +34,7 @@
     [obs addObject:[LFWeakProxy proxyWithTarget:observer]];
 }
 
-- (void)removeNotifName:(NSString *)notifName {
+- (void)lf_removeNotifName:(NSString *)notifName {
     if (!notifName) return;
     NSMutableArray *obs = [self _lf_observersForNotification][notifName];
     for (LFWeakProxy *proxy in obs) {
@@ -45,7 +45,7 @@
     [[self _lf_observersForNotification] removeObjectForKey:notifName];
 }
 
-- (void)removeAllNotif {
+- (void)lf_removeAllNotif {
     [[self _lf_observersForNotification] enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSMutableArray *obs, BOOL *stop) {
         for (LFWeakProxy *proxy in obs) {
             if (proxy.target) {

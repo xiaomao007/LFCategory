@@ -34,7 +34,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
 
 @implementation UIAlertController (LFBlocksAdditions)
 
-+ (instancetype)showInViewController:(UIViewController *)viewController
++ (instancetype)lf_showInViewController:(UIViewController *)viewController
                            withTitle:(NSString *)title
                              message:(NSString *)message
                       preferredStyle:(UIAlertControllerStyle)preferredStyle
@@ -94,7 +94,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
     return controller;
 }
 
-+ (instancetype)showAlertInViewController:(UIViewController *)viewController
++ (instancetype)lf_showAlertInViewController:(UIViewController *)viewController
                                 withTitle:(NSString *)title
                                   message:(NSString *)message
                         cancelButtonTitle:(NSString *)cancelButtonTitle
@@ -102,7 +102,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                         otherButtonTitles:(NSArray *)otherButtonTitles
                                  tapBlock:(UIAlertControllerCompletionBlock)tapBlock
 {
-    return [self showInViewController:viewController
+    return [self lf_showInViewController:viewController
                             withTitle:title
                               message:message
                        preferredStyle:UIAlertControllerStyleAlert
@@ -113,7 +113,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                              tapBlock:tapBlock];
 }
 
-+ (instancetype)showActionSheetInViewController:(UIViewController *)viewController
++ (instancetype)lf_showActionSheetInViewController:(UIViewController *)viewController
                                       withTitle:(NSString *)title
                                         message:(NSString *)message
                               cancelButtonTitle:(NSString *)cancelButtonTitle
@@ -121,7 +121,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                               otherButtonTitles:(NSArray *)otherButtonTitles
                                        tapBlock:(UIAlertControllerCompletionBlock)tapBlock
 {
-    return [self showActionSheetInViewController:viewController
+    return [self lf_showActionSheetInViewController:viewController
                                        withTitle:title
                                          message:message
                                cancelButtonTitle:cancelButtonTitle
@@ -131,7 +131,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
                                         tapBlock:tapBlock];
 }
 
-+ (instancetype)showActionSheetInViewController:(UIViewController *)viewController
++ (instancetype)lf_showActionSheetInViewController:(UIViewController *)viewController
                                       withTitle:(NSString *)title
                                         message:(NSString *)message
                               cancelButtonTitle:(NSString *)cancelButtonTitle
@@ -140,7 +140,7 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
              popoverPresentationControllerBlock:(void(^)(UIPopoverPresentationController *popover))popoverPresentationControllerBlock
                                        tapBlock:(UIAlertControllerCompletionBlock)tapBlock
 {
-    return [self showInViewController:viewController
+    return [self lf_showInViewController:viewController
                             withTitle:title
                               message:message
                        preferredStyle:UIAlertControllerStyleActionSheet

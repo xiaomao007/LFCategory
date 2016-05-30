@@ -40,42 +40,42 @@ typedef NS_ENUM(NSUInteger, LFBadgeSizeType) {
 /**
  *  show badge with red dot style and WBadgeAnimTypeNone by default.
  */
-- (void)showRedDotBadge;
-- (void)showRedDotBadgeBySizeType:(LFBadgeSizeType)sizeType;
-- (void)showRedDotBadgeByStyle:(LFBadgeStyle)style;
-- (void)showRedDotBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType;
+- (void)lf_showRedDotBadge;
+- (void)lf_showRedDotBadgeBySizeType:(LFBadgeSizeType)sizeType;
+- (void)lf_showRedDotBadgeByStyle:(LFBadgeStyle)style;
+- (void)lf_showRedDotBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType;
 
 /**
  * show badge with WBadgeStyleNumber style
  */
-- (void)showNewBadge;
-- (void)showNewBadgeBySizeType:(LFBadgeSizeType)sizeType;
-- (void)showNewBadgeByStyle:(LFBadgeStyle)style;
-- (void)showNewBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType;
+- (void)lf_showNewBadge;
+- (void)lf_showNewBadgeBySizeType:(LFBadgeSizeType)sizeType;
+- (void)lf_showNewBadgeByStyle:(LFBadgeStyle)style;
+- (void)lf_showNewBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType;
 
 /**
  * show badge with showNumberBadgeWithValue style
  */
-- (void)showNumberBadge:(NSInteger)value;
-- (void)showNumberBadge:(NSInteger)value sizeType:(LFBadgeSizeType)sizeType;
-- (void)showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style;
-- (void)showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType;
+- (void)lf_showNumberBadge:(NSInteger)value;
+- (void)lf_showNumberBadge:(NSInteger)value sizeType:(LFBadgeSizeType)sizeType;
+- (void)lf_showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style;
+- (void)lf_showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType;
 
 /**
  *  clear badge
  */
-- (void)clearBadge;
+- (void)lf_clearBadge;
 
 /**
  *  get current badgeType
  */
-- (LFBadgeType)getBadgeType;
+- (LFBadgeType)lf_getBadgeType;
 
 /**
  *  get bage show
  *
  */
 
-- (BOOL)isShowBage;
+- (BOOL)lf_isShowBage;
 
 @end

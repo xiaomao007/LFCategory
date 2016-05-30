@@ -19,13 +19,13 @@
  支持各种格式，例如 @"12", @"12.345", @" -0xFF", @" .23e99 "
  不区分大小写，可以有空格
  */
-+ (NSNumber *)numberWithString:(NSString *)string;
++ (NSNumber *)lf_numberWithString:(NSString *)string;
 
 /**
  如果超出9999，则折叠成 XX.X 万
  */
-- (NSString *)wrappedDescription;
+- (NSString *)lf_wrappedDescription;
 
-- (NSString *)toDecimalStyleString;
+- (NSString *)lf_toDecimalStyleString;
 
 @end

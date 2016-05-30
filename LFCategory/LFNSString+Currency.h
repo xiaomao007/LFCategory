@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (LFCurrencyAdditions)
-- (NSString *)localizedStringFromNumber;
+- (NSString *)lf_localizedStringFromNumber;
 @end

@@ -18,13 +18,13 @@ const CGFloat kHDImageMaxLength         = 1204.0f;      // 高清图片最大的
 const CGFloat kHDImageMaxHeight         = 12040.0f;     // 高清图片最大的高度
 
 // 获取原始图片
-- (UIImage *)fullSizeImage
+- (UIImage *)lf_fullSizeImage
 {
     return [self imageForMaxSize:kHDImageMaxLength];
 }
 
 // 获取全屏尺寸的照片
-- (UIImage *)fullScreenImage
+- (UIImage *)lf_fullScreenImage
 {
     return [UIImage imageWithCGImage:[self.defaultRepresentation fullScreenImage]];
 }
@@ -79,7 +79,7 @@ const CGFloat kHDImageMaxHeight         = 12040.0f;     // 高清图片最大的
         if ([assetRepresentation respondsToSelector:@selector(dimensions)]) {
             size = [assetRepresentation dimensions];
         }else{
-            size = [UIImage imageSizeWithData:data];
+            size = [UIImage lf_imageSizeWithData:data];
         }
         width = size.width;
         height = size.height;

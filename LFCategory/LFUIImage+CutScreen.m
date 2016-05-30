@@ -10,7 +10,7 @@
 
 @implementation UIImage (LFCutScreenAdditions)
 
-+ (UIImage *)cutScreen{
++ (UIImage *)lf_cutScreen{
     return [self cutFromView:[UIApplication sharedApplication].keyWindow];
 }
 

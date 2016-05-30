@@ -17,12 +17,12 @@
 /**
  Take snapshot without transform, image's size equals to bounds.
  */
-- (UIImage *)snapshotImage;
+- (UIImage *)lf_snapshotImage;
 
 /**
  Take snapshot without transform, PDF's page size equals to bounds.
  */
-- (NSData *)snapshotPDF;
+- (NSData *)lf_snapshotPDF;
 
 /**
  Shortcut to set the layer's shadow
@@ -31,12 +31,12 @@
  @param offset Shadow offset
  @param radius Shadow radius
  */
-- (void)setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius;
+- (void)lf_setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius;
 
 /**
  Remove all sublayers.
  */
-- (void)removeAllSublayers;
+- (void)lf_removeAllSublayers;
 
 @property (nonatomic) CGFloat left;    ///< Shortcut for frame.origin.x.
 @property (nonatomic) CGFloat top;     ///< Shortcut for frame.origin.y
@@ -77,7 +77,7 @@
  @param duration Animation duration
  @param curve    Animation curve.
  */
-- (void)addFadeAnimationWithDuration:(NSTimeInterval)duration curve:(UIViewAnimationCurve)curve;
+- (void)lf_addFadeAnimationWithDuration:(NSTimeInterval)duration curve:(UIViewAnimationCurve)curve;
 
 /**
  Cancel fade animation which is added with "-addFadeAnimationWithDuration:curve:".

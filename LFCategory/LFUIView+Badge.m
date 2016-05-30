@@ -32,7 +32,7 @@ static char badgeShowallNumbersKey;
 /**
  *  clear badge
  */
-- (void)clearBadge
+- (void)lf_clearBadge
 {
     if(self.badge)  self.badge.hidden = YES;
 }
@@ -40,55 +40,55 @@ static char badgeShowallNumbersKey;
 
 #pragma mark -- private methods
 
-- (void)showRedDotBadge{
-    [self showRedDotBadgeByStyle:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal];
+- (void)lf_showRedDotBadge{
+    [self lf_showRedDotBadgeByStyle:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal];
 }
 
-- (void)showRedDotBadgeBySizeType:(LFBadgeSizeType)sizeType{
-    [self showRedDotBadgeByStyle:LFBadgeStyleNormal sizeType:sizeType];
+- (void)lf_showRedDotBadgeBySizeType:(LFBadgeSizeType)sizeType{
+    [self lf_showRedDotBadgeByStyle:LFBadgeStyleNormal sizeType:sizeType];
 }
 
-- (void)showRedDotBadgeByStyle:(LFBadgeStyle)style{
-    [self showRedDotBadgeByStyle:style sizeType:LFBadgeSizeTypeNormal];
+- (void)lf_showRedDotBadgeByStyle:(LFBadgeStyle)style{
+    [self lf_showRedDotBadgeByStyle:style sizeType:LFBadgeSizeTypeNormal];
 }
 
-- (void)showRedDotBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
+- (void)lf_showRedDotBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
     [self configBadge:LFBadgeTypeRedDot style:style sizeType:sizeType value:0];
 }
 
 /* --showNewBadge -- */
-- (void)showNewBadge{
-    [self showNewBadgeByStyle:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal];
+- (void)lf_showNewBadge{
+    [self lf_showNewBadgeByStyle:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal];
 }
 
-- (void)showNewBadgeBySizeType:(LFBadgeSizeType)sizeType{
-    [self showNewBadgeByStyle:LFBadgeStyleNormal sizeType:sizeType];
+- (void)lf_showNewBadgeBySizeType:(LFBadgeSizeType)sizeType{
+    [self lf_showNewBadgeByStyle:LFBadgeStyleNormal sizeType:sizeType];
 }
 
-- (void)showNewBadgeByStyle:(LFBadgeStyle)style{
-    [self showNewBadgeByStyle:style sizeType:LFBadgeSizeTypeNormal];
+- (void)lf_showNewBadgeByStyle:(LFBadgeStyle)style{
+    [self lf_showNewBadgeByStyle:style sizeType:LFBadgeSizeTypeNormal];
 }
 
-- (void)showNewBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
+- (void)lf_showNewBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
     [self configBadge:LFBadgeTypeNew style:style sizeType:sizeType value:0];
 }
 
 /* --showNumberBadge -- */
-- (void)showNumberBadge:(NSInteger)value{
-    [self showNumberBadge:value style:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal];
+- (void)lf_showNumberBadge:(NSInteger)value{
+    [self lf_showNumberBadge:value style:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal];
 }
 
-- (void)showNumberBadge:(NSInteger)value sizeType:(LFBadgeSizeType)sizeType{
-    [self showNumberBadge:value style:LFBadgeStyleNormal sizeType:sizeType];
+- (void)lf_showNumberBadge:(NSInteger)value sizeType:(LFBadgeSizeType)sizeType{
+    [self lf_showNumberBadge:value style:LFBadgeStyleNormal sizeType:sizeType];
 }
 
-- (void)showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style{
-    [self showNumberBadge:value style:style sizeType:LFBadgeSizeTypeNormal];
+- (void)lf_showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style{
+    [self lf_showNumberBadge:value style:style sizeType:LFBadgeSizeTypeNormal];
 }
 
-- (void)showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
+- (void)lf_showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
     if (!self.showAllNumbers && value <= 0) {
-        [self clearBadge];
+        [self lf_clearBadge];
         return;
     }
     [self configBadge:LFBadgeTypeNumber style:style sizeType:sizeType value:value];
@@ -243,14 +243,14 @@ static char badgeShowallNumbersKey;
     self.badge.top = badgeOriginY;
 }
 
-- (LFBadgeType)getBadgeType{
+- (LFBadgeType)lf_getBadgeType{
     if(self.badge){
         return [self.badge tag];
     }
     return LFBadgeTypeRedDot;
 }
 
-- (BOOL)isShowBage {
+- (BOOL)lf_isShowBage {
 
     return self.badge.hidden;
 }

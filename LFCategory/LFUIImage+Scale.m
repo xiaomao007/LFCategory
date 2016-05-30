@@ -37,7 +37,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 
 @implementation UIImage (LFScaleAdditions)
 
-+ (UIImage *)scaleImage:(UIImage *)image scaleToSize:(CGSize)size scale:(CGFloat)scale{
++ (UIImage *)lf_scaleImage:(UIImage *)image scaleToSize:(CGSize)size scale:(CGFloat)scale{
     if (!image) {
         return nil;
     }
@@ -61,7 +61,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 
 
 
-+ (UIImage*)clipImage:(UIImage *)originalImage rect:(CGRect)rect
++ (UIImage*)lf_clipImage:(UIImage *)originalImage rect:(CGRect)rect
 {
     if (!originalImage) {
         return nil;
@@ -81,7 +81,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 //截取部分图像(区分高分屏或者低分屏)
-+ (UIImage*)getSubImage:(UIImage *)img scale:(CGFloat)scale rect:(CGRect)rect
++ (UIImage*)lf_getSubImage:(UIImage *)img scale:(CGFloat)scale rect:(CGRect)rect
 {
     if (!img) {
         return nil;
@@ -118,13 +118,13 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 //}
 
 //中间拉伸图片,不支持换肤
-+ (UIImage *)middleStretchableImageWithOutSupportSkin:(NSString *)key {
++ (UIImage *)lf_middleStretchableImageWithOutSupportSkin:(NSString *)key {
     UIImage *image = [UIImage imageNamed:key];
     return [image stretchableImageWithLeftCapWidth:image.size.width/2 topCapHeight:image.size.height/2];
 }
 
 /*create round rect UIImage with the specific size*/
-+ (UIImage *) createRoundedRectImage:(UIImage*)image size:(CGSize)size cornerRadius:(CGFloat)radius
++ (UIImage *) lf_createRoundedRectImage:(UIImage*)image size:(CGSize)size cornerRadius:(CGFloat)radius
 {
     // the size of CGContextRef
     int w = size.width;
@@ -150,7 +150,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 	
 }
 //等比缩放
-+ (UIImage *) scaleImage:(UIImage *)image toScale:(float)scaleSize {
++ (UIImage *) lf_scaleImage:(UIImage *)image toScale:(float)scaleSize {
     UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
     [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -161,7 +161,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 
 // zhengzheng
 //等比缩放
-+ (UIImage *) scaleImageForImage:(UIImage *)image toScale:(float)scaleSize {
++ (UIImage *) lf_scaleImageForImage:(UIImage *)image toScale:(float)scaleSize {
     UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
     [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -171,7 +171,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 // 缩放图片并且剧中截取
-+ (UIImage *)middleScaleImage:(UIImage *)image scaleToSize:(CGSize)size{
++ (UIImage *)lf_middleScaleImage:(UIImage *)image scaleToSize:(CGSize)size{
 //    RR_NSLog(@"syp===00000===size==%f,%f",image.size.width,image.size.height);
     float scaleSize = 0.0;
     float screenScale = [UIScreen mainScreen].scale;
@@ -181,16 +181,16 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     }else{
         scaleSize = size.width/imagesize.width * screenScale;
     }
-   UIImage *currentimage = [UIImage scaleImage:image toScale:scaleSize];
+   UIImage *currentimage = [UIImage lf_scaleImage:image toScale:scaleSize];
 
     CGRect currentfram = CGRectMake((currentimage.size.width - size.width)/2, (currentimage.size.height - size.height)/2, size.width, size.height);
     
     // 返回新的改变大小后的图片
-    return [UIImage clipImage:currentimage rect:currentfram];
+    return [UIImage lf_clipImage:currentimage rect:currentfram];
 }
 
 //宽高取小缩放，取大居中截取
-+ (UIImage *)suitableScaleImage:(UIImage *)image scaleToSize:(CGSize)size
++ (UIImage *)lf_suitableScaleImage:(UIImage *)image scaleToSize:(CGSize)size
 {
     CGFloat screenScale = [UIScreen mainScreen].scale;
     CGSize imageSize = image.size;
@@ -203,25 +203,25 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     if ( imageSizeMin >= size.width/* * screenScale*/ ) {
         if ( imageSize.width <= imageSize.height ) {
             realScale = size.width / imageSize.width * screenScale;
-            UIImage *currentImage = [UIImage scaleImage:image toScale:realScale];
-            tmpImage = [UIImage getSubImage:currentImage scale:screenScale rect:CGRectMake(0, ( currentImage.size.height - size.height * screenScale ) / 2.0f, size.width * screenScale, size.height *screenScale)];
+            UIImage *currentImage = [UIImage lf_scaleImage:image toScale:realScale];
+            tmpImage = [UIImage lf_getSubImage:currentImage scale:screenScale rect:CGRectMake(0, ( currentImage.size.height - size.height * screenScale ) / 2.0f, size.width * screenScale, size.height *screenScale)];
         }
         else
         {
             realScale = size.height / imageSize.height * screenScale;
-            UIImage *currentImage = [UIImage scaleImage:image toScale:realScale];
-            tmpImage = [UIImage getSubImage:currentImage scale:screenScale rect:CGRectMake( ( currentImage.size.width - size.width * screenScale ) / 2.0f, 0, size.width * screenScale, size.height * screenScale)];
+            UIImage *currentImage = [UIImage lf_scaleImage:image toScale:realScale];
+            tmpImage = [UIImage lf_getSubImage:currentImage scale:screenScale rect:CGRectMake( ( currentImage.size.width - size.width * screenScale ) / 2.0f, 0, size.width * screenScale, size.height * screenScale)];
         }
     }
     else
     {   //短边小于定长，长边大于定长
         if ( imageSizeMax > size.width/* * screenScale*/ ) {
             if ( imageSize.width < imageSize.height ) {
-                tmpImage = [UIImage getSubImage:image scale:screenScale rect:CGRectMake(0, ( imageSize.height - size.height * screenScale ) / 2.0f, size.width * screenScale, size.height *screenScale)];
+                tmpImage = [UIImage lf_getSubImage:image scale:screenScale rect:CGRectMake(0, ( imageSize.height - size.height * screenScale ) / 2.0f, size.width * screenScale, size.height *screenScale)];
             }
             else
             {
-                tmpImage = [UIImage getSubImage:image scale:screenScale rect:CGRectMake( ( imageSize.width - size.width * screenScale ) / 2.0f, 0, size.width * screenScale, size.height * screenScale)];
+                tmpImage = [UIImage lf_getSubImage:image scale:screenScale rect:CGRectMake( ( imageSize.width - size.width * screenScale ) / 2.0f, 0, size.width * screenScale, size.height * screenScale)];
             }
         }
         else //长短边都小于定长
@@ -234,7 +234,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 //等比例缩放
-+(UIImage*)scaleToSize:(UIImage*)image size:(CGSize)size
++(UIImage*)lf_scaleToSize:(UIImage*)image size:(CGSize)size
 {
     CGFloat width = CGImageGetWidth(image.CGImage);
     CGFloat height = CGImageGetHeight(image.CGImage);
@@ -275,7 +275,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     return scaledImage;
 }
 
-- (UIImage *)fixOrientation {
+- (UIImage *)lf_fixOrientation {
     
     // No-op if the orientation is already correct
     if (self.imageOrientation == UIImageOrientationUp) return self;
@@ -356,7 +356,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 // 判断是否超长超宽图（宽高比大于4）
-+ (BOOL)isLongwidePhoto:(UIImage*)image
++ (BOOL)lf_isLongwidePhoto:(UIImage*)image
 {
     if (image) {
         CGFloat oWidth = image.size.width;
@@ -378,7 +378,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     return NO;
 }
 
-+ (UIImage *)compressImageIfNeed:(UIImage *)originImage
++ (UIImage *)lf_compressImageIfNeed:(UIImage *)originImage
 {
     UIImage * compressedImage = originImage;
     
@@ -387,7 +387,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
         maxImageSize = kSuperRatioMaxLength;
     }
     if (originImage.size.width > maxImageSize || originImage.size.height > maxImageSize ) {
-        compressedImage = [UIImage scaleAndRotateImage:originImage
+        compressedImage = [UIImage lf_scaleAndRotateImage:originImage
                                                                     size:maxImageSize];
     }
     return compressedImage;
@@ -395,7 +395,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 
 
 // 裁剪图片
-+ (UIImage *)scaleAndRotateImage:(UIImage *)image size:(NSInteger)size
++ (UIImage *)lf_scaleAndRotateImage:(UIImage *)image size:(NSInteger)size
 {
     NSInteger kMaxResolution = size; // Or whatever
     
@@ -519,7 +519,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 
 
 // 将宽高比大于4的图，截取顶部的宽高 1：2 的部分
-+ (UIImage*)longwidePhotoToNormal:(UIImage*)image
++ (UIImage*)lf_longwidePhotoToNormal:(UIImage*)image
 {
     if (image) {
         CGFloat oWidth = image.size.width;
@@ -532,7 +532,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
         else
             frame.size = CGSizeMake(oWidth, oWidth * 2);
         
-        return [UIImage clipImage:image rect:frame];
+        return [UIImage lf_clipImage:image rect:frame];
     }
     
     return nil;
@@ -572,7 +572,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     
     return image;
 }
-+ (UIImage *)cutIntoImageToSquare:(UIImage *)image
++ (UIImage *)lf_cutIntoImageToSquare:(UIImage *)image
 {
     UIImage *scaledImage = image;
     if(scaledImage.size.height == scaledImage.size.width){
@@ -599,7 +599,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 // 从ALAssetRepresentation内获取图片大小
-+ (CGSize)imageSizeWithData:(NSData *)data
++ (CGSize)lf_imageSizeWithData:(NSData *)data
 {
     CGSize imageSize = CGSizeZero;
     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef) data, NULL);

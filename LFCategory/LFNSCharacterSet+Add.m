@@ -13,11 +13,11 @@
 
 @implementation NSCharacterSet (LFNSCharacterSetAdditions)
 
-+ (NSCharacterSet *)emojiCharacterSet {
++ (NSCharacterSet *)lf_emojiCharacterSet {
     static NSCharacterSet *set = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        set = [NSCharacterSet characterSetWithCharactersInString:[NSString allEmoji]];
+        set = [NSCharacterSet characterSetWithCharactersInString:[NSString lf_allEmoji]];
     });
     return set;
 }
@@ -27,11 +27,11 @@
 
 @implementation NSMutableCharacterSet (LFAdd)
 
-+ (NSMutableCharacterSet *)emojiCharacterSet {
++ (NSMutableCharacterSet *)lf_emojiCharacterSet {
     static NSMutableCharacterSet *set = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        set = [NSCharacterSet emojiCharacterSet].mutableCopy;
+        set = [NSCharacterSet lf_emojiCharacterSet].mutableCopy;
     });
     return set;
 }

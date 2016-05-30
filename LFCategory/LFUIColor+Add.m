@@ -257,7 +257,7 @@ void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
 
 @implementation UIColor (LFAdditions)
 
-+ (UIColor *)colorWithHue:(CGFloat)hue
++ (UIColor *)lf_colorWithHue:(CGFloat)hue
                saturation:(CGFloat)saturation
                 lightness:(CGFloat)lightness
                     alpha:(CGFloat)alpha {
@@ -265,7 +265,7 @@ void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
     LF_HSL2RGB(hue, saturation, lightness, &r, &g, &b);
     return UIColorRGBA(r, g, b, alpha);
 }
-+ (UIColor *)colorWithCyan:(CGFloat)cyan
++ (UIColor *)lf_colorWithCyan:(CGFloat)cyan
                    magenta:(CGFloat)magenta
                     yellow:(CGFloat)yellow
                      black:(CGFloat)black
@@ -275,27 +275,27 @@ void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
     return UIColorRGBA(r, g, b, alpha);
 }
 
-+ (UIColor *)colorWithRGB:(uint32_t)rgbValue {
++ (UIColor *)lf_colorWithRGB:(uint32_t)rgbValue {
     return UIColorRGB(((rgbValue & 0xFF0000) >> 16) / 255.0f,
                       ((rgbValue & 0xFF00) >> 8) / 255.0f,
                       (rgbValue & 0xFF) / 255.0f);
 }
 
-+ (UIColor *)colorWithRGBA:(uint32_t)rgbaValue {
++ (UIColor *)lf_colorWithRGBA:(uint32_t)rgbaValue {
     return UIColorRGBA(((rgbaValue & 0xFF000000) >> 24) / 255.0f,
                        ((rgbaValue & 0xFF0000) >> 16) / 255.0f,
                        ((rgbaValue & 0xFF00) >> 8) / 255.0f,
                        (rgbaValue & 0xFF) / 255.0f);
 }
 
-+ (UIColor *)colorWithRGB:(uint32_t)rgbValue alpha:(CGFloat)alpha {
++ (UIColor *)lf_colorWithRGB:(uint32_t)rgbValue alpha:(CGFloat)alpha {
     return UIColorRGBA(((rgbValue & 0xFF0000) >> 16) / 255.0f,
                        ((rgbValue & 0xFF00) >> 8) / 255.0f,
                        (rgbValue & 0xFF) / 255.0f,
                        alpha);
 }
 
-- (uint32_t)rgbValue {
+- (uint32_t)lf_rgbValue {
     CGFloat r = 0, g = 0, b = 0, a = 0;
     [self getRed:&r green:&g blue:&b alpha:&a];
     int8_t red = r * 255;
@@ -304,7 +304,7 @@ void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
     return (red << 16) + (green << 8) + blue;
 }
 
-- (uint32_t)rgbaValue {
+- (uint32_t)lf_rgbaValue {
     CGFloat r = 0, g = 0, b = 0, a = 0;
     [self getRed:&r green:&g blue:&b alpha:&a];
     int8_t red = r * 255;
@@ -322,7 +322,7 @@ static inline NSUInteger hexStrToInt(NSString *str) {
 
 static BOOL hexStrToRGBA(NSString *str,
                          CGFloat *r, CGFloat *g, CGFloat *b, CGFloat *a) {
-    str = [[str stringByTrim] uppercaseString];
+    str = [[str lf_stringByTrim] uppercaseString];
     if ([str hasPrefix:@"#"]) {
         str = [str substringFromIndex:1];
     } else if ([str hasPrefix:@"0X"]) {
@@ -352,7 +352,7 @@ static BOOL hexStrToRGBA(NSString *str,
     return YES;
 }
 
-+ (instancetype)colorWithHexString:(NSString *)hexStr {
++ (instancetype)lf_colorWithHexString:(NSString *)hexStr {
     CGFloat r, g, b, a;
     if (hexStrToRGBA(hexStr, &r, &g, &b, &a)) {
         return UIColorRGBA(r, g, b, a);
@@ -360,16 +360,16 @@ static BOOL hexStrToRGBA(NSString *str,
     return nil;
 }
 
-+ (UIColor *)colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha {
-    UIColor *color = [self colorWithHexString:hexStr];
++ (UIColor *)lf_colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha {
+    UIColor *color = [self lf_colorWithHexString:hexStr];
     return [color colorWithAlphaComponent:alpha];
 }
 
-- (NSString *)hexString {
+- (NSString *)lf_hexString {
     return [self hexStringWithAlpha:NO];
 }
 
-- (NSString *)hexStringWithAlpha {
+- (NSString *)lf_hexStringWithAlpha {
     return [self hexStringWithAlpha:YES];
 }
 
@@ -396,7 +396,7 @@ static BOOL hexStrToRGBA(NSString *str,
     return hex;
 }
 
-- (UIColor *)colorByAddColor:(UIColor *)add blendMode:(CGBlendMode)blendMode {
+- (UIColor *)lf_colorByAddColor:(UIColor *)add blendMode:(CGBlendMode)blendMode {
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGBitmapInfo bitmapInfo = kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big;
     uint8_t pixel[4] = { 0 };
@@ -414,7 +414,7 @@ static BOOL hexStrToRGBA(NSString *str,
                        pixel[3] / 255.0f);
 }
 
-- (UIColor *)colorByChangeHue:(CGFloat)h saturation:(CGFloat)s brightness:(CGFloat)b alpha:(CGFloat)a {
+- (UIColor *)lf_colorByChangeHue:(CGFloat)h saturation:(CGFloat)s brightness:(CGFloat)b alpha:(CGFloat)a {
     CGFloat hh, ss, bb, aa;
     if (![self getHue:&hh saturation:&ss brightness:&bb alpha:&aa]) {
         return nil;
@@ -431,7 +431,7 @@ static BOOL hexStrToRGBA(NSString *str,
     return UIColorHSBA(hh, ss, bb, aa);
 }
 
-- (BOOL)getHue:(CGFloat *)hue
+- (BOOL)lf_getHue:(CGFloat *)hue
     saturation:(CGFloat *)saturation
      lightness:(CGFloat *)lightness
          alpha:(CGFloat *)alpha {
@@ -444,7 +444,7 @@ static BOOL hexStrToRGBA(NSString *str,
     return YES;
 }
 
-- (BOOL)getCyan:(CGFloat *)cyan
+- (BOOL)lf_getCyan:(CGFloat *)cyan
         magenta:(CGFloat *)magenta
          yellow:(CGFloat *)yellow
           black:(CGFloat *)black

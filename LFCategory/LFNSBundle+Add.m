@@ -29,7 +29,7 @@
     return scales;
 }
 
-+ (NSString *)pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)bundlePath {
++ (NSString *)lf_pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)bundlePath {
     if (name.length == 0) return nil;
     if ([name hasSuffix:@"/"]) return [self pathForResource:name ofType:ext inDirectory:bundlePath];
     
@@ -39,8 +39,8 @@
     NSArray *scales = [NSBundle allScales];
     for (int s = 0; s < scales.count; s++) {
         CGFloat scale = ((NSNumber *)scales[s]).floatValue;
-        NSString *scaledName = ext.length ? [name stringByAppendingNameScale:scale]
-        : [name stringByAppendingPathScale:scale];
+        NSString *scaledName = ext.length ? [name lf_stringByAppendingNameScale:scale]
+        : [name lf_stringByAppendingPathScale:scale];
         path = [self pathForResource:scaledName ofType:ext inDirectory:bundlePath];
         if (path) break;
     }
@@ -48,7 +48,7 @@
     return path;
 }
 
-- (NSString *)pathForScaledResource:(NSString *)name ofType:(NSString *)ext {
+- (NSString *)lf_pathForScaledResource:(NSString *)name ofType:(NSString *)ext {
     if (name.length == 0) return nil;
     if ([name hasSuffix:@"/"]) return [self pathForResource:name ofType:ext];
     
@@ -58,8 +58,8 @@
     NSArray *scales = [NSBundle allScales];
     for (int s = 0; s < scales.count; s++) {
         CGFloat scale = ((NSNumber *)scales[s]).floatValue;
-        NSString *scaledName = ext.length ? [name stringByAppendingNameScale:scale]
-        : [name stringByAppendingPathScale:scale];
+        NSString *scaledName = ext.length ? [name lf_stringByAppendingNameScale:scale]
+        : [name lf_stringByAppendingPathScale:scale];
         path = [self pathForResource:scaledName ofType:ext];
         if (path) break;
     }
@@ -67,7 +67,7 @@
     return path;
 }
 
-- (NSString *)pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)subpath {
+- (NSString *)lf_pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)subpath {
     if (name.length == 0) return nil;
     if ([name hasSuffix:@"/"]) return [self pathForResource:name ofType:ext];
     
@@ -77,8 +77,8 @@
     NSArray *scales = [NSBundle allScales];
     for (int s = 0; s < scales.count; s++) {
         CGFloat scale = ((NSNumber *)scales[s]).floatValue;
-        NSString *scaledName = ext.length ? [name stringByAppendingNameScale:scale]
-        : [name stringByAppendingPathScale:scale];
+        NSString *scaledName = ext.length ? [name lf_stringByAppendingNameScale:scale]
+        : [name lf_stringByAppendingPathScale:scale];
         path = [self pathForResource:scaledName ofType:ext inDirectory:subpath];
         if (path) break;
     }

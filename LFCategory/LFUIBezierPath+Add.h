@@ -23,6 +23,6 @@
  @param font The font to generate glyph path.
  @return A new path object with the text and font, or nil when an error occurs.
  */
-+ (UIBezierPath *)bezierPathWithText:(NSString *)text font:(UIFont *)font;
++ (UIBezierPath *)lf_bezierPathWithText:(NSString *)text font:(UIFont *)font;
 
 @end

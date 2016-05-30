@@ -10,12 +10,12 @@
 
 @interface NSString(LFURLStringAdditions)
 
-- (NSString*) urlEncode2:(NSStringEncoding)stringEncoding;
+- (NSString*) lf_urlEncode2:(NSStringEncoding)stringEncoding;
 
-+ (BOOL)stringIsNull:(NSString *)string;
++ (BOOL)lf_stringIsNull:(NSString *)string;
 
-- (NSString*) urlDecode:(NSStringEncoding)stringEncoding;
-- (NSDictionary*)queryContentsDicUsingEncoding:(NSStringEncoding)encoding;
+- (NSString*) lf_urlDecode:(NSStringEncoding)stringEncoding;
+- (NSDictionary*)lf_queryContentsDicUsingEncoding:(NSStringEncoding)encoding;
 
-- (NSURL*)toURL;
+- (NSURL*)lf_toURL;
 @end

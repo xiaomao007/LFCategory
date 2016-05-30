@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (LFViewIsDisplayingAdditons)
-- (BOOL)isDisplayedInScreen;
+- (BOOL)lf_isDisplayedInScreen;
 @end

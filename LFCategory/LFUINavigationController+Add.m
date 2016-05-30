@@ -10,7 +10,7 @@
 
 @implementation UINavigationController (LFAdditions)
 
-- (void)pushViewController: (UIViewController*)controller
+- (void)lf_pushViewController: (UIViewController*)controller
     animatedWithTransition: (UIViewAnimationTransition)transition {
     [self pushViewController:controller animated:NO];
     
@@ -22,7 +22,7 @@
     [UIView commitAnimations];
 }
 
-- (UIViewController*)popViewControllerAnimatedWithTransition:(UIViewAnimationTransition)transition {
+- (UIViewController*)lf_popViewControllerAnimatedWithTransition:(UIViewAnimationTransition)transition {
     UIViewController* poppedController = [self popViewControllerAnimated:NO];
     
     [UIView beginAnimations:nil context:NULL];

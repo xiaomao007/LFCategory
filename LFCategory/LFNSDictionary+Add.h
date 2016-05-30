@@ -21,22 +21,22 @@ FOUNDATION_STATIC_INLINE BOOL NSDictionaryIsEmpty(NSDictionary *dictionary)
 @interface NSDictionary (LFNSDictionaryAdditions)
 
 /// 返回所有key (按字典序排列)
-- (NSArray *)allKeysSorted;
+- (NSArray *)lf_allKeysSorted;
 
 /// 返回所有value (按key的字典序排列)
-- (NSArray *)allValuesSortedByKeys;
+- (NSArray *)lf_allValuesSortedByKeys;
 
 /// 是否包含 key
-- (BOOL)containsObjectForKey:(id)key;
+- (BOOL)lf_containsObjectForKey:(id)key;
 
 /// 根据一组 key 来取对象
-- (NSDictionary *)entriesForKeys:(NSArray *)keys;
+- (NSDictionary *)lf_entriesForKeys:(NSArray *)keys;
 
 /// 编码为 json 字符串。 如果出错则返回nil。 内容支持NSString/NSNumber/NSDictionary/NSArray
-- (NSString *)jsonStringEncoded;
+- (NSString *)lf_jsonStringEncoded;
 
 /// 编码为 json 字符串(带格式)。 如果出错则返回nil。 内容支持NSString/NSNumber/NSDictionary/NSArray
-- (NSString *)jsonPrettyStringEncoded;
+- (NSString *)lf_jsonPrettyStringEncoded;
 
 /**
  尝试解析 XML，并包装为 dictionary。
@@ -49,7 +49,7 @@ FOUNDATION_STATIC_INLINE BOOL NSDictionaryIsEmpty(NSDictionary *dictionary)
  
  @return Return a new dictionary, or nil if an error occurs.
  */
-+ (NSDictionary *)dictionaryWithXML:(id)xmlDataOrString;
++ (NSDictionary *)lf_dictionaryWithXML:(id)xmlDataOrString;
 
 @end
 
@@ -61,9 +61,9 @@ FOUNDATION_STATIC_INLINE BOOL NSDictionaryIsEmpty(NSDictionary *dictionary)
 @interface NSMutableDictionary (LFNSMutableDictionaryAdditions)
 
 /// 移除并返回一个对象
-- (id)popObjectForKey:(id)aKey;
+- (id)lf_popObjectForKey:(id)aKey;
 
 /// 移除并返回一组对象
-- (NSDictionary *)popEntriesForKeys:(NSArray *)keys;
+- (NSDictionary *)lf_popEntriesForKeys:(NSArray *)keys;
 
 @end

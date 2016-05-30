@@ -20,26 +20,26 @@ typedef NS_ENUM(NSUInteger, UIViewSeparatorDirection) {
  *
  *  @return self;
  */
-+(id)loadFromXib;
++(id)lf_loadFromXib;
 
 /**
  *  用代码创建Cell时候设置的cellIdentifier
  *
  *  @return cellIdentifier;
  */
-+(NSString*)cellIdentifier;
++(NSString*)lf_cellIdentifier;
 /**
  *  用代码创建Cell
  *
  *  @return self;
  */
 
-+(id)loadFromCellStyle:(UITableViewCellStyle)cellStyle;
++(id)lf_loadFromCellStyle:(UITableViewCellStyle)cellStyle;
 
 /**
  *  填充cell的对象
  *  子类去实现
  */
 
-- (void)createSeparatorOfView:(UIView *)view Direction:(UIViewSeparatorDirection)direction edgeNum:(float)edgeNum;
+- (void)lf_createSeparatorOfView:(UIView *)view Direction:(UIViewSeparatorDirection)direction edgeNum:(float)edgeNum;
 @end

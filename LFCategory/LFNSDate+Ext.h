@@ -11,20 +11,20 @@
 
 
 @interface NSDate(NSDateExt)
-- (NSString *)stringForTimeLaifeng;
-- (NSString *)stringForDateline;
-- (NSString *)stringForTimeToday;
-- (NSString *)stringForTimeTomorrow;
-- (NSString *)stringForTimeCommon;
-- (NSString *)stringForHourLaifeng;
-- (NSString *)stringForDayLaifeng;
-- (NSAttributedString *)attributedStringForTimeToday;
-- (NSAttributedString *)attributedStringForTimeTomorrow;
-- (NSAttributedString *)attributedStringForCommon;
+- (NSString *)lf_stringForTimeLaifeng;
+- (NSString *)lf_stringForDateline;
+- (NSString *)lf_stringForTimeToday;
+- (NSString *)lf_stringForTimeTomorrow;
+- (NSString *)lf_stringForTimeCommon;
+- (NSString *)lf_stringForHourLaifeng;
+- (NSString *)lf_stringForDayLaifeng;
+- (NSAttributedString *)lf_attributedStringForTimeToday;
+- (NSAttributedString *)lf_attributedStringForTimeTomorrow;
+- (NSAttributedString *)lf_attributedStringForCommon;
 
-- (NSString *)stringForFeed;
-- (BOOL)isToday;
-- (BOOL)isYesterday;
-- (BOOL)isTodayBirthday;
-- (BOOL)isLast30Mins;
+- (NSString *)lf_stringForFeed;
+- (BOOL)lf_isToday;
+- (BOOL)lf_isYesterday;
+- (BOOL)lf_isTodayBirthday;
+- (BOOL)lf_isLast30Mins;
 @end

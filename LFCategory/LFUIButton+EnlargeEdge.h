@@ -12,8 +12,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (LFEnlargeEdgeAdditions)
-- (void)setEnlargeEdge:(CGFloat) size;
-- (void)setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left;
+- (void)lf_setEnlargeEdge:(CGFloat) size;
+- (void)lf_setEnlargeEdgeWithTop:(CGFloat) top right:(CGFloat) right bottom:(CGFloat) bottom left:(CGFloat) left;
 @end
 
 #endif

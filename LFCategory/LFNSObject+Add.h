@@ -54,7 +54,7 @@
      NSValue *frameValue = [view performSelectorWithArgs:@selector(frame)];
      CGRect frame = frameValue.CGRectValue;
  */
-- (id)performSelectorWithArgs:(SEL)sel, ...;
+- (id)lf_performSelectorWithArgs:(SEL)sel, ...;
 
 /**
  Invokes a method of the receiver on the current thread using the default mode after a delay.
@@ -81,7 +81,7 @@
      // variable arg is not object
      [view performSelectorWithArgs:@selector(setCenter:), afterDelay:0, CGPointMake(0, 0)];
  */
-- (void)performSelectorWithArgs:(SEL)sel afterDelay:(NSTimeInterval)delay, ...;
+- (void)lf_performSelectorWithArgs:(SEL)sel afterDelay:(NSTimeInterval)delay, ...;
 
 /**
  Invokes a method of the receiver on the main thread using the default mode.
@@ -113,7 +113,7 @@
      // variable arg is not object
      [view performSelectorWithArgsOnMainThread:@selector(setCenter:), waitUntilDone:NO, CGPointMake(0, 0)];
  */
-- (id)performSelectorWithArgsOnMainThread:(SEL)sel waitUntilDone:(BOOL)wait, ...;
+- (id)lf_performSelectorWithArgsOnMainThread:(SEL)sel waitUntilDone:(BOOL)wait, ...;
 
 /**
  Invokes a method of the receiver on the specified thread using the default mode.
@@ -149,7 +149,7 @@
          return [num2 compare:num2];
      }];
  */
-- (id)performSelectorWithArgs:(SEL)sel onThread:(NSThread *)thread waitUntilDone:(BOOL)wait, ...;
+- (id)lf_performSelectorWithArgs:(SEL)sel onThread:(NSThread *)thread waitUntilDone:(BOOL)wait, ...;
 
 /**
  Invokes a method of the receiver on a new background thread.
@@ -173,7 +173,7 @@
         return [num2 compare:num2];
      }];
  */
-- (void)performSelectorWithArgsInBackground:(SEL)sel, ...;
+- (void)lf_performSelectorWithArgsInBackground:(SEL)sel, ...;
 
 /**
  Invokes a method of the receiver on the current thread after a delay.
@@ -198,7 +198,7 @@
               in the default mode; otherwise, the timer waits until the run loop
               is in the default mode.
  */
-- (void)performSelector:(SEL)sel afterDelay:(NSTimeInterval)delay;
+- (void)lf_performSelector:(SEL)sel afterDelay:(NSTimeInterval)delay;
 
 
 #pragma mark - Swap method (Swizzling)
@@ -213,7 +213,7 @@
  @param newSel        Selector 2.
  @return              YES if swizzling succeed; otherwize, NO.
  */
-+ (BOOL)swizzleInstanceMethod:(SEL)originalSel with:(SEL)newSel;
++ (BOOL)lf_swizzleInstanceMethod:(SEL)originalSel with:(SEL)newSel;
 
 /**
  Swap two class method's implementation in one class. Dangerous, be careful.
@@ -222,7 +222,7 @@
  @param newSel        Selector 2.
  @return              YES if swizzling succeed; otherwize, NO.
  */
-+ (BOOL)swizzleClassMethod:(SEL)originalSel with:(SEL)newSel;
++ (BOOL)lf_swizzleClassMethod:(SEL)originalSel with:(SEL)newSel;
 
 
 #pragma mark - Associate value
@@ -236,7 +236,7 @@
  @param value   The object to associate.
  @param key     The pointer to get value from `self`.
  */
-- (void)setAssociateValue:(id)value withKey:(void *)key;
+- (void)lf_setAssociateValue:(id)value withKey:(void *)key;
 
 /**
  Associate one object to `self`, as if it was a weak property (week, nonatomic).
@@ -244,19 +244,19 @@
  @param value  The object to associate.
  @param key    The pointer to get value from `self`.
  */
-- (void)setAssociateWeakValue:(id)value withKey:(void *)key;
+- (void)lf_setAssociateWeakValue:(id)value withKey:(void *)key;
 
 /**
  Get the associated value from `self`.
  
  @param key The pointer to get value from `self`.
  */
-- (id)getAssociatedValueForKey:(void *)key;
+- (id)lf_getAssociatedValueForKey:(void *)key;
 
 /**
  Remove all associated values.
  */
-- (void)removeAssociatedValues;
+- (void)lf_removeAssociatedValues;
 
 
 #pragma mark - Others
@@ -267,11 +267,11 @@
 /**
  Returns the class name in NSString.
  */
-+ (NSString *)className;
++ (NSString *)lf_className;
 
 /**
  Returns the class name in NSString.
  */
-- (NSString *)className;
+- (NSString *)lf_className;
 
 @end

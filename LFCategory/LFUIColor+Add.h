@@ -116,7 +116,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  @return           The color object. The color information represented by this 
                    object is in the device RGB colorspace.
  */
-+ (UIColor *)colorWithHue:(CGFloat)hue
++ (UIColor *)lf_colorWithHue:(CGFloat)hue
                saturation:(CGFloat)saturation
                 lightness:(CGFloat)lightness
                     alpha:(CGFloat)alpha;
@@ -143,7 +143,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  @return        The color object. The color information represented by this 
                 object is in the device RGB colorspace.
  */
-+ (UIColor *)colorWithCyan:(CGFloat)cyan
++ (UIColor *)lf_colorWithCyan:(CGFloat)cyan
                    magenta:(CGFloat)magenta
                     yellow:(CGFloat)yellow
                      black:(CGFloat)black
@@ -157,7 +157,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  @return          The color object. The color information represented by this
                   object is in the device RGB colorspace.
  */
-+ (UIColor *)colorWithRGB:(uint32_t)rgbValue;
++ (UIColor *)lf_colorWithRGB:(uint32_t)rgbValue;
 
 /**
  Creates and returns a color object using the hex RGBA color values.
@@ -167,7 +167,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  @return           The color object. The color information represented by this 
                    object is in the device RGB colorspace.
  */
-+ (UIColor *)colorWithRGBA:(uint32_t)rgbaValue;
++ (UIColor *)lf_colorWithRGBA:(uint32_t)rgbaValue;
 
 /**
  Creates and returns a color object using the specified opacity and RGB hex value.
@@ -180,7 +180,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  @return          The color object. The color information represented by this 
                   object is in the device RGB colorspace.
  */
-+ (UIColor *)colorWithRGB:(uint32_t)rgbValue alpha:(CGFloat)alpha;
++ (UIColor *)lf_colorWithRGB:(uint32_t)rgbValue alpha:(CGFloat)alpha;
 
 /**
  支持格式: #rgb #rgba #rrggbb #rrggbbaa 0xrgb ...
@@ -193,12 +193,12 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  
  @return        An UIColor object from string, or nil if an error occurs.
  */
-+ (UIColor *)colorWithHexString:(NSString *)hexStr;
++ (UIColor *)lf_colorWithHexString:(NSString *)hexStr;
 
 /**
  和 colorWithHexString 一样，但抛弃 hex 中的 alpha 部分，改为参数传入
  */
-+ (UIColor *)colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha;
++ (UIColor *)lf_colorWithHexString:(NSString *)hexStr alpha:(CGFloat)alpha;
 
 /**
  Creates and returns a color object by add new color.
@@ -207,7 +207,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  
  @param blendMode  add color blend mode
  */
-- (UIColor *)colorByAddColor:(UIColor *)add blendMode:(CGBlendMode)blendMode;
+- (UIColor *)lf_colorByAddColor:(UIColor *)add blendMode:(CGBlendMode)blendMode;
 
 /**
  Creates and returns a color object by change components.
@@ -224,7 +224,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  @param alphaDelta       the alpha change delta specified as a value 
                          from -1.0 to 1.0. 0 means no change.
  */
-- (UIColor *)colorByChangeHue:(CGFloat)hueDelta
+- (UIColor *)lf_colorByChangeHue:(CGFloat)hueDelta
                    saturation:(CGFloat)saturationDelta
                    brightness:(CGFloat)brightnessDelta
                         alpha:(CGFloat)alphaDelta;
@@ -239,14 +239,14 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  Returns the rgb value in hex.
  @return hex value of RGB,such as 0x66ccff.
  */
-- (uint32_t)rgbValue;
+- (uint32_t)lf_rgbValue;
 
 /**
  Returns the rgba value in hex.
  
  @return hex value of RGBA,such as 0x66ccffff.
  */
-- (uint32_t)rgbaValue;
+- (uint32_t)lf_rgbaValue;
 
 /**
  Returns the color's RGB value as a hex string (lowercase).
@@ -256,7 +256,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  
  @return The color's value as a hex string.
  */
-- (NSString *)hexString;
+- (NSString *)lf_hexString;
 
 /**
  Returns the color's RGBA value as a hex string (lowercase).
@@ -266,7 +266,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  
  @return The color's value as a hex string.
  */
-- (NSString *)hexStringWithAlpha;
+- (NSString *)lf_hexStringWithAlpha;
 
 
 #pragma mark - Retrieving Color Information
@@ -291,7 +291,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  
  @return            YES if the color could be converted, NO otherwise.
  */
-- (BOOL)getHue:(CGFloat *)hue
+- (BOOL)lf_getHue:(CGFloat *)hue
     saturation:(CGFloat *)saturation
      lightness:(CGFloat *)lightness
          alpha:(CGFloat *)alpha;
@@ -316,7 +316,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  
  @return         YES if the color could be converted, NO otherwise.
  */
-- (BOOL)getCyan:(CGFloat *)cyan
+- (BOOL)lf_getCyan:(CGFloat *)cyan
         magenta:(CGFloat *)magenta
          yellow:(CGFloat *)yellow
           black:(CGFloat *)black

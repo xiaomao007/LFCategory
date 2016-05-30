@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (LFCutScreenAdditions)
-+ (UIImage *)cutScreen;
++ (UIImage *)lf_cutScreen;
 @end

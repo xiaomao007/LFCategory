@@ -13,7 +13,7 @@
 @implementation NSString(LFURLStringAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString*) urlEncode2:(NSStringEncoding)stringEncoding
+- (NSString*) lf_urlEncode2:(NSStringEncoding)stringEncoding
 {
     
     NSArray *escapeChars = [NSArray arrayWithObjects:@";", @"/", @"?", @":",
@@ -49,7 +49,7 @@
 }
 
 // 判断字符串是否为空
-+ (BOOL)stringIsNull:(NSString *)string
++ (BOOL)lf_stringIsNull:(NSString *)string
 {
     if (!string) {
         return YES;
@@ -65,7 +65,7 @@
     }
 }
 
-- (NSString*) urlDecode:(NSStringEncoding)stringEncoding
+- (NSString*) lf_urlDecode:(NSStringEncoding)stringEncoding
 {
     
     NSArray *escapeChars = [NSArray arrayWithObjects:@";", @"/", @"?", @":",
@@ -97,7 +97,7 @@
     return [outStr stringByReplacingPercentEscapesUsingEncoding:stringEncoding];
 }
 
-- (NSDictionary*)queryContentsDicUsingEncoding:(NSStringEncoding)encoding {
+- (NSDictionary*)lf_queryContentsDicUsingEncoding:(NSStringEncoding)encoding {
     NSCharacterSet* delimiterSet = [NSCharacterSet characterSetWithCharactersInString:@"&;"];
     NSMutableDictionary* pairs = [NSMutableDictionary dictionary];
     NSScanner* scanner = [[NSScanner alloc] initWithString:self];
@@ -118,8 +118,8 @@
 }
 
 
-- (NSURL *)toURL {
-    if ([self isNotBlank]) {
+- (NSURL *)lf_toURL {
+    if ([self lf_isNotBlank]) {
         return [NSURL URLWithString:self];
     }
     return nil;

@@ -12,7 +12,7 @@
 
 @implementation NSDictionary (LFModelValueAdditions)
 
--(NSTimeInterval)timeIntervalForKey:(NSString *)key withDefault:(NSTimeInterval)defVal{
+-(NSTimeInterval)lf_timeIntervalForKey:(NSString *)key withDefault:(NSTimeInterval)defVal{
     @try {
         return [[self objectForKey:key] doubleValue];
     }
@@ -21,9 +21,9 @@
     }
 }
 
-- (NSDate *)timestampDataForKey:(NSString *)key withDefault:(NSDate *)defVal {
+- (NSDate *)lf_timestampDataForKey:(NSString *)key withDefault:(NSDate *)defVal {
     if (self[key]) {
-        SInt64 timestamp = [self longLongForKey:key withDefault:0];
+        SInt64 timestamp = [self lf_longLongForKey:key withDefault:0];
         if (timestamp == 0) return nil;
         return [NSDate dateWithTimeIntervalSince1970:timestamp / 1000.0];
     } else {
@@ -32,11 +32,11 @@
 }
 
 
-- (NSString*)queryString {
+- (NSString*)lf_queryString {
 	NSMutableString* buffer = [[NSMutableString alloc] initWithCapacity:0];
 	for (id key in self) {
 		NSString* value = [NSString stringWithFormat:@"%@",[self objectForKey:key]];
-		value = [value urlEncode2:NSUTF8StringEncoding];
+		value = [value lf_urlEncode2:NSUTF8StringEncoding];
 		[buffer appendString:[NSString stringWithFormat:@"&%@=%@", key, value]];
 	}
 	NSString* ret = [buffer substringFromIndex:1];
@@ -98,67 +98,67 @@ static NSNumber *NSNumberFromID(id value) {
     }                                                 \
     return def;
 
-- (BOOL)boolForKey:(NSString *)key withDefault:(BOOL)def {
+- (BOOL)lf_boolForKey:(NSString *)key withDefault:(BOOL)def {
     RETURN_VALUE(boolValue);
 }
 
-- (char)charForKey:(NSString *)key withDefault:(char)def {
+- (char)lf_charForKey:(NSString *)key withDefault:(char)def {
     RETURN_VALUE(charValue);
 }
 
-- (unsigned char)unsignedCharForKey:(NSString *)key withDefault:(unsigned char)def {
+- (unsigned char)lf_unsignedCharForKey:(NSString *)key withDefault:(unsigned char)def {
     RETURN_VALUE(unsignedCharValue);
 }
 
-- (short)shortForKey:(NSString *)key withDefault:(short)def {
+- (short)lf_shortForKey:(NSString *)key withDefault:(short)def {
     RETURN_VALUE(shortValue);
 }
 
-- (unsigned short)unsignedShortForKey:(NSString *)key withDefault:(unsigned short)def {
+- (unsigned short)lf_unsignedShortForKey:(NSString *)key withDefault:(unsigned short)def {
     RETURN_VALUE(unsignedShortValue);
 }
 
-- (int)intForKey:(NSString *)key withDefault:(int)def {
+- (int)lf_intForKey:(NSString *)key withDefault:(int)def {
     RETURN_VALUE(intValue);
 }
 
-- (unsigned int)unsignedIntForKey:(NSString *)key withDefault:(unsigned int)def {
+- (unsigned int)lf_unsignedIntForKey:(NSString *)key withDefault:(unsigned int)def {
     RETURN_VALUE(unsignedIntValue);
 }
 
-- (long)longForKey:(NSString *)key withDefault:(long)def {
+- (long)lf_longForKey:(NSString *)key withDefault:(long)def {
     RETURN_VALUE(longValue);
 }
 
-- (unsigned long)unsignedLongForKey:(NSString *)key withDefault:(unsigned long)def {
+- (unsigned long)lf_unsignedLongForKey:(NSString *)key withDefault:(unsigned long)def {
     RETURN_VALUE(unsignedLongValue);
 }
 
-- (long long)longLongForKey:(NSString *)key withDefault:(long long)def {
+- (long long)lf_longLongForKey:(NSString *)key withDefault:(long long)def {
     RETURN_VALUE(longLongValue);
 }
 
-- (unsigned long long)unsignedLongLongForKey:(NSString *)key withDefault:(unsigned long long)def {
+- (unsigned long long)lf_unsignedLongLongForKey:(NSString *)key withDefault:(unsigned long long)def {
     RETURN_VALUE(unsignedLongLongValue);
 }
 
-- (float)floatForKey:(NSString *)key withDefault:(float)def {
+- (float)lf_floatForKey:(NSString *)key withDefault:(float)def {
     RETURN_VALUE(floatValue);
 }
 
-- (double)doubleForKey:(NSString *)key withDefault:(double)def {
+- (double)lf_doubleForKey:(NSString *)key withDefault:(double)def {
     RETURN_VALUE(doubleValue);
 }
 
-- (NSInteger)integerForKey:(NSString *)key withDefault:(NSInteger)def {
+- (NSInteger)lf_integerForKey:(NSString *)key withDefault:(NSInteger)def {
     RETURN_VALUE(integerValue);
 }
 
-- (NSUInteger)unsignedIntegerForKey:(NSString *)key withDefault:(NSUInteger)def {
+- (NSUInteger)lf_unsignedIntegerForKey:(NSString *)key withDefault:(NSUInteger)def {
     RETURN_VALUE(unsignedIntegerValue);
 }
 
-- (NSNumber *)numberForKey:(NSString *)key withDefault:(NSNumber *)def {
+- (NSNumber *)lf_numberForKey:(NSString *)key withDefault:(NSNumber *)def {
     if (!key) return def;
     id value = self[key];
     if (!value || value == [NSNull null]) return def;
@@ -171,7 +171,7 @@ static NSNumber *NSNumberFromID(id value) {
     return def;
 }
 
-- (NSString *)stringForKey:(NSString *)key withDefault:(NSString *)def {
+- (NSString *)lf_stringForKey:(NSString *)key withDefault:(NSString *)def {
     if (!key) return def;
     id value = self[key];
     if (!value || value == [NSNull null]) return def;
@@ -181,22 +181,22 @@ static NSNumber *NSNumberFromID(id value) {
     return def;
 }
 
-- (BOOL)boolForKey:(NSString *)key; {return [self boolForKey:key withDefault:NO];}
-- (char)charForKey:(NSString *)key; {return [self charForKey:key withDefault:NO];}
-- (unsigned char)unsignedCharForKey:(NSString *)key; {return [self unsignedCharForKey:key withDefault:0];}
-- (short)shortForKey:(NSString *)key; {return [self shortForKey:key withDefault:0];}
-- (unsigned short)unsignedShortForKey:(NSString *)key; {return [self unsignedShortForKey:key withDefault:0];}
-- (int)intForKey:(NSString *)key; {return [self intForKey:key withDefault:0];}
-- (unsigned int)unsignedIntForKey:(NSString *)key; {return [self unsignedIntForKey:key withDefault:0];}
-- (long)longForKey:(NSString *)key; {return [self longForKey:key withDefault:0];}
-- (unsigned long)unsignedLongForKey:(NSString *)key; {return [self unsignedLongForKey:key withDefault:0];}
-- (long long)longLongForKey:(NSString *)key; {return [self longLongForKey:key withDefault:0];}
-- (unsigned long long)unsignedLongLongForKey:(NSString *)key; {return [self unsignedLongLongForKey:key withDefault:0];}
-- (float)floatForKey:(NSString *)key; {return [self floatForKey:key withDefault:0];}
-- (double)doubleForKey:(NSString *)key; {return [self doubleForKey:key withDefault:0];}
-- (NSInteger)integerForKey:(NSString *)key; {return [self integerForKey:key withDefault:0];}
-- (NSUInteger)unsignedIntegerForKey:(NSString *)key; {return [self unsignedIntegerForKey:key withDefault:0];}
-- (NSNumber *)numberForKey:(NSString *)key; {return [self numberForKey:key withDefault:nil];}
-- (NSString *)stringForKey:(NSString *)key; {return [self stringForKey:key withDefault:nil];}
+- (BOOL)lf_boolForKey:(NSString *)key; {return [self lf_boolForKey:key withDefault:NO];}
+- (char)lf_charForKey:(NSString *)key; {return [self lf_charForKey:key withDefault:NO];}
+- (unsigned char)lf_unsignedCharForKey:(NSString *)key; {return [self lf_unsignedCharForKey:key withDefault:0];}
+- (short)lf_shortForKey:(NSString *)key; {return [self lf_shortForKey:key withDefault:0];}
+- (unsigned short)lf_unsignedShortForKey:(NSString *)key; {return [self lf_unsignedShortForKey:key withDefault:0];}
+- (int)lf_intForKey:(NSString *)key; {return [self lf_intForKey:key withDefault:0];}
+- (unsigned int)lf_unsignedIntForKey:(NSString *)key; {return [self lf_unsignedIntForKey:key withDefault:0];}
+- (long)lf_longForKey:(NSString *)key; {return [self lf_longForKey:key withDefault:0];}
+- (unsigned long)lf_unsignedLongForKey:(NSString *)key; {return [self lf_unsignedLongForKey:key withDefault:0];}
+- (long long)lf_longLongForKey:(NSString *)key; {return [self lf_longLongForKey:key withDefault:0];}
+- (unsigned long long)lf_unsignedLongLongForKey:(NSString *)key; {return [self lf_unsignedLongLongForKey:key withDefault:0];}
+- (float)lf_floatForKey:(NSString *)key; {return [self lf_floatForKey:key withDefault:0];}
+- (double)lf_doubleForKey:(NSString *)key; {return [self lf_doubleForKey:key withDefault:0];}
+- (NSInteger)lf_integerForKey:(NSString *)key; {return [self lf_integerForKey:key withDefault:0];}
+- (NSUInteger)lf_unsignedIntegerForKey:(NSString *)key; {return [self lf_unsignedIntegerForKey:key withDefault:0];}
+- (NSNumber *)lf_numberForKey:(NSString *)key; {return [self lf_numberForKey:key withDefault:nil];}
+- (NSString *)lf_stringForKey:(NSString *)key; {return [self lf_stringForKey:key withDefault:nil];}
 
 @end

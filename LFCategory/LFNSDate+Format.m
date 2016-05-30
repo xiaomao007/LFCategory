@@ -10,14 +10,14 @@
 
 @implementation NSDate (LFFormatAdditions)
 
-- (NSString *)stringWithFormat:(NSString *)format {
+- (NSString *)lf_stringWithFormat:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
     [formatter setLocale:[NSLocale currentLocale]];
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)stringWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
+- (NSString *)lf_stringWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
     if (timeZone) [formatter setTimeZone:timeZone];
@@ -25,20 +25,20 @@
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)stringWithISOFormat {
+- (NSString *)lf_stringWithISOFormat {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
     return [formatter stringFromDate:self];
 }
 
-+ (NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format {
++ (NSDate *)lf_dateWithString:(NSString *)dateString format:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
     return [formatter dateFromString:dateString];
 }
 
-+ (NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
++ (NSDate *)lf_dateWithString:(NSString *)dateString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
     if (timeZone) [formatter setTimeZone:timeZone];
@@ -46,7 +46,7 @@
     return [formatter dateFromString:dateString];
 }
 
-+ (NSDate *)dateWithISOFormatString:(NSString *)dateString {
++ (NSDate *)lf_dateWithISOFormatString:(NSString *)dateString {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";

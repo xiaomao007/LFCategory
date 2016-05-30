@@ -19,18 +19,18 @@
  * @param other 其他的图片资源
  * @returns YES 相等，否则 NO
  */
-- (BOOL)isEqual:(id)other;
+- (BOOL)lf_isEqual:(id)other;
 
 /**
  * @brief 图片资源唯一的标示
  * @returns 唯一的图片资源id
  */
-- (NSString *)uniqueId;
+- (NSString *)lf_uniqueId;
 
 /**
  * @brief 图片资源的拍摄时间
  * @returns 拍摄时间
  */
-- (NSTimeInterval)timeIntervalSince1970;
+- (NSTimeInterval)lf_timeIntervalSince1970;
 
 @end

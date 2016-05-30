@@ -11,23 +11,23 @@
 
 @implementation UITableViewCell (LFCellMethodExtendAdditions)
 
-+ (id)loadFromXib {
++ (id)lf_loadFromXib {
     
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:self options:nil]lastObject];
 }
 
-+ (NSString*)cellIdentifier {
++ (NSString*)lf_cellIdentifier {
 
     return NSStringFromClass(self);
 }
 
-+ (id)loadFromCellStyle:(UITableViewCellStyle)cellStyle {
++ (id)lf_loadFromCellStyle:(UITableViewCellStyle)cellStyle {
     
     return [[self alloc] initWithStyle:cellStyle reuseIdentifier:NSStringFromClass(self)];
 }
 
 
-- (void)createSeparatorOfView:(UIView *)view Direction:(UIViewSeparatorDirection)direction edgeNum:(float)edgeNum {
+- (void)lf_createSeparatorOfView:(UIView *)view Direction:(UIViewSeparatorDirection)direction edgeNum:(float)edgeNum {
     if (view == nil) {
         return;
     }

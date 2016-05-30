@@ -10,8 +10,8 @@
 
 @interface NSObject (LFAddForNotification)
 
-- (void)addNotifName:(NSString *)notifName block:(void(^)(NSNotification *notif))block;
-- (void)removeNotifName:(NSString *)notifName;
-- (void)removeAllNotif;
+- (void)lf_addNotifName:(NSString *)notifName block:(void(^)(NSNotification *notif))block;
+- (void)lf_removeNotifName:(NSString *)notifName;
+- (void)lf_removeAllNotif;
 
 @end

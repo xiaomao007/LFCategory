@@ -12,7 +12,7 @@
 
 @implementation UIBarButtonItem (LFCustomImageAdditions)
 
-- (void)setButtonAttribute:(NSDictionary*)dic
+- (void)lf_setButtonAttribute:(NSDictionary*)dic
 {
     if ([self.customView isKindOfClass:[UIButton class]]) {
         UIButton* button = (UIButton*)self.customView;
@@ -49,14 +49,14 @@
     }
 }
 
-+ (UIBarButtonItem *)rsBarButtonItemWithTitle:(NSString *)title 
++ (UIBarButtonItem *)lf_rsBarButtonItemWithTitle:(NSString *)title
                                         image:(UIImage *)image
                              heightLightImage:(UIImage *)hlImage
                                  disableImage:(UIImage *)disImage
                                        target:(id)target
                                        action:(SEL)selector
 {
-    UIButton* customButton = [self rsCustomBarButtonWithTitle:title
+    UIButton* customButton = [self lf_rsCustomBarButtonWithTitle:title
                                                         image:image
                                              heightLightImage:hlImage
                                                  disableImage:disImage
@@ -64,7 +64,7 @@
                                                        action:selector];
     CGSize sizeOfTitle = CGSizeZero;
     if (title!=nil && ![title isEqualToString:@""]) {
-        sizeOfTitle = [title sizeForFont:customButton.titleLabel.font size:CGSizeMake(100.0f, 22.0f) mode:NSLineBreakByTruncatingMiddle];
+        sizeOfTitle = [title lf_sizeForFont:customButton.titleLabel.font size:CGSizeMake(100.0f, 22.0f) mode:NSLineBreakByTruncatingMiddle];
     }
     
     CGFloat width = 100.0f;
@@ -98,14 +98,14 @@
 }
 
 
-+ (UIBarButtonItem *)rsLeftBarButtonItemWithTitle:(NSString *)title
++ (UIBarButtonItem *)lf_rsLeftBarButtonItemWithTitle:(NSString *)title
                                             image:(UIImage *)image
                                  heightLightImage:(UIImage *)hlImage
                                      disableImage:(UIImage *)disImage
                                            target:(id)target
                                            action:(SEL)selector
 {
-    UIButton* customButton = [self rsCustomBarButtonWithTitle:title
+    UIButton* customButton = [self lf_rsCustomBarButtonWithTitle:title
                                                         image:image
                                              heightLightImage:hlImage
                                                  disableImage:disImage
@@ -113,7 +113,7 @@
                                                        action:selector];
     CGSize sizeOfTitle = CGSizeZero;
     if (title!=nil && ![title isEqualToString:@""]) {
-        sizeOfTitle = [title sizeForFont:customButton.titleLabel.font size:CGSizeMake(100.0f, 22.0f) mode:NSLineBreakByTruncatingMiddle];
+        sizeOfTitle = [title lf_sizeForFont:customButton.titleLabel.font size:CGSizeMake(100.0f, 22.0f) mode:NSLineBreakByTruncatingMiddle];
     }
     
     CGFloat width = 100.0f;
@@ -143,14 +143,14 @@
 }
 
 
-+ (UIBarButtonItem *)rsBarButtonItemWithBellButton:(UIButton *)bellButton
++ (UIBarButtonItem *)lf_rsBarButtonItemWithBellButton:(UIButton *)bellButton
                                              image:(UIImage *)image
                                   heightLightImage:(UIImage *)hlImage
                                       disableImage:(UIImage *)disImage
                                             target:(id)target
                                             action:(SEL)selector
 {
-    UIButton* customButton = [self rsCustomBarButtonWithTitle:nil
+    UIButton* customButton = [self lf_rsCustomBarButtonWithTitle:nil
                                                         image:image
                                              heightLightImage:hlImage
                                                  disableImage:disImage
@@ -195,7 +195,7 @@
     return barBtnItem;
 }
 
-+ (UIBarButtonItem *)rsBarButtonItemWithTitle:(NSString *)title
++ (UIBarButtonItem *)lf_rsBarButtonItemWithTitle:(NSString *)title
                                        target:(id)target
                                        action:(SEL)selector{
     static UIImage * _navigationBarBg;
@@ -222,14 +222,14 @@
     }
 
     if([UIBarButtonItem isHigherIOS7]){
-        return [UIBarButtonItem rsBarButtonItemWithTitle:title
+        return [UIBarButtonItem lf_rsBarButtonItemWithTitle:title
                                                    image:nil
                                         heightLightImage:_navigationBarBgHl
                                             disableImage:nil
                                                   target:target
                                                   action:selector];
     }else{
-        return [UIBarButtonItem rsBarButtonItemWithTitle:title
+        return [UIBarButtonItem lf_rsBarButtonItemWithTitle:title
                                                    image:_navigationBarBg
                                         heightLightImage:_navigationBarBgHl
                                             disableImage:nil
@@ -239,7 +239,7 @@
 
 }
 
-+ (UIButton*)rsCustomBarButtonWithTitle:(NSString*)title
++ (UIButton*)lf_rsCustomBarButtonWithTitle:(NSString*)title
                                   image:(UIImage *)image
                        heightLightImage:(UIImage *)hlImage
                            disableImage:(UIImage *)disImage
@@ -308,12 +308,12 @@
 //    [self setBackgroundImage:image forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
 //}
 
-- (void)setToolBarWithImage:(UIImage *)image
+- (void)lf_setToolBarWithImage:(UIImage *)image
 {
     [self setBackgroundImage:image forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
 }
 
-- (void)clearToolBarImage{
+- (void)lf_clearToolBarImage{
     [self setBackgroundImage:nil forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];
 }
 

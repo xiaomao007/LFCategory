@@ -25,7 +25,7 @@
  
  @param block   The block to register for KVO notifications.
  */
-- (void)addObserverBlockForKeyPath:(NSString*)keyPath block:(void (^)(id obj, id oldVal, id newVal))block;
+- (void)lf_addObserverBlockForKeyPath:(NSString*)keyPath block:(void (^)(id obj, id oldVal, id newVal))block;
 
 /**
  Stops all blocks (associated by `addObserverBlockForKeyPath:block:`) from
@@ -35,12 +35,12 @@
  @param keyPath A key-path, relative to the receiver, for which blocks is 
  registered to receive KVO change notifications.
  */
-- (void)removeObserverBlocksForKeyPath:(NSString*)keyPath;
+- (void)lf_removeObserverBlocksForKeyPath:(NSString*)keyPath;
 
 /**
  Stops all blocks (associated by `addObserverBlockForKeyPath:block:`) from
  receiving change notifications, and release these blocks.
  */
-- (void)removeObserverBlocks;
+- (void)lf_removeObserverBlocks;
 
 @end

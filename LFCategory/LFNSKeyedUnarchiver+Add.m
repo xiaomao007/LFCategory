@@ -12,7 +12,7 @@
 
 @implementation NSKeyedUnarchiver (LFNSKeyedUnarchiverAdditions)
 
-+ (id)unarchiveObjectWithData:(NSData *)data exception:(__autoreleasing NSException **)exception {
++ (id)lf_unarchiveObjectWithData:(NSData *)data exception:(__autoreleasing NSException **)exception {
     id object = nil;
     @try {
         object = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -27,7 +27,7 @@
     return object;
 }
 
-+ (id)unarchiveObjectWithFile:(NSString *)path exception:(__autoreleasing NSException **)exception {
++ (id)lf_unarchiveObjectWithFile:(NSString *)path exception:(__autoreleasing NSException **)exception {
     id object = nil;
     
     @try {

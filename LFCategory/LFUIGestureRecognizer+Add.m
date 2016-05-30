@@ -45,18 +45,18 @@ static const int block_key;
 
 - (instancetype)initWithActionBlock:(void (^)(id sender))block {
     self = [self init];
-    [self addActionBlock:block];
+    [self lf_addActionBlock:block];
     return self;
 }
 
-- (void)addActionBlock:(void (^)(id sender))block {
+- (void)lf_addActionBlock:(void (^)(id sender))block {
     _LFUIGestureRecognizerBlockTarget *target = [[_LFUIGestureRecognizerBlockTarget alloc] initWithBlock:block];
     [self addTarget:target action:@selector(invoke:)];
     NSMutableArray *targets = [self _lf_allUIGestureRecognizerBlockTargets];
     [targets addObject:target];
 }
 
-- (void)removeAllActionBlocks{
+- (void)lf_removeAllActionBlocks{
     NSMutableArray *targets = [self _lf_allUIGestureRecognizerBlockTargets];
     [targets enumerateObjectsUsingBlock:^(id target, NSUInteger idx, BOOL *stop) {
         [self removeTarget:target action:@selector(invoke:)];

@@ -9,7 +9,7 @@
 #import "LFUIView+LFViewIsDisplaying.h"
 
 @implementation UIView (LFViewIsDisplayingAdditons)
-- (BOOL)isDisplayedInScreen {
+- (BOOL)lf_isDisplayedInScreen {
     if (self == nil) {
         return FALSE;
     }

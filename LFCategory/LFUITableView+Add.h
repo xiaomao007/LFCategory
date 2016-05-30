@@ -31,7 +31,7 @@
  
  @param block  A block combine a series of method calls.
  */
-- (void)updateWithBlock:(void (^)(UITableView *tableView))block;
+- (void)lf_updateWithBlock:(void (^)(UITableView *tableView))block;
 
 /**
  Scrolls the receiver until a row or section location on the screen.
@@ -52,7 +52,7 @@
  @param animated        YES if you want to animate the change in position,
                         NO if it should be immediate.
  */
-- (void)scrollToRow:(NSUInteger)row inSection:(NSUInteger)section atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
+- (void)lf_scrollToRow:(NSUInteger)row inSection:(NSUInteger)section atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 
 /**
  Inserts a row in the receiver with an option to animate the insertion.
@@ -64,7 +64,7 @@
  @param animation  A constant that either specifies the kind of animation to
                    perform when inserting the cell or requests no animation. 
  */
-- (void)insertRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_insertRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Reloads the specified row using a certain animation effect.
@@ -80,7 +80,7 @@
                    UITableViewRowAnimationRight, the old rows slide out to the 
                    right and the new cells slide in from the right.
  */
-- (void)reloadRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_reloadRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Deletes the row with an option to animate the deletion.
@@ -92,7 +92,7 @@
  @param animation  A constant that indicates how the deletion is to be animated, 
                    for example, fade out or slide out from the bottom.
  */
-- (void)deleteRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_deleteRow:(NSUInteger)row inSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Inserts the row in the receiver at the locations identified by the indexPath, 
@@ -104,7 +104,7 @@
  @param animation  A constant that either specifies the kind of animation to
                    perform when inserting the cell or requests no animation.
  */
-- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_insertRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Reloads the specified row using a certain animation effect.
@@ -119,7 +119,7 @@
                   UITableViewRowAnimationRight, the old rows slide out to the
                   right and the new cells slide in from the right.
  */
-- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_reloadRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Deletes the row specified by an array of index paths, 
@@ -131,7 +131,7 @@
  @param animation  A constant that indicates how the deletion is to be animated,
                    for example, fade out or slide out from the bottom.
  */
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_deleteRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Inserts a section in the receiver, with an option to animate the insertion.
@@ -143,7 +143,7 @@
  @param animation  A constant that indicates how the insertion is to be animated, 
                    for example, fade in or slide in from the left.
  */
-- (void)insertSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_insertSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Deletes a section in the receiver, with an option to animate the deletion.
@@ -155,7 +155,7 @@
  @param animation  A constant that either specifies the kind of animation to 
                    perform when deleting the section or requests no animation.
  */
-- (void)deleteSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_deleteSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Reloads the specified section using a given animation effect.
@@ -169,13 +169,13 @@
                    animation constant is UITableViewRowAnimationRight, the old 
                    rows slide out to the right and the new cells slide in from the right.
  */
-- (void)reloadSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)lf_reloadSection:(NSUInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
 /**
  Unselect all rows in tableView.
  
  @param animated YES to animate the transition, NO to make the transition immediate.
  */
-- (void)clearSelectedRowsAnimated:(BOOL)animated;
+- (void)lf_clearSelectedRowsAnimated:(BOOL)animated;
 
 @end

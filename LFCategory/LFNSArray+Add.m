@@ -13,18 +13,18 @@
 
 @implementation NSArray (LFNSArrayAdditions)
 
-- (id)randomObject {
+- (id)lf_randomObject {
     if (self.count) {
         return self[arc4random_uniform((u_int32_t)self.count)];
     }
     return nil;
 }
 
-- (id)objectOrNilAtIndex:(NSUInteger)index {
+- (id)lf_objectOrNilAtIndex:(NSUInteger)index {
     return index < self.count ? self[index] : nil;
 }
 
-- (NSString *)jsonStringEncoded {
+- (NSString *)lf_jsonStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:0 error:&error];
@@ -34,7 +34,7 @@
     return nil;
 }
 
-- (NSString *)jsonPrettyStringEncoded {
+- (NSString *)lf_jsonPrettyStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];

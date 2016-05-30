@@ -14,13 +14,13 @@
 
 
 // 图片资源唯一的标示
-- (NSString *)uniqueId
+- (NSString *)lf_uniqueId
 {
-    return [NSString stringWithFormat:@"%@%f", [self uniqueFileName], [self timeIntervalSince1970]];
+    return [NSString stringWithFormat:@"%@%f", [self uniqueFileName], [self lf_timeIntervalSince1970]];
 }
 
 // 比较两个图片资源指向的对象是否相等
-- (BOOL)isEqual:(id)other
+- (BOOL)lf_isEqual:(id)other
 {
     if (other == self)
         return YES;
@@ -28,7 +28,7 @@
     if (!other || ![other isKindOfClass:[self class]])
         return NO;
     
-    if (self.timeIntervalSince1970 == ((ALAsset *)other).timeIntervalSince1970) { // 比较拍摄时间
+    if (self.lf_timeIntervalSince1970 == ((ALAsset *)other).lf_timeIntervalSince1970) { // 比较拍摄时间
         NSString* selfUniqueFileName = self.uniqueFileName;
         NSString* otherUniqueFileName = ((ALAsset *)other).uniqueFileName;
         return [selfUniqueFileName isEqualToString:otherUniqueFileName];     // 比较文件名
@@ -54,7 +54,7 @@
 }
 
 // 图片资源的拍摄时间
-- (NSTimeInterval)timeIntervalSince1970
+- (NSTimeInterval)lf_timeIntervalSince1970
 {
     NSDate * date = [self valueForProperty:ALAssetPropertyDate];
     return [date timeIntervalSince1970];

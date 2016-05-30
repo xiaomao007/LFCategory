@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (LFAudioIconAdditions)
--(UIImage*)bringAutoIconImage;
+-(UIImage*)lf_bringAutoIconImage;
 @end

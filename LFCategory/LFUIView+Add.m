@@ -12,7 +12,7 @@
 
 @implementation UIView (LFAdditions)
 
-- (UIImage *)snapshotImage {
+- (UIImage *)lf_snapshotImage {
     UIImage *image = nil;
     if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0);
@@ -29,7 +29,7 @@
     return image;
 }
 
-- (NSData *)snapshotPDF {
+- (NSData *)lf_snapshotPDF {
     CGRect bounds = self.bounds;
     NSMutableData* data = [NSMutableData data];
     CGDataConsumerRef consumer = CGDataConsumerCreateWithCFData((__bridge CFMutableDataRef)data);
@@ -46,7 +46,7 @@
     return data;
 }
 
-- (void)setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius {
+- (void)lf_setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius {
     self.layer.shadowColor = color.CGColor;
     self.layer.shadowOffset = offset;
     self.layer.shadowRadius = radius;
@@ -59,7 +59,7 @@
 #define kShadowViewTag 2132
 #define kValidDirections [NSArray arrayWithObjects: @"top", @"bottom", @"left", @"right",nil]
 
-- (void) makeInsetShadow
+- (void) lf_makeInsetShadow
 {
     NSArray *shadowDirections = [NSArray arrayWithObjects:@"top", @"bottom", @"left" , @"right" , nil];
     UIColor *color = [UIColor colorWithRed:(0.0) green:(0.0) blue:(0.0) alpha:0.5];
@@ -70,7 +70,7 @@
     [self addSubview:shadowView];
 }
 
-- (void) makeInsetShadowWithRadius:(float)radius Alpha:(float)alpha
+- (void) lf_makeInsetShadowWithRadius:(float)radius Alpha:(float)alpha
 {
     NSArray *shadowDirections = [NSArray arrayWithObjects:@"top", @"bottom", @"left" , @"right" , nil];
     UIColor *color = [UIColor colorWithRed:(0.0) green:(0.0) blue:(0.0) alpha:alpha];
@@ -81,7 +81,7 @@
     [self addSubview:shadowView];
 }
 
-- (void) makeInsetShadowWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions
+- (void) lf_makeInsetShadowWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions
 {
     UIView *shadowView = [self createShadowViewWithRadius:radius Color:color Directions:directions];
     shadowView.tag = kShadowViewTag;
@@ -167,7 +167,7 @@
 
 
 
-- (void)removeAllSubviews {
+- (void)lf_removeAllSubviews {
     while (self.subviews.count) {
         [self.subviews.lastObject removeFromSuperview];
     }
@@ -184,7 +184,7 @@
     return nil;
 }
 
-- (nonnull id)viewControllerWithNeedViewOrViewController:(nullable Class)viewControllerCls
+- (nonnull id)lf_viewControllerWithNeedViewOrViewController:(nullable Class)viewControllerCls
 {
     UIViewController *result = nil;
     
@@ -351,7 +351,7 @@
 
 
 
-- (CGPoint)convertPoint:(CGPoint)point toViewOrWindow:(UIView *)view {
+- (CGPoint)lf_convertPoint:(CGPoint)point toViewOrWindow:(UIView *)view {
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertPoint:point toWindow:nil];
@@ -369,7 +369,7 @@
     return point;
 }
 
-- (CGPoint)convertPoint:(CGPoint)point fromViewOrWindow:(UIView *)view {
+- (CGPoint)lf_convertPoint:(CGPoint)point fromViewOrWindow:(UIView *)view {
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertPoint:point fromWindow:nil];
@@ -387,7 +387,7 @@
     return point;
 }
 
-- (CGRect)convertRect:(CGRect)rect toViewOrWindow:(UIView *)view {
+- (CGRect)lf_convertRect:(CGRect)rect toViewOrWindow:(UIView *)view {
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertRect:rect toWindow:nil];
@@ -406,7 +406,7 @@
     return rect;
 }
 
-- (CGRect)convertRect:(CGRect)rect fromViewOrWindow:(UIView *)view {
+- (CGRect)lf_convertRect:(CGRect)rect fromViewOrWindow:(UIView *)view {
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
             return [((UIWindow *)self) convertRect:rect fromWindow:nil];
@@ -425,7 +425,7 @@
 }
 
 
-- (void)clearScrollViewDelegate {
+- (void)lf_clearScrollViewDelegate {
     if ([self isKindOfClass:[UIScrollView class]]) {
         ((UIScrollView *)self).delegate = nil;
         if ([self isKindOfClass:[UITableView class]]) {
@@ -433,27 +433,27 @@
         }
     }
     for (UIView *sub in self.subviews) {
-        [sub clearScrollViewDelegate];
+        [sub lf_clearScrollViewDelegate];
     }
 }
 
-- (void)removeAllGestures {
+- (void)lf_removeAllGestures {
     NSArray *gs = [self.gestureRecognizers copy];
     for (UIGestureRecognizer *g in gs) {
         [self removeGestureRecognizer:g];
     }
 }
-- (void)removeAllGesturesWithSubViews {
-    [self removeAllGestures];
+- (void)lf_removeAllGesturesWithSubViews {
+    [self lf_removeAllGestures];
     for (UIView *v in self.subviews) {
-        [v removeAllGesturesWithSubViews];
+        [v lf_removeAllGesturesWithSubViews];
     }
     [UIView animateWithDuration:0 animations:^{
         
     }];
 }
 
-+ (void)disableAnimationWithBlock:(void (^)(void))block {
++ (void)lf_disableAnimationWithBlock:(void (^)(void))block {
     if (!block) return;
     BOOL aniEnabled = [CATransaction disableActions];
     [CATransaction setDisableActions:YES];

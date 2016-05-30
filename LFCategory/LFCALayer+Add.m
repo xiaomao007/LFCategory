@@ -13,7 +13,7 @@
 
 @implementation CALayer (LFAdditions)
 
-- (UIImage *)snapshotImage {
+- (UIImage *)lf_snapshotImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self renderInContext:context];
@@ -22,7 +22,7 @@
     return image;
 }
 
-- (NSData *)snapshotPDF {
+- (NSData *)lf_snapshotPDF {
     CGRect bounds = self.bounds;
     NSMutableData* data = [NSMutableData data];
     CGDataConsumerRef consumer = CGDataConsumerCreateWithCFData((__bridge CFMutableDataRef)data);
@@ -39,7 +39,7 @@
     return data;
 }
 
-- (void)setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius {
+- (void)lf_setLayerShadow:(UIColor*)color offset:(CGSize)offset radius:(CGFloat)radius {
     self.shadowColor = color.CGColor;
     self.shadowOffset = offset;
     self.shadowRadius = radius;
@@ -48,7 +48,7 @@
     self.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
-- (void)removeAllSublayers {
+- (void)lf_removeAllSublayers {
     while (self.sublayers.count) {
         [self.sublayers.lastObject removeFromSuperlayer];
     }
@@ -275,7 +275,7 @@
 }
 
 
-- (void)addFadeAnimationWithDuration:(NSTimeInterval)duration curve:(UIViewAnimationCurve)curve {
+- (void)lf_addFadeAnimationWithDuration:(NSTimeInterval)duration curve:(UIViewAnimationCurve)curve {
     if (duration <= 0) return;
     
     NSString *mediaFunction;
@@ -304,7 +304,7 @@
     [self addAnimation:transition forKey:@"yykit.fade"];
 }
 
-- (void)removePreviousFadeAnimation {
+- (void)lf_removePreviousFadeAnimation {
     [self removeAnimationForKey:@"yykit.fade"];
 }
 

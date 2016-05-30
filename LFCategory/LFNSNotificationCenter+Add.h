@@ -22,7 +22,7 @@
  @param notification  The notification to post.
                       An exception is raised if notification is nil.
  */
-- (void)postNotificationOnMainThread:(NSNotification *)notification;
+- (void)lf_postNotificationOnMainThread:(NSNotification *)notification;
 
 /**
  Posts a given notification to the receiver on main thread.
@@ -36,7 +36,7 @@
                      thread; otherwise, specify NO to have this method return 
                      immediately.
  */
-- (void)postNotificationOnMainThread:(NSNotification *)notification
+- (void)lf_postNotificationOnMainThread:(NSNotification *)notification
                        waitUntilDone:(BOOL)wait;
 
 /**
@@ -48,7 +48,7 @@
  
  @param object  The object posting the notification.
  */
-- (void)postNotificationOnMainThreadWithName:(NSString *)name
+- (void)lf_postNotificationOnMainThreadWithName:(NSString *)name
                                       object:(id)object;
 
 /**
@@ -62,7 +62,7 @@
  
  @param userInfo  Information about the the notification. May be nil.
  */
-- (void)postNotificationOnMainThreadWithName:(NSString *)name
+- (void)lf_postNotificationOnMainThreadWithName:(NSString *)name
                                       object:(id)object
                                     userInfo:(NSDictionary *)userInfo;
 
@@ -82,7 +82,7 @@
                  thread; otherwise, specify NO to have this method return
                  immediately.
  */
-- (void)postNotificationOnMainThreadWithName:(NSString *)name
+- (void)lf_postNotificationOnMainThreadWithName:(NSString *)name
                                       object:(id)object
                                     userInfo:(NSDictionary *)userInfo
                                waitUntilDone:(BOOL)wait;

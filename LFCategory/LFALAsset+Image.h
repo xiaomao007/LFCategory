@@ -18,12 +18,12 @@
  * @brief 获取原始图片
  * @returns 原始图片
  */
-- (UIImage *)fullSizeImage;
+- (UIImage *)lf_fullSizeImage;
 
 /**
  * @brief 获取全屏尺寸的照片
  * @returns 全屏尺寸的照片
  */
-- (UIImage *)fullScreenImage;
+- (UIImage *)lf_fullScreenImage;
 
 @end

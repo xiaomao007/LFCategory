@@ -69,7 +69,7 @@
  
  @return A new instance created from the json, or nil if an error occurs.
  */
-+ (instancetype)modelWithJSON:(id)json;
++ (instancetype)lf_modelWithJSON:(id)json;
 
 /**
  Creates and returns a new instance of the receiver from a key-value dictionary.
@@ -90,7 +90,7 @@
      `NSValue` -> struct or union, such as CGRect, CGSize, ...
      `NSString` -> SEL, Class.
  */
-+ (instancetype)modelWithDictionary:(NSDictionary *)dictionary;
++ (instancetype)lf_modelWithDictionary:(NSDictionary *)dictionary;
 
 /**
  Set the receiver's properties with a json object.
@@ -102,7 +102,7 @@
  
  @return Whether succeed.
  */
-- (BOOL)modelSetWithJSON:(id)json;
+- (BOOL)lf_modelSetWithJSON:(id)json;
 
 /**
  Set the receiver's properties with a key-value dictionary.
@@ -122,7 +122,7 @@
  
  @return Whether succeed.
  */
-- (BOOL)modelSetWithDictionary:(NSDictionary *)dic;
+- (BOOL)lf_modelSetWithDictionary:(NSDictionary *)dic;
 
 /**
  Generate a json object from the receiver's properties.
@@ -134,7 +134,7 @@
  If the reciver is `NSArray`, `NSDictionary` or `NSSet`, it just convert
  the inner object to json object.
  */
-- (id)modelToJSONObject;
+- (id)lf_modelToJSONObject;
 
 /**
  Generate a json string's data from the receiver's properties.
@@ -145,7 +145,7 @@
  If the reciver is `NSArray`, `NSDictionary` or `NSSet`, it will also convert the 
  inner object to json string.
  */
-- (NSData *)modelToJSONData;
+- (NSData *)lf_modelToJSONData;
 
 /**
  Generate a json string from the receiver's properties.
@@ -156,21 +156,21 @@
  If the reciver is `NSArray`, `NSDictionary` or `NSSet`, it will also convert the 
  inner object to json string.
  */
-- (NSString *)modelToJSONString;
+- (NSString *)lf_modelToJSONString;
 
 /**
  Copy a instance with the receiver's properties.
  
  @return A copied instance, or nil if an error occurs.
  */
-- (id)modelCopy;
+- (id)lf_modelCopy;
 
 /**
  Encode the receiver's properties to a coder.
  
  @param aCoder  An archiver object.
  */
-- (void)modelEncodeWithCoder:(NSCoder *)aCoder;
+- (void)lf_modelEncodeWithCoder:(NSCoder *)aCoder;
 
 /**
  Decode the receiver's properties from a decoder.
@@ -179,14 +179,14 @@
  
  @return self
  */
-- (id)modelInitWithCoder:(NSCoder *)aDecoder;
+- (id)lf_modelInitWithCoder:(NSCoder *)aDecoder;
 
 /**
  Get a hash code with the receiver's properties.
  
  @return Hash code.
  */
-- (NSUInteger)modelHash;
+- (NSUInteger)lf_modelHash;
 
 /**
  Compares the receiver with another object for equality, based on properties.
@@ -195,14 +195,14 @@
  
  @return `YES` if the reciever is equal to the object, otherwise `NO`.
  */
-- (BOOL)modelIsEqual:(id)model;
+- (BOOL)lf_modelIsEqual:(id)model;
 
 /**
  Description method for debugging purposes based on properties.
  
  @return A string that describes the contents of the receiver.
  */
-- (NSString *)modelDescription;
+- (NSString *)lf_modelDescription;
 
 @end
 

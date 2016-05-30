@@ -10,8 +10,8 @@
 
 @interface UINavigationController (LFAdditions)
 
-- (void)pushViewController: (UIViewController*)controller
+- (void)lf_pushViewController: (UIViewController*)controller
     animatedWithTransition: (UIViewAnimationTransition)transition;
-- (UIViewController*)popViewControllerAnimatedWithTransition:(UIViewAnimationTransition)transition;
+- (UIViewController*)lf_popViewControllerAnimatedWithTransition:(UIViewAnimationTransition)transition;
 
 @end

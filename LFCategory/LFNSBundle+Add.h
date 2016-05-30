@@ -34,7 +34,7 @@
  located. This method also returns nil if the bundle specified by the bundlePath 
  parameter does not exist or is not a readable directory.
  */
-+ (NSString *)pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)bundlePath;
++ (NSString *)lf_pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)bundlePath;
 
 /**
  在bundle里查找指定文件，并返回完整文件路径。
@@ -49,7 +49,7 @@
  
  @return The full pathname for the resource file or nil if the file could not be located.
  */
-- (NSString *)pathForScaledResource:(NSString *)name ofType:(NSString *)ext;
+- (NSString *)lf_pathForScaledResource:(NSString *)name ofType:(NSString *)ext;
 
 /**
  在bundle里查找指定文件，并返回完整文件路径。
@@ -65,6 +65,6 @@
  
  @return An array of full pathnames for the subpath or nil if no files are located.
  */
-- (NSString *)pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)subpath;
+- (NSString *)lf_pathForScaledResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)subpath;
 
 @end

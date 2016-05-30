@@ -13,49 +13,49 @@
 #import "LFNSDate+Property.h"
 
 @implementation NSDate(LFExtAdditions)
-- (NSString*) stringForTimeLaifeng {
+- (NSString*) lf_stringForTimeLaifeng {
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"MM月dd日 HH:mm"];
 	NSString *timeStr = [formatter stringFromDate:self];
 	return timeStr;
 }
 
-- (NSString*)stringForHourLaifeng {
+- (NSString*)lf_stringForHourLaifeng {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];
     return timeStr;
 }
 
-- (NSString*)stringForDayLaifeng {
+- (NSString*)lf_stringForDayLaifeng {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd"];
     NSString *timeStr = [formatter stringFromDate:self];
     return timeStr;
 }
 
-- (NSString*) stringForTimeToday {
+- (NSString*) lf_stringForTimeToday {
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"今天 HH:mm"];
 	NSString *timeStr = [formatter stringFromDate:self];
 	return timeStr;
 }
 
-- (NSString *)stringForTimeTomorrow {
+- (NSString *)lf_stringForTimeTomorrow {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"明天 HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];
     return timeStr;
 }
 
-- (NSString *)stringForTimeCommon {
+- (NSString *)lf_stringForTimeCommon {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM月dd日 HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];
     return timeStr;
 }
 
--(NSAttributedString*) attributedStringForTimeToday {
+-(NSAttributedString*) lf_attributedStringForTimeToday {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"今天 HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];
@@ -65,7 +65,7 @@
     return attributedString;
 }
 
--(NSAttributedString*) attributedStringForTimeTomorrow {
+-(NSAttributedString*) lf_attributedStringForTimeTomorrow {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"明天 HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];
@@ -75,7 +75,7 @@
     return attributedString;
 }
 
--(NSAttributedString*) attributedStringForCommon {
+-(NSAttributedString*) lf_attributedStringForCommon {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM月dd日 HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];
@@ -83,14 +83,14 @@
     return attributedString;
 }
 
-- (NSString*) stringForDateline {
+- (NSString*) lf_stringForDateline {
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"yyyy-MM-dd"];
 	NSString* str = [formatter stringFromDate:self];
 	return str;
 }
 
-- (NSString *)stringForFeed {
+- (NSString *)lf_stringForFeed {
     
     
     static NSDateFormatter *formatterToday;
@@ -120,7 +120,7 @@
     
     NSDate *now = [NSDate new];
     NSTimeInterval delta = now.timeIntervalSince1970 - self.timeIntervalSince1970;
-    if (self.isToday && delta > -60 * 5) { //如果服务端和客户端时间不同步，这里允许5分钟误差
+    if (self.lf_isToday && delta > -60 * 5) { //如果服务端和客户端时间不同步，这里允许5分钟误差
         if (delta < 5 * 60) {
             return @"刚刚";
         } else if (delta < 10 * 60) {
@@ -136,7 +136,7 @@
         } else {
             return [formatterToday stringFromDate:self];
         }
-    } else if (self.isYesterday) {
+    } else if (self.lf_isYesterday) {
         return [formatterYesterday stringFromDate:self];
     } else if (now.year == self.year){
         return [formatterSameYear stringFromDate:self];
@@ -145,18 +145,18 @@
     }
 }
 
-- (BOOL)isToday {
+- (BOOL)lf_isToday {
     NSDate *date = [NSDate new];
     return (date.year == self.year && date.month == self.month && date.day == self.day);
 }
-- (BOOL)isYesterday {
-    return [[self dateByAddingDays:1] isToday];
+- (BOOL)lf_isYesterday {
+    return [[self lf_dateByAddingDays:1] lf_isToday];
 }
-- (BOOL)isTodayBirthday {
+- (BOOL)lf_isTodayBirthday {
     NSDate *date = [NSDate new];
     return (date.month == self.month && date.day == self.day);
 }
--(BOOL)isLast30Mins {
+-(BOOL)lf_isLast30Mins {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm"];
     NSString *timeStr = [formatter stringFromDate:self];

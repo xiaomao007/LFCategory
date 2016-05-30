@@ -10,7 +10,7 @@
 
 @implementation NSString (LFCurrencyAdditions)
 
-- (NSString *)localizedStringFromNumber {
+- (NSString *)lf_localizedStringFromNumber {
     if(![self isKindOfClass:[NSString class]]){
         return self;
     }
