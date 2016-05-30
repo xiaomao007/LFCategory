@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0919ADC91CED6F920092DA5B /* LFCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0919ADC81CED6F920092DA5B /* LFCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09AD14731CFC13F5006F5458 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AD14711CFC13F5006F5458 /* MBProgressHUD.h */; };
+		09AD14741CFC13F5006F5458 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AD14721CFC13F5006F5458 /* MBProgressHUD.m */; };
+		09AD14771CFC1433006F5458 /* LFUIView+MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AD14751CFC1433006F5458 /* LFUIView+MBProgressHUD.h */; };
+		09AD14781CFC1433006F5458 /* LFUIView+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AD14761CFC1433006F5458 /* LFUIView+MBProgressHUD.m */; };
 		09ED7E791CED800B00F0E12F /* LFCALayer+Add.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E771CED800B00F0E12F /* LFCALayer+Add.h */; };
 		09ED7E7A1CED800B00F0E12F /* LFCALayer+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7E781CED800B00F0E12F /* LFCALayer+Add.m */; };
 		09ED7EB11CED803200F0E12F /* LFUIAlertController+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E7B1CED803200F0E12F /* LFUIAlertController+Blocks.h */; };
@@ -121,6 +125,10 @@
 		0919ADC51CED6F920092DA5B /* LFCategory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LFCategory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0919ADC81CED6F920092DA5B /* LFCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFCategory.h; sourceTree = "<group>"; };
 		0919ADCA1CED6F920092DA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09AD14711CFC13F5006F5458 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		09AD14721CFC13F5006F5458 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		09AD14751CFC1433006F5458 /* LFUIView+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIView+MBProgressHUD.h"; sourceTree = "<group>"; };
+		09AD14761CFC1433006F5458 /* LFUIView+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIView+MBProgressHUD.m"; sourceTree = "<group>"; };
 		09ED7E771CED800B00F0E12F /* LFCALayer+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFCALayer+Add.h"; sourceTree = "<group>"; };
 		09ED7E781CED800B00F0E12F /* LFCALayer+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFCALayer+Add.m"; sourceTree = "<group>"; };
 		09ED7E7B1CED803200F0E12F /* LFUIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIAlertController+Blocks.h"; sourceTree = "<group>"; };
@@ -262,6 +270,7 @@
 		0919ADC71CED6F920092DA5B /* LFCategory */ = {
 			isa = PBXGroup;
 			children = (
+				09AD14701CFC13F5006F5458 /* MBProgressHUD */,
 				09ED7E761CED7FDD00F0E12F /* UIKit */,
 				09ED7E751CED7FCF00F0E12F /* Foundation */,
 				0919ADC81CED6F920092DA5B /* LFCategory.h */,
@@ -270,6 +279,15 @@
 			);
 			path = LFCategory;
 			sourceTree = "<group>";
+		};
+		09AD14701CFC13F5006F5458 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				09AD14711CFC13F5006F5458 /* MBProgressHUD.h */,
+				09AD14721CFC13F5006F5458 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = SOURCE_ROOT;
 		};
 		09ED7E751CED7FCF00F0E12F /* Foundation */ = {
 			isa = PBXGroup;
@@ -332,6 +350,8 @@
 		09ED7E761CED7FDD00F0E12F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				09AD14751CFC1433006F5458 /* LFUIView+MBProgressHUD.h */,
+				09AD14761CFC1433006F5458 /* LFUIView+MBProgressHUD.m */,
 				09ED7E7B1CED803200F0E12F /* LFUIAlertController+Blocks.h */,
 				09ED7E7C1CED803200F0E12F /* LFUIAlertController+Blocks.m */,
 				09ED7E7D1CED803200F0E12F /* LFUIAlertView+Blocks.h */,
@@ -406,6 +426,7 @@
 				09ED7EE31CED803200F0E12F /* LFUIViewController+DKAnalyses.h in Headers */,
 				09ED7EE11CED803200F0E12F /* LFUIView+LFViewIsDisplaying.h in Headers */,
 				09ED7F2D1CED804200F0E12F /* LFNSString+Currency.h in Headers */,
+				09AD14771CFC1433006F5458 /* LFUIView+MBProgressHUD.h in Headers */,
 				09ED7EDD1CED803200F0E12F /* LFUIView+DKAnalyses.h in Headers */,
 				09ED7EDF1CED803200F0E12F /* LFUIView+Add.h in Headers */,
 				09ED7F5A1CEDB8B500F0E12F /* LFALAsset+Image.h in Headers */,
@@ -434,6 +455,7 @@
 				09ED7F211CED804200F0E12F /* LFNSNotificationCenter+Add.h in Headers */,
 				09ED7ED91CED803200F0E12F /* LFUITableViewCell+LFCellMethodExtend.h in Headers */,
 				09ED7EBB1CED803200F0E12F /* LFUIBezierPath+Add.h in Headers */,
+				09AD14731CFC13F5006F5458 /* MBProgressHUD.h in Headers */,
 				09ED7E791CED800B00F0E12F /* LFCALayer+Add.h in Headers */,
 				09ED7EB11CED803200F0E12F /* LFUIAlertController+Blocks.h in Headers */,
 				09ED7ECF1CED803200F0E12F /* LFUIImage+Add.h in Headers */,
@@ -534,7 +556,9 @@
 				09ED7F2A1CED804200F0E12F /* LFNSObject+AddForNotification.m in Sources */,
 				09ED7ED81CED803200F0E12F /* LFUITableView+Add.m in Sources */,
 				09ED7ECE1CED803200F0E12F /* LFUIImage+CutScreen.m in Sources */,
+				09AD14741CFC13F5006F5458 /* MBProgressHUD.m in Sources */,
 				09ED7F0E1CED804200F0E12F /* LFClassInfo.m in Sources */,
+				09AD14781CFC1433006F5458 /* LFUIView+MBProgressHUD.m in Sources */,
 				09ED7F391CED869300F0E12F /* LFALAsset+Property.m in Sources */,
 				09ED7EC21CED803200F0E12F /* LFUIControl+Add.m in Sources */,
 				09ED7EB81CED803200F0E12F /* LFUIBarButtonItem+Image.m in Sources */,

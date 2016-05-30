@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'LFCategory/**/*.{h,m}'
   s.public_header_files = 'LFCategory/**/*.{h}'
-
+s.framework = "CoreGraphics"
 
 
   s.libraries = 'z'
-
+s.dependency 'MBProgressHUD','~>0.9.2'
 end
