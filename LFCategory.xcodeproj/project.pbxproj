@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08C6AB6CF35E941BE878B12B /* libPods-LFCategory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E908547C70AA6B78A94573 /* libPods-LFCategory.a */; };
 		0919ADC91CED6F920092DA5B /* LFCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 0919ADC81CED6F920092DA5B /* LFCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		09AD14731CFC13F5006F5458 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AD14711CFC13F5006F5458 /* MBProgressHUD.h */; };
-		09AD14741CFC13F5006F5458 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AD14721CFC13F5006F5458 /* MBProgressHUD.m */; };
 		09AD14771CFC1433006F5458 /* LFUIView+MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AD14751CFC1433006F5458 /* LFUIView+MBProgressHUD.h */; };
 		09AD14781CFC1433006F5458 /* LFUIView+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AD14761CFC1433006F5458 /* LFUIView+MBProgressHUD.m */; };
 		09ED7E791CED800B00F0E12F /* LFCALayer+Add.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7E771CED800B00F0E12F /* LFCALayer+Add.h */; };
@@ -119,14 +118,14 @@
 		09ED7F671CEDE23700F0E12F /* LFNSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7F651CEDE23700F0E12F /* LFNSDate+Format.m */; };
 		09ED7FB21CF29CB800F0E12F /* LFWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 09ED7FB01CF29CB800F0E12F /* LFWeakProxy.h */; };
 		09ED7FB31CF29CB800F0E12F /* LFWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7FB11CF29CB800F0E12F /* LFWeakProxy.m */; };
+		CADD1EC91CFED4FF00799DF9 /* LFUIImage+Resource.h in Headers */ = {isa = PBXBuildFile; fileRef = CADD1EC71CFED4FF00799DF9 /* LFUIImage+Resource.h */; };
+		CADD1ECA1CFED4FF00799DF9 /* LFUIImage+Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD1EC81CFED4FF00799DF9 /* LFUIImage+Resource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0919ADC51CED6F920092DA5B /* LFCategory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LFCategory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0919ADC81CED6F920092DA5B /* LFCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFCategory.h; sourceTree = "<group>"; };
 		0919ADCA1CED6F920092DA5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09AD14711CFC13F5006F5458 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		09AD14721CFC13F5006F5458 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		09AD14751CFC1433006F5458 /* LFUIView+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIView+MBProgressHUD.h"; sourceTree = "<group>"; };
 		09AD14761CFC1433006F5458 /* LFUIView+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIView+MBProgressHUD.m"; sourceTree = "<group>"; };
 		09ED7E771CED800B00F0E12F /* LFCALayer+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFCALayer+Add.h"; sourceTree = "<group>"; };
@@ -236,6 +235,11 @@
 		09ED7F651CEDE23700F0E12F /* LFNSDate+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFNSDate+Format.m"; sourceTree = "<group>"; };
 		09ED7FB01CF29CB800F0E12F /* LFWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFWeakProxy.h; sourceTree = "<group>"; };
 		09ED7FB11CF29CB800F0E12F /* LFWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFWeakProxy.m; sourceTree = "<group>"; };
+		490032313ABB3FACB200A8FD /* Pods-LFCategory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFCategory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LFCategory/Pods-LFCategory.debug.xcconfig"; sourceTree = "<group>"; };
+		CADD1EC71CFED4FF00799DF9 /* LFUIImage+Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+Resource.h"; sourceTree = "<group>"; };
+		CADD1EC81CFED4FF00799DF9 /* LFUIImage+Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+Resource.m"; sourceTree = "<group>"; };
+		D8C56980B2A101798E0CA8B5 /* Pods-LFCategory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFCategory.release.xcconfig"; path = "Pods/Target Support Files/Pods-LFCategory/Pods-LFCategory.release.xcconfig"; sourceTree = "<group>"; };
+		F4E908547C70AA6B78A94573 /* libPods-LFCategory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LFCategory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09ED7F511CEDABA100F0E12F /* libz.tbd in Frameworks */,
+				08C6AB6CF35E941BE878B12B /* libPods-LFCategory.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +261,8 @@
 				09ED7F501CEDABA100F0E12F /* libz.tbd */,
 				0919ADC71CED6F920092DA5B /* LFCategory */,
 				0919ADC61CED6F920092DA5B /* Products */,
+				E35EB92AC53B5F38DC965CBC /* Pods */,
+				95278C1692D38EF63268709B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,7 +277,6 @@
 		0919ADC71CED6F920092DA5B /* LFCategory */ = {
 			isa = PBXGroup;
 			children = (
-				09AD14701CFC13F5006F5458 /* MBProgressHUD */,
 				09ED7E761CED7FDD00F0E12F /* UIKit */,
 				09ED7E751CED7FCF00F0E12F /* Foundation */,
 				0919ADC81CED6F920092DA5B /* LFCategory.h */,
@@ -279,15 +285,6 @@
 			);
 			path = LFCategory;
 			sourceTree = "<group>";
-		};
-		09AD14701CFC13F5006F5458 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				09AD14711CFC13F5006F5458 /* MBProgressHUD.h */,
-				09AD14721CFC13F5006F5458 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = SOURCE_ROOT;
 		};
 		09ED7E751CED7FCF00F0E12F /* Foundation */ = {
 			isa = PBXGroup;
@@ -350,6 +347,8 @@
 		09ED7E761CED7FDD00F0E12F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				CADD1EC71CFED4FF00799DF9 /* LFUIImage+Resource.h */,
+				CADD1EC81CFED4FF00799DF9 /* LFUIImage+Resource.m */,
 				09AD14751CFC1433006F5458 /* LFUIView+MBProgressHUD.h */,
 				09AD14761CFC1433006F5458 /* LFUIView+MBProgressHUD.m */,
 				09ED7E7B1CED803200F0E12F /* LFUIAlertController+Blocks.h */,
@@ -410,6 +409,23 @@
 			name = UIKit;
 			sourceTree = "<group>";
 		};
+		95278C1692D38EF63268709B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4E908547C70AA6B78A94573 /* libPods-LFCategory.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E35EB92AC53B5F38DC965CBC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				490032313ABB3FACB200A8FD /* Pods-LFCategory.debug.xcconfig */,
+				D8C56980B2A101798E0CA8B5 /* Pods-LFCategory.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -423,6 +439,7 @@
 				09ED7F131CED804200F0E12F /* LFNSCharacterSet+Add.h in Headers */,
 				09ED7F311CED804200F0E12F /* LFNSString+Add.h in Headers */,
 				09ED7EC11CED803200F0E12F /* LFUIControl+Add.h in Headers */,
+				CADD1EC91CFED4FF00799DF9 /* LFUIImage+Resource.h in Headers */,
 				09ED7EE31CED803200F0E12F /* LFUIViewController+DKAnalyses.h in Headers */,
 				09ED7EE11CED803200F0E12F /* LFUIView+LFViewIsDisplaying.h in Headers */,
 				09ED7F2D1CED804200F0E12F /* LFNSString+Currency.h in Headers */,
@@ -455,7 +472,6 @@
 				09ED7F211CED804200F0E12F /* LFNSNotificationCenter+Add.h in Headers */,
 				09ED7ED91CED803200F0E12F /* LFUITableViewCell+LFCellMethodExtend.h in Headers */,
 				09ED7EBB1CED803200F0E12F /* LFUIBezierPath+Add.h in Headers */,
-				09AD14731CFC13F5006F5458 /* MBProgressHUD.h in Headers */,
 				09ED7E791CED800B00F0E12F /* LFCALayer+Add.h in Headers */,
 				09ED7EB11CED803200F0E12F /* LFUIAlertController+Blocks.h in Headers */,
 				09ED7ECF1CED803200F0E12F /* LFUIImage+Add.h in Headers */,
@@ -483,10 +499,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0919ADCD1CED6F920092DA5B /* Build configuration list for PBXNativeTarget "LFCategory" */;
 			buildPhases = (
+				B89CF9F4383578E350DE2C48 /* 📦 Check Pods Manifest.lock */,
 				0919ADC01CED6F920092DA5B /* Sources */,
 				0919ADC11CED6F920092DA5B /* Frameworks */,
 				0919ADC21CED6F920092DA5B /* Headers */,
 				0919ADC31CED6F920092DA5B /* Resources */,
+				9E8C8C7DA16C8A22409645C8 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -538,12 +556,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9E8C8C7DA16C8A22409645C8 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LFCategory/Pods-LFCategory-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B89CF9F4383578E350DE2C48 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0919ADC01CED6F920092DA5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				09ED7EBA1CED803200F0E12F /* LFUIBarButtonItem+Add.m in Sources */,
+				CADD1ECA1CFED4FF00799DF9 /* LFUIImage+Resource.m in Sources */,
 				09ED7ED41CED803200F0E12F /* LFUINavigationController+Add.m in Sources */,
 				09ED7EBE1CED803200F0E12F /* LFUIButton+EnlargeEdge.m in Sources */,
 				09ED7F221CED804200F0E12F /* LFNSNotificationCenter+Add.m in Sources */,
@@ -556,7 +608,6 @@
 				09ED7F2A1CED804200F0E12F /* LFNSObject+AddForNotification.m in Sources */,
 				09ED7ED81CED803200F0E12F /* LFUITableView+Add.m in Sources */,
 				09ED7ECE1CED803200F0E12F /* LFUIImage+CutScreen.m in Sources */,
-				09AD14741CFC13F5006F5458 /* MBProgressHUD.m in Sources */,
 				09ED7F0E1CED804200F0E12F /* LFClassInfo.m in Sources */,
 				09AD14781CFC1433006F5458 /* LFUIView+MBProgressHUD.m in Sources */,
 				09ED7F391CED869300F0E12F /* LFALAsset+Property.m in Sources */,
@@ -696,6 +747,7 @@
 		};
 		0919ADCE1CED6F920092DA5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 490032313ABB3FACB200A8FD /* Pods-LFCategory.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -713,6 +765,7 @@
 		};
 		0919ADCF1CED6F920092DA5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8C56980B2A101798E0CA8B5 /* Pods-LFCategory.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

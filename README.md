@@ -5,23 +5,25 @@
 
 LFCategory 与原工程中内容差异方法
 
-1，UIView+LFAdd
-删除如下四个方法：
-
-//>显示转菊花
-- (void)showChrysanthemumHUD:(BOOL)animated;
-
-//>显示消息
-- (void)showTimedHUD:(BOOL)animated message:(NSString *)message;
-- (MBProgressHUD *)showTimedHUD:(BOOL)animated message:(NSString *)message andHideAfter:(NSTimeInterval)time;
-
-//>删除
-- (void)removeAllHUDViews:(BOOL)animated;
-
+1，LFUIView+LFAdd
+删除如下个方法：
 //>处理错误
 - (void)dealWithError:(ExError*)error;
 
-2，LFCategory.h 
+2，删除LFUIImage+Resource.h .m 文件
+
++ (UIImage*)LFImageNamed:(NSString*)name;
++ (UIImage*)LFEmotionWithName:(NSString*)name;
+
+3，LFUIBarButtonItem+Image.h 
+//>删除方法
+- (void)setToolBarWithImageKey:(NSString *)imageKey;
+
+4，LFUIImage+Scale.h
+//>删除方法
++ (UIImage*)middleStretchableImageWithKey:(NSString*)key;
+
+5，LFCategory.h 
 
 删除的引用
 #import "NSObject+LFPersistence.h"
@@ -30,16 +32,6 @@ LFCategory 与原工程中内容差异方法
 #import "NSAttributedString+LFText.h"
 #import "NSParagraphStyle+LFText.h"
 #import "LFRichTextRunDelegate.h"
-
-3，删除LFUIImage+Resource.h .m 文件
-
-4，LFUIBarButtonItem+Image.h 
-//>删除方法
-- (void)setToolBarWithImageKey:(NSString *)imageKey;
-
-5，LFUIImage+Scale.h
-//>删除方法
-middleStretchableImageWithKey
 
 
 
