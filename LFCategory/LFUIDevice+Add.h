@@ -41,13 +41,13 @@ typedef void (^ cameraAuthorziedBlock) (void);
 @property (nonatomic, readonly) NSString *machineModelName;
 
 /// 屏幕大小，高大于宽
-+ (CGSize) screenSize;
++ (CGSize) lf_screenSize;
 
 /// 系统版本，以float形式返回
-- (CGFloat)systemVersionByFloat;
+- (CGFloat)lf_systemVersionByFloat;
 
 /// 系统版本，以float形式返回
-+ (CGFloat)systemVersionByFloat;
++ (CGFloat)lf_systemVersionByFloat;
 
 #pragma mark - Disk Space
 ///=============================================================================
@@ -98,10 +98,10 @@ typedef void (^ cameraAuthorziedBlock) (void);
 /// @name System version compare
 ///=============================================================================
 
-- (BOOL)systemVersionLowerThan:(NSString*)version;
-- (BOOL)systemVersionNotHigherThan:(NSString *)version;
-- (BOOL)systemVersionHigherThan:(NSString*)version;
-- (BOOL)systemVersionNotLowerThan:(NSString *)version;
+- (BOOL)lf_systemVersionLowerThan:(NSString*)version;
+- (BOOL)lf_systemVersionNotHigherThan:(NSString *)version;
+- (BOOL)lf_systemVersionHigherThan:(NSString*)version;
+- (BOOL)lf_systemVersionNotLowerThan:(NSString *)version;
 
 #pragma mark - Others
 ///=============================================================================
@@ -113,7 +113,7 @@ typedef void (^ cameraAuthorziedBlock) (void);
 @property (nonatomic, readonly) BOOL isJailbroken;
 
 //
-+ (void)cameraAuthorzied:(cameraAuthorziedBlock)authorizedBlock notAuthorized:(cameraAuthorziedBlock)notAuthorizedlock;
--(NSString*)deviceID;
++ (void)lf_cameraAuthorzied:(cameraAuthorziedBlock)authorizedBlock notAuthorized:(cameraAuthorziedBlock)notAuthorizedlock;
+-(NSString*)lf_deviceID;
 
 @end

@@ -82,6 +82,6 @@
 /**
  Cancel fade animation which is added with "-addFadeAnimationWithDuration:curve:".
  */
-- (void)removePreviousFadeAnimation;
+- (void)lf_removePreviousFadeAnimation;
 
 @end

@@ -425,7 +425,7 @@ static force_inline id YYValueForMultiKeys(__unsafe_unretained NSDictionary *dic
 
 @implementation _LFModelMeta
 - (instancetype)initWithClass:(Class)cls {
-    LFClassInfo *classInfo = [LFClassInfo classInfoWithClass:cls];
+    LFClassInfo *classInfo = [LFClassInfo lf_classInfoWithClass:cls];
     if (!classInfo) return nil;
     self = [super init];
     
@@ -1707,7 +1707,7 @@ static NSString *ModelDescription(NSObject *model) {
 
 @implementation NSArray (LFModel)
 
-+ (NSArray *)modelArrayWithClass:(Class)cls json:(id)json {
++ (NSArray *)lf_modelArrayWithClass:(Class)cls json:(id)json {
     if (!json) return nil;
     NSArray *arr = nil;
     NSData *jsonData = nil;
@@ -1741,7 +1741,7 @@ static NSString *ModelDescription(NSObject *model) {
 
 @implementation NSDictionary (LFModel)
 
-+ (NSDictionary *)modelDictionaryWithClass:(Class)cls json:(id)json {
++ (NSDictionary *)lf_modelDictionaryWithClass:(Class)cls json:(id)json {
     if (!json) return nil;
     NSDictionary *dic = nil;
     NSData *jsonData = nil;

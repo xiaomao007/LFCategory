@@ -147,7 +147,7 @@ LFEncodingType LFEncodingGetType(const char *typeEncoding);
  @param cls A class.
  @return A class info, or nil if an error occurs.
  */
-+ (instancetype)classInfoWithClass:(Class)cls;
++ (instancetype)lf_classInfoWithClass:(Class)cls;
 
 /**
  Get the class info of a specified Class.
@@ -158,6 +158,6 @@ LFEncodingType LFEncodingGetType(const char *typeEncoding);
  @param className A class name.
  @return A class info, or nil if an error occurs.
  */
-+ (instancetype)classInfoWithClassName:(NSString *)className;
++ (instancetype)lf_classInfoWithClassName:(NSString *)className;
 
 @end

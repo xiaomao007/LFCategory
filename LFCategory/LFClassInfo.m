@@ -250,7 +250,7 @@ LFEncodingType LFEncodingGetType(const char *typeEncoding) {
     _name = NSStringFromClass(cls);
     [self _update];
 
-    _superClassInfo = [self.class classInfoWithClass:_superCls];
+    _superClassInfo = [self.class lf_classInfoWithClass:_superCls];
     return self;
 }
 
@@ -301,7 +301,7 @@ LFEncodingType LFEncodingGetType(const char *typeEncoding) {
     _needUpdate = YES;
 }
 
-+ (instancetype)classInfoWithClass:(Class)cls {
++ (instancetype)lf_classInfoWithClass:(Class)cls {
     if (!cls) return nil;
     static CFMutableDictionaryRef classCache;
     static CFMutableDictionaryRef metaCache;
@@ -329,9 +329,9 @@ LFEncodingType LFEncodingGetType(const char *typeEncoding) {
     return info;
 }
 
-+ (instancetype)classInfoWithClassName:(NSString *)className {
++ (instancetype)lf_classInfoWithClassName:(NSString *)className {
     Class cls = NSClassFromString(className);
-    return [self classInfoWithClass:cls];
+    return [self lf_classInfoWithClass:cls];
 }
 
 @end

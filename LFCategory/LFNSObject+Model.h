@@ -223,7 +223,7 @@
  
  @return A array, or nil if an error occurs.
  */
-+ (NSArray *)modelArrayWithClass:(Class)cls json:(id)json;
++ (NSArray *)lf_modelArrayWithClass:(Class)cls json:(id)json;
 
 @end
 
@@ -244,7 +244,7 @@
  
  @return A array, or nil if an error occurs.
  */
-+ (NSDictionary *)modelDictionaryWithClass:(Class)cls json:(id)json;
++ (NSDictionary *)lf_modelDictionaryWithClass:(Class)cls json:(id)json;
 @end
 
 

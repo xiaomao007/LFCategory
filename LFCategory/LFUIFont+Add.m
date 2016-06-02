@@ -42,27 +42,27 @@
     return [traits[UIFontWeightTrait] floatValue];
 }
 
-- (UIFont *)fontWithBold {
+- (UIFont *)lf_fontWithBold {
     if (!kiOS7Later) return nil;
     return [UIFont fontWithDescriptor:[self.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold] size:self.pointSize];
 }
 
-- (UIFont *)fontWithItalic {
+- (UIFont *)lf_fontWithItalic {
     if (!kiOS7Later) return nil;
     return [UIFont fontWithDescriptor:[self.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitItalic] size:self.pointSize];
 }
 
-- (UIFont *)fontWithBoldItalic {
+- (UIFont *)lf_fontWithBoldItalic {
     if (!kiOS7Later) return nil;
     return [UIFont fontWithDescriptor:[self.fontDescriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold | UIFontDescriptorTraitItalic] size:self.pointSize];
 }
 
-- (UIFont *)fontWithNormal {
+- (UIFont *)lf_fontWithNormal {
     if (!kiOS7Later) return nil;
     return [UIFont fontWithDescriptor:[self.fontDescriptor fontDescriptorWithSymbolicTraits:0] size:self.pointSize];
 }
 
-+ (UIFont *)fontWithCTFont:(CTFontRef)CTFont {
++ (UIFont *)lf_fontWithCTFont:(CTFontRef)CTFont {
     if (!CTFont) return nil;
     CFStringRef name = CTFontCopyPostScriptName(CTFont);
     if (!name) return nil;
@@ -72,7 +72,7 @@
     return font;
 }
 
-+ (UIFont *)fontWithCGFont:(CGFontRef)CGFont size:(CGFloat)size {
++ (UIFont *)lf_fontWithCGFont:(CGFontRef)CGFont size:(CGFloat)size {
     if (!CGFont) return nil;
     CFStringRef name = CGFontCopyPostScriptName(CGFont);
     if (!name) return nil;
@@ -81,17 +81,17 @@
     return font;
 }
 
-- (CTFontRef)CTFontRef CF_RETURNS_RETAINED {
+- (CTFontRef)lf_CTFontRef CF_RETURNS_RETAINED {
     CTFontRef font = CTFontCreateWithName((__bridge CFStringRef)self.fontName, self.pointSize, NULL);
     return font;
 }
 
-- (CGFontRef)CGFontRef CF_RETURNS_RETAINED {
+- (CGFontRef)lf_CGFontRef CF_RETURNS_RETAINED {
     CGFontRef font = CGFontCreateWithFontName((__bridge CFStringRef)self.fontName);
     return font;
 }
 
-+ (BOOL)loadFontFromPath:(NSString *)path {
++ (BOOL)lf_loadFontFromPath:(NSString *)path {
     NSURL *url = [NSURL fileURLWithPath:path];
     CFErrorRef error;
     BOOL suc = CTFontManagerRegisterFontsForURL((__bridge CFTypeRef)url, kCTFontManagerScopeNone, &error);
@@ -101,12 +101,12 @@
     return suc;
 }
 
-+ (void)unloadFontFromPath:(NSString *)path {
++ (void)lf_unloadFontFromPath:(NSString *)path {
     NSURL *url = [NSURL fileURLWithPath:path];
     CTFontManagerUnregisterFontsForURL((__bridge CFTypeRef)url, kCTFontManagerScopeNone, NULL);
 }
 
-+ (UIFont *)loadFontFromData:(NSData *)data {
++ (UIFont *)lf_loadFontFromData:(NSData *)data {
     CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
     if (!provider) return nil;
     CGFontRef fontRef = CGFontCreateWithDataProvider(provider);
@@ -128,7 +128,7 @@
     }
 }
 
-+ (BOOL)unloadFontFromData:(UIFont *)font {
++ (BOOL)lf_unloadFontFromData:(UIFont *)font {
     CGFontRef fontRef = CGFontCreateWithFontName((__bridge CFStringRef)font.fontName);
     if (!fontRef) return NO;
     CFErrorRef errorRef;
@@ -138,9 +138,9 @@
     return suc;
 }
 
-+ (NSData *)dataFromFont:(UIFont *)font {
-    CGFontRef cgFont = font.CGFontRef;
-    NSData *data = [self dataFromCGFont:cgFont];
++ (NSData *)lf_dataFromFont:(UIFont *)font {
+    CGFontRef cgFont = font.lf_CGFontRef;
+    NSData *data = [self lf_dataFromCGFont:cgFont];
     CGFontRelease(cgFont);
     return data;
 }
@@ -171,7 +171,7 @@ static uint32_t CalcTableCheckSum(const uint32_t *table, uint32_t numberOfBytesI
 
 //Reference:
 //https://github.com/google/skia/blob/master/src%2Fports%2FSkFontHost_mac.cpp
-+ (NSData *)dataFromCGFont:(CGFontRef)cgFont {
++ (NSData *)lf_dataFromCGFont:(CGFontRef)cgFont {
     if (!cgFont) return nil;
     
     CFRetain(cgFont);

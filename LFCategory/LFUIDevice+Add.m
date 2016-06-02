@@ -146,7 +146,7 @@
     return name;
 }
 
-+ (CGSize)screenSize {
++ (CGSize)lf_screenSize {
     static CGSize size;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -160,11 +160,11 @@
     return size;
 }
 
-- (CGFloat)systemVersionByFloat {
+- (CGFloat)lf_systemVersionByFloat {
     return [self.systemVersion floatValue];
 }
 
-+ (CGFloat)systemVersionByFloat {
++ (CGFloat)lf_systemVersionByFloat {
     static CGFloat v;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -344,7 +344,7 @@
     
 }
 
-- (BOOL)systemVersionLowerThan:(NSString *)version {
+- (BOOL)lf_systemVersionLowerThan:(NSString *)version {
     if (version == nil || version.length == 0) {
         return NO;
     }
@@ -356,7 +356,7 @@
     }
 }
 
-- (BOOL)systemVersionHigherThan:(NSString *)version {
+- (BOOL)lf_systemVersionHigherThan:(NSString *)version {
     if (version == nil || version.length == 0) {
         return NO;
     }
@@ -368,7 +368,7 @@
     }
 }
 
-- (BOOL)systemVersionNotHigherThan:(NSString *)version {
+- (BOOL)lf_systemVersionNotHigherThan:(NSString *)version {
     if (version == nil || version.length == 0) {
         return NO;
     }
@@ -376,11 +376,11 @@
     if ([self.systemVersion isEqualToString:version]) {
         return YES;
     } else {
-        return [self systemVersionLowerThan:version];
+        return [self lf_systemVersionLowerThan:version];
     }
 }
 
-- (BOOL)systemVersionNotLowerThan:(NSString *)version {
+- (BOOL)lf_systemVersionNotLowerThan:(NSString *)version {
     if (version == nil || version.length == 0) {
         NSLog(@"### Error Version");
         return NO;
@@ -389,7 +389,7 @@
     if ([self.systemVersion isEqualToString:version]) {
         return YES;
     } else {
-        return [self systemVersionHigherThan:version];
+        return [self lf_systemVersionHigherThan:version];
     }
 }
 
@@ -422,7 +422,7 @@
     return NO;
 }
 
-+ (void)cameraAuthorzied:(cameraAuthorziedBlock)authorizedBlock notAuthorized:(cameraAuthorziedBlock)notAuthorizedlock
++ (void)lf_cameraAuthorzied:(cameraAuthorziedBlock)authorizedBlock notAuthorized:(cameraAuthorziedBlock)notAuthorizedlock
 {
     if([UIDevice isHigherIOS7]) {
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -461,7 +461,7 @@
  下面的那坨pragma只是为了去除编译警告..
  参考: http://fuckingclangwarnings.com
  */
--(NSString*)deviceID {
+-(NSString*)lf_deviceID {
     Class cls = NSClassFromString(@"UMANUtil");
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"

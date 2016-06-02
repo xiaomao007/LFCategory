@@ -17,7 +17,7 @@ NSMutableDictionary *g_alloc_count_dictionary = nil;
 @implementation UIViewController (LFDKAnalysesAdditions)
 
 
-+(NSDictionary *)dk_allocAnalysesDictionary
++(NSDictionary *)lf_allocAnalysesDictionary
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     

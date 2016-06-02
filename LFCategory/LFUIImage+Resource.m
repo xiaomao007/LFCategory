@@ -20,7 +20,7 @@
 
 @implementation UIImage(LFResourceAdditions)
 
-+ (UIImage *)LFEmotionWithName:(NSString *)name
++ (UIImage *)lf_EmotionWithName:(NSString *)name
 {
     //Debug OK
     NSString* imagePath = LFEmotionPath(name);
@@ -29,7 +29,7 @@
 }
 
 
-+ (UIImage *)imageForKey:(id)key inBundle:(NSBundle *)bundle
++ (UIImage *)lf_imageForKey:(id)key inBundle:(NSBundle *)bundle
 {
     NSString *imagePath = [bundle lf_pathForScaledResource:key ofType:@"png" inDirectory:@"Images"];
     if (!imagePath) imagePath = [bundle lf_pathForScaledResource:key ofType:@"jpg" inDirectory:@"Images"];

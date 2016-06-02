@@ -52,7 +52,7 @@
  将 ISO8601 格式的字符串解析成日期。
  @param dateString 时间字符串，例如 "2010-07-09T16:13:30+12:00"
  */
-+ (NSDate *)dateWithISOFormatString:(NSString *)dateString;
++ (NSDate *)lf_dateWithISOFormatString:(NSString *)dateString;
 
 
 @end

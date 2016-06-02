@@ -19,5 +19,5 @@
  *
  *  @return 图片对象/如果没有返回空
  */
-+ (UIImage*)LFEmotionWithName:(NSString*)name;
++ (UIImage*)lf_EmotionWithName:(NSString*)name;
 @end

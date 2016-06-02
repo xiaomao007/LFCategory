@@ -13,7 +13,7 @@
 
 @interface UIView (LFDKAnalysesAdditions)
 
-+(NSDictionary *)dk_allocAnalysesViewsDictionary;
++(NSDictionary *)lf_allocAnalysesViewsDictionary;
 
 @end
 

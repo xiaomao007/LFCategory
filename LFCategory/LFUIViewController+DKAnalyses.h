@@ -13,7 +13,7 @@
 
 @interface UIViewController (LFDKAnalysesAdditions)
 
-+(NSDictionary *)dk_allocAnalysesDictionary;
++(NSDictionary *)lf_allocAnalysesDictionary;
 
 @end
 

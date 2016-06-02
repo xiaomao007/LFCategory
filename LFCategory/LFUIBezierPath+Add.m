@@ -15,7 +15,7 @@
 @implementation UIBezierPath (LFAdditions)
 
 + (UIBezierPath *)lf_bezierPathWithText:(NSString *)text font:(UIFont *)font {
-    CTFontRef ctFont = font.CTFontRef;
+    CTFontRef ctFont = font.lf_CTFontRef;
     if (!ctFont) return nil;
     NSDictionary *attrs = @{ (__bridge id)kCTFontAttributeName:(__bridge id)ctFont };
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:text attributes:attrs];

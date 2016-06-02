@@ -30,25 +30,25 @@
  Create a bold font from receiver.
  @return A bold font, or nil if failed.
  */
-- (UIFont *)fontWithBold NS_AVAILABLE_IOS(7_0);
+- (UIFont *)lf_fontWithBold NS_AVAILABLE_IOS(7_0);
 
 /**
  Create a italic font from receiver.
  @return A italic font, or nil if failed.
  */
-- (UIFont *)fontWithItalic NS_AVAILABLE_IOS(7_0);
+- (UIFont *)lf_fontWithItalic NS_AVAILABLE_IOS(7_0);
 
 /**
  Create a bold and italic font from receiver.
  @return A bold and italic font, or nil if failed.
  */
-- (UIFont *)fontWithBoldItalic NS_AVAILABLE_IOS(7_0);
+- (UIFont *)lf_fontWithBoldItalic NS_AVAILABLE_IOS(7_0);
 
 /**
  Create a normal (no bold/italic/...) font from receiver.
  @return A normal font, or nil if failed.
  */
-- (UIFont *)fontWithNormal NS_AVAILABLE_IOS(7_0);
+- (UIFont *)lf_fontWithNormal NS_AVAILABLE_IOS(7_0);
 
 #pragma mark - Create font
 ///=============================================================================
@@ -60,7 +60,7 @@
  
  @param CTFont  CoreText font.
  */
-+ (UIFont *)fontWithCTFont:(CTFontRef)CTFont;
++ (UIFont *)lf_fontWithCTFont:(CTFontRef)CTFont;
 
 /**
  Creates and returns a font object for the specified CGFontRef and size.
@@ -68,17 +68,17 @@
  @param CGFont  CoreGraphic font.
  @param size    Font size.
  */
-+ (UIFont *)fontWithCGFont:(CGFontRef)CGFont size:(CGFloat)size;
++ (UIFont *)lf_fontWithCGFont:(CGFontRef)CGFont size:(CGFloat)size;
 
 /**
  Creates and returns the CTFontRef object. (need call CFRelease() after used)
  */
-- (CTFontRef)CTFontRef CF_RETURNS_RETAINED;
+- (CTFontRef)lf_CTFontRef CF_RETURNS_RETAINED;
 
 /**
  Creates and returns the CGFontRef object. (need call CFRelease() after used)
  */
-- (CGFontRef)CGFontRef CF_RETURNS_RETAINED;
+- (CGFontRef)lf_CGFontRef CF_RETURNS_RETAINED;
 
 
 #pragma mark - Load and unload font
@@ -92,14 +92,14 @@
  
  @param path    font file's full path
  */
-+ (BOOL)loadFontFromPath:(NSString *)path;
++ (BOOL)lf_loadFontFromPath:(NSString *)path;
 
 /**
  Unload font from file path.
  
  @param path    font file's full path
  */
-+ (void)unloadFontFromPath:(NSString *)path;
++ (void)lf_unloadFontFromPath:(NSString *)path;
 
 /**
  Load the font from data. Support format:TTF,OTF.
@@ -108,7 +108,7 @@
  
  @return UIFont object if load succeed, otherwise nil.
  */
-+ (UIFont *)loadFontFromData:(NSData *)data;
++ (UIFont *)lf_loadFontFromData:(NSData *)data;
 
 /**
  Unload font which is loaded by loadFontFromData: function.
@@ -117,7 +117,7 @@
  
  @return YES if succeed, otherwise NO.
  */
-+ (BOOL)unloadFontFromData:(UIFont *)font;
++ (BOOL)lf_unloadFontFromData:(UIFont *)font;
 
 
 #pragma mark - Dump font data
@@ -132,7 +132,7 @@
  
  @return data in TTF, or nil if an error occurs.
  */
-+ (NSData *)dataFromFont:(UIFont *)font;
++ (NSData *)lf_dataFromFont:(UIFont *)font;
 
 /**
  Serialize and return the font data.
@@ -141,7 +141,7 @@
  
  @return data in TTF, or nil if an error occurs.
  */
-+ (NSData *)dataFromCGFont:(CGFontRef)cgFont;
++ (NSData *)lf_dataFromCGFont:(CGFontRef)cgFont;
 
 
 

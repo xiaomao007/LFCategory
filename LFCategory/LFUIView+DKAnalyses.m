@@ -17,7 +17,7 @@ NSMutableDictionary *g_alloc_count_views_dictionary = nil;
 @implementation UIView (LFDKAnalysesAdditions)
 
 
-+(NSDictionary *)dk_allocAnalysesViewsDictionary
++(NSDictionary *)lf_allocAnalysesViewsDictionary
 {
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     

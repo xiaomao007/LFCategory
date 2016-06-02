@@ -192,19 +192,19 @@ LF_EXTERN_C_BEGIN
 
 /// 系统版本 (float)
 #ifndef kSystemVersion
-#define kSystemVersion [UIDevice systemVersionByFloat]
+#define kSystemVersion [UIDevice lf_systemVersionByFloat]
 #endif
 
 #ifndef kiOS6Later
-#define kiOS6Later ([UIDevice systemVersionByFloat] >= 6)
+#define kiOS6Later ([UIDevice lf_systemVersionByFloat] >= 6)
 #endif
 
 #ifndef kiOS7Later
-#define kiOS7Later ([UIDevice systemVersionByFloat] >= 7)
+#define kiOS7Later ([UIDevice lf_systemVersionByFloat] >= 7)
 #endif
 
 #ifndef kiOS8Later
-#define kiOS8Later ([UIDevice systemVersionByFloat] >= 8)
+#define kiOS8Later ([UIDevice lf_systemVersionByFloat] >= 8)
 #endif
 
 #ifndef kSuperImageRatio
