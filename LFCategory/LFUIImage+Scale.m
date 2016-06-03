@@ -546,7 +546,7 @@ static void AddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
     UIView *buttonView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width * power, (frame.size.height + 2) * power)];
     [buttonView setBackgroundColor:[UIColor clearColor]];
 
-    UIView *shadowView = [[UIView alloc]initWithFrame:CGRectMake(0, buttonView.height - 10 * power, buttonView.width, 10* power)];
+    UIView *shadowView = [[UIView alloc]initWithFrame:CGRectMake(0, buttonView.lf_height - 10 * power, buttonView.lf_width, 10* power)];
     [shadowView.layer setCornerRadius:radius * power];
     [shadowView.layer setBorderColor:shadowColor.CGColor];
     [shadowView.layer setBorderWidth:6.0f];

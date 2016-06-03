@@ -16,7 +16,7 @@
 
 @implementation UIDevice (LFAdditions)
 
-- (BOOL)isPad {
+- (BOOL)lf_isPad {
     static dispatch_once_t one;
     static BOOL pad;
     dispatch_once(&one, ^{
@@ -25,7 +25,7 @@
     return pad;
 }
 
-- (BOOL)isSimulator {
+- (BOOL)lf_isSimulator {
     static dispatch_once_t one;
     static BOOL simu;
     dispatch_once(&one, ^{
@@ -63,7 +63,7 @@
 //    return NO;
 //}
 
-- (BOOL)canMakePhoneCalls {
+- (BOOL)lf_canMakePhoneCalls {
     __block BOOL can;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -72,7 +72,7 @@
     return can;
 }
 
-- (NSString *)machineModel {
+- (NSString *)lf_machineModel {
     static dispatch_once_t one;
     static NSString *model;
     dispatch_once(&one, ^{
@@ -86,11 +86,11 @@
     return model;
 }
 
-- (NSString *)machineModelName {
+- (NSString *)lf_machineModelName {
     static dispatch_once_t one;
     static NSString *name;
     dispatch_once(&one, ^{
-        NSString *model = [self machineModel];
+        NSString *model = [self lf_machineModel];
         if ([model isEqualToString:@"iPhone1,1"]) name = @"iPhone 1G";
         else if ([model isEqualToString:@"iPhone1,2"]) name = @"iPhone 3G";
         else if ([model isEqualToString:@"iPhone2,1"]) name = @"iPhone 3GS";
@@ -173,7 +173,7 @@
     return v;
 }
 
-- (int64_t)diskSpace {
+- (int64_t)lf_diskSpace {
     NSError *error = nil;
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
     if (error) return -1;
@@ -182,7 +182,7 @@
     return space;
 }
 
-- (int64_t)diskSpaceFree {
+- (int64_t)lf_diskSpaceFree {
     NSError *error = nil;
     NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
     if (error) return -1;
@@ -191,22 +191,22 @@
     return space;
 }
 
-- (int64_t)diskSpaceUsed {
-    int64_t total = self.diskSpace;
-    int64_t free = self.diskSpaceFree;
+- (int64_t)lf_diskSpaceUsed {
+    int64_t total = self.lf_diskSpace;
+    int64_t free = self.lf_diskSpaceFree;
     if (total < 0 || free < 0) return -1;
     int64_t used = total - free;
     if (used < 0) used = -1;
     return used;
 }
 
-- (int64_t)memoryTotal {
+- (int64_t)lf_memoryTotal {
     int64_t mem = [[NSProcessInfo processInfo] physicalMemory];
     if (mem < -1) mem = -1;
     return mem;
 }
 
-- (int64_t)memoryUsed {
+- (int64_t)lf_memoryUsed {
     vm_statistics_data_t vm;
     mach_msg_type_number_t size = HOST_VM_INFO_COUNT;
     kern_return_t kern = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vm, &size);
@@ -218,7 +218,7 @@
     return mem;
 }
 
-- (int64_t)memoryFree {
+- (int64_t)lf_memoryFree {
     vm_statistics_data_t vm;
     mach_msg_type_number_t size = HOST_VM_INFO_COUNT;
     kern_return_t kern = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vm, &size);
@@ -228,7 +228,7 @@
     return mem;
 }
 
-- (int64_t)memoryActive {
+- (int64_t)lf_memoryActive {
     vm_statistics_data_t vm;
     mach_msg_type_number_t size = HOST_VM_INFO_COUNT;
     kern_return_t kern = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vm, &size);
@@ -238,7 +238,7 @@
     return mem;
 }
 
-- (int64_t)memoryInactive {
+- (int64_t)lf_memoryInactive {
     vm_statistics_data_t vm;
     mach_msg_type_number_t size = HOST_VM_INFO_COUNT;
     kern_return_t kern = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vm, &size);
@@ -248,7 +248,7 @@
     return mem;
 }
 
-- (int64_t)memoryWired {
+- (int64_t)lf_memoryWired {
     vm_statistics_data_t vm;
     mach_msg_type_number_t size = HOST_VM_INFO_COUNT;
     kern_return_t kern = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vm, &size);
@@ -258,7 +258,7 @@
     return mem;
 }
 
-- (int64_t)memoryPurgable {
+- (int64_t)lf_memoryPurgable {
     vm_statistics_data_t vm;
     mach_msg_type_number_t size = HOST_VM_INFO_COUNT;
     kern_return_t kern = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vm, &size);
@@ -268,7 +268,7 @@
     return mem;
 }
 
-- (NSString*)CPUType{
+- (NSString*)lf_CPUType{
     host_basic_info_data_t hostInfo;
     mach_msg_type_number_t infoCount;
     
@@ -292,7 +292,7 @@
     }
 }
 
-- (NSString *)CPUSubtype
+- (NSString *)lf_CPUSubtype
 {
     host_basic_info_data_t hostInfo;
     mach_msg_type_number_t infoCount;
@@ -393,8 +393,8 @@
     }
 }
 
-- (BOOL)isJailbroken {
-    if ([self isSimulator]) return NO; // Dont't check simulator
+- (BOOL)lf_isJailbroken {
+    if ([self lf_isSimulator]) return NO; // Dont't check simulator
     
     NSURL *cydiaURL = [NSURL URLWithString:@"cydia://package/com.saurik.cydia"];
     if ([[UIApplication sharedApplication] canOpenURL:cydiaURL]) return YES;

@@ -42,7 +42,7 @@
  	@param 	time 	延迟时间
  	@result
  */
-- (MBProgressHUD *)lf_showHUDAnimated:(BOOL)animated message:(NSString *)message andHiddenAfter:(NSTimeInterval)time;
+- (MBProgressHUD *)lf_showHUDAnimated:(BOOL)animated message:(NSString *)message dalayTime:(NSTimeInterval)time;
 
 
 /*!

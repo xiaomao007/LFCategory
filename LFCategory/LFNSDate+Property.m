@@ -13,51 +13,51 @@
 
 @implementation NSDate (LFPropertyAdditions)
 
-- (NSInteger)year {
+- (NSInteger)lf_year {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:self] year];
 }
 
-- (NSInteger)month {
+- (NSInteger)lf_month {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitMonth fromDate:self] month];
 }
 
-- (NSInteger)day {
+- (NSInteger)lf_day {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self] day];
 }
 
-- (NSInteger)hour {
+- (NSInteger)lf_hour {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:self] hour];
 }
 
-- (NSInteger)minute {
+- (NSInteger)lf_minute {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitMinute fromDate:self] minute];
 }
 
-- (NSInteger)second {
+- (NSInteger)lf_second {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond fromDate:self] second];
 }
 
-- (NSInteger)nanosecond {
+- (NSInteger)lf_nanosecond {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitSecond fromDate:self] nanosecond];
 }
 
-- (NSInteger)weekday {
+- (NSInteger)lf_weekday {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekday fromDate:self] weekday];
 }
 
-- (NSInteger)weekdayOrdinal {
+- (NSInteger)lf_weekdayOrdinal {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekdayOrdinal fromDate:self] weekdayOrdinal];
 }
 
-- (NSInteger)weekOfMonth {
+- (NSInteger)lf_weekOfMonth {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfMonth fromDate:self] weekOfMonth];
 }
 
-- (NSInteger)weekOfYear {
+- (NSInteger)lf_weekOfYear {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfYear fromDate:self] weekOfYear];
 }
 
-- (NSInteger)yearForWeekOfYear {
+- (NSInteger)lf_yearForWeekOfYear {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitYearForWeekOfYear fromDate:self] yearForWeekOfYear];
 }
 
@@ -65,12 +65,12 @@
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitQuarter fromDate:self] quarter];
 }
 
-- (BOOL)isLeapMonth {
+- (BOOL)lf_isLeapMonth {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitQuarter fromDate:self] isLeapMonth];
 }
 
-- (BOOL)isLeapYear {
-    NSUInteger year = self.year;
+- (BOOL)lf_isLeapYear {
+    NSUInteger year = self.lf_year;
     if ((year % 400 == 0) || (year % 100 == 0) || (year % 4 == 0)) return YES;
     return NO;
 }

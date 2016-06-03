@@ -153,22 +153,22 @@ static NSInteger const UIAlertControllerBlocksFirstOtherButtonIndex = 2;
 
 #pragma mark -
 
-- (BOOL)visible
+- (BOOL)lf_visible
 {
     return self.view.superview != nil;
 }
 
-- (NSInteger)cancelButtonIndex
+- (NSInteger)lf_cancelButtonIndex
 {
     return UIAlertControllerBlocksCancelButtonIndex;
 }
 
-- (NSInteger)firstOtherButtonIndex
+- (NSInteger)lf_firstOtherButtonIndex
 {
     return UIAlertControllerBlocksFirstOtherButtonIndex;
 }
 
-- (NSInteger)destructiveButtonIndex
+- (NSInteger)lf_destructiveButtonIndex
 {
     return UIAlertControllerBlocksDestructiveButtonIndex;
 }

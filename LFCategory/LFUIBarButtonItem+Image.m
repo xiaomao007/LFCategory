@@ -93,7 +93,7 @@
     
     
     UIBarButtonItem *barBtnItem  = [[UIBarButtonItem alloc] initWithCustomView:customButton];
-    barBtnItem.width             = customButton.width;
+    barBtnItem.width             = customButton.lf_width;
     return barBtnItem;
 }
 
@@ -138,7 +138,7 @@
     customButton.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
     customButton.titleLabel.font = [UIFont systemFontOfSize:16.f];
     UIBarButtonItem *barBtnItem  = [[UIBarButtonItem alloc] initWithCustomView:customButton];
-    barBtnItem.width             = customButton.width;
+    barBtnItem.width             = customButton.lf_width;
     return barBtnItem;
 }
 
@@ -158,7 +158,7 @@
                                                        action:selector];
     CGSize sizeOfBellButton = CGSizeZero;
     if (bellButton!=nil  /*&& !bellButton.isHidden*/ ) {
-        sizeOfBellButton = [bellButton size];;
+        sizeOfBellButton = [bellButton lf_size];;
     }
 
     CGFloat width = 100.0f;

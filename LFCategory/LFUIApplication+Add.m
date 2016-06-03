@@ -32,41 +32,41 @@ NSString *NSCachesPath() {
 
 @implementation UIApplication (LFAdd)
 
-- (NSURL *)documentsURL {
+- (NSURL *)lf_documentsURL {
     return [[[NSFileManager defaultManager]
              URLsForDirectory:NSDocumentDirectory
              inDomains:NSUserDomainMask] lastObject];
 }
 
-- (NSURL *)cachesURL {
+- (NSURL *)lf_cachesURL {
     return [[[NSFileManager defaultManager]
              URLsForDirectory:NSCachesDirectory
              inDomains:NSUserDomainMask] lastObject];
 }
 
-- (NSURL *)libraryURL {
+- (NSURL *)lf_libraryURL {
     return [[[NSFileManager defaultManager]
              URLsForDirectory:NSLibraryDirectory
              inDomains:NSUserDomainMask] lastObject];
 }
 
-- (NSString *)appBundleName {
+- (NSString *)lf_appBundleName {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 }
 
-- (NSString *)appBundleID {
+- (NSString *)lf_appBundleID {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
 }
 
-- (NSString *)appVersion {
+- (NSString *)lf_appVersion {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
 }
 
-- (NSString *)appBuildVersion {
+- (NSString *)lf_appBuildVersion {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 
-- (int64_t)memoryUsage {
+- (int64_t)lf_memoryUsage {
     struct task_basic_info info;
     mach_msg_type_number_t size = sizeof(info);
     kern_return_t kern = task_info(mach_task_self(), TASK_BASIC_INFO, (task_info_t)&info, &size);
@@ -74,7 +74,7 @@ NSString *NSCachesPath() {
     return info.resident_size;
 }
 
-- (float)cpuUsage {
+- (float)lf_cpuUsage {
     kern_return_t kr;
     task_info_data_t tinfo;
     mach_msg_type_number_t task_info_count;
@@ -128,8 +128,8 @@ NSString *NSCachesPath() {
 
 
 
-- (BOOL)isPirated {
-    if ([[UIDevice currentDevice] isSimulator]) return NO; // Dont't check simulator
+- (BOOL)lf_isPirated {
+    if ([[UIDevice currentDevice] lf_isSimulator]) return NO; // Dont't check simulator
     
     if (getgid() <= 10) return YES; // process ID shouldn't be root
     
@@ -157,7 +157,7 @@ NSString *NSCachesPath() {
 }
 
 
-- (BOOL)isBeingDebugged {
+- (BOOL)lf_isBeingDebugged {
     size_t size = sizeof(struct kinfo_proc);
     struct kinfo_proc info;
     int ret = 0, name[4];

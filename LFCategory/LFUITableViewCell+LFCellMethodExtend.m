@@ -35,10 +35,10 @@
     separatorView.backgroundColor = [UIColor lightGrayColor];
     
     if (edgeNum) {
-        [separatorView setFrame:CGRectMake(edgeNum, 0, self.width-edgeNum, .5f)];
+        [separatorView setFrame:CGRectMake(edgeNum, 0, self.lf_width-edgeNum, .5f)];
     }
     else {
-        [separatorView setFrame:CGRectMake(0, 0, self.width, .5f)];
+        [separatorView setFrame:CGRectMake(0, 0, self.lf_width, .5f)];
     }
     CGRect frame = separatorView.frame;
     if (direction == UIViewSeparatorDirectionTop) {

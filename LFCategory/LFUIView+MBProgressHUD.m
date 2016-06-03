@@ -71,8 +71,8 @@
     label.lineBreakMode = NSLineBreakByCharWrapping;
     label.text = message;
     label.numberOfLines = 20;
-    CGSize size = [message lf_sizeForFont:label.font size:CGSizeMake(self.width - 40, self.height - 40) mode:label.lineBreakMode];
-    label.size = CGSizeMake(size.width + 1, size.height + 1);
+    CGSize size = [message lf_sizeForFont:label.font size:CGSizeMake(self.lf_width - 40, self.lf_height - 40) mode:label.lineBreakMode];
+    label.lf_size = CGSizeMake(size.width + 1, size.height + 1);
     
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
     [self addSubview:hud];
@@ -94,7 +94,7 @@
  @param 	time 	延迟时间
  @result
  */
-- (MBProgressHUD *)lf_showHUDAnimated:(BOOL)animated message:(NSString *)message andHiddenAfter:(NSTimeInterval)time
+- (MBProgressHUD *)lf_showHUDAnimated:(BOOL)animated message:(NSString *)message dalayTime:(NSTimeInterval)time
 {
     [self lf_removeAllHUDAnimated:animated];
     if (message.length == 0) return nil;
@@ -109,13 +109,13 @@
     label.text = message;
     label.numberOfLines = 18;
     CGSize size = [message lf_sizeForFont:label.font size:CGSizeMake(CGRectGetWidth(self.bounds) - 60, CGRectGetHeight(self.bounds) - 40) mode:label.lineBreakMode];
-    label.size = CGSizeMake(size.width + 1, size.height + 1);
+    label.lf_size = CGSizeMake(size.width + 1, size.height + 1);
     UIView *v = [UIView new];
-    v.size = label.size;
-    v.width += 15;
-    v.height += 15;
+    v.lf_size = label.lf_size;
+    v.lf_width += 15;
+    v.lf_height += 15;
     [v addSubview:label];
-    label.center = CGPointMake(v.width / 2, v.height / 2);
+    label.center = CGPointMake(v.lf_width / 2, v.lf_height / 2);
     
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
     [self addSubview:hud];

@@ -20,11 +20,11 @@
 /// @name Font Traits
 ///=============================================================================
 
-@property (nonatomic, readonly) BOOL isBold NS_AVAILABLE_IOS(7_0); ///< Whether the font is bold.
-@property (nonatomic, readonly) BOOL isItalic NS_AVAILABLE_IOS(7_0); ///< Whether the font is italic.
-@property (nonatomic, readonly) BOOL isMonoSpace NS_AVAILABLE_IOS(7_0); ///< Whether the font is mono space.
-@property (nonatomic, readonly) BOOL isColorGlyphs NS_AVAILABLE_IOS(7_0); ///< Whether the font is color glyphs (such as Emoji).
-@property (nonatomic, readonly) CGFloat fontWeight NS_AVAILABLE_IOS(7_0); ///< Font weight from -1.0 to 1.0. Regular weight is 0.0.
+@property (nonatomic, readonly) BOOL lf_isBold NS_AVAILABLE_IOS(7_0); ///< Whether the font is bold.
+@property (nonatomic, readonly) BOOL lf_isItalic NS_AVAILABLE_IOS(7_0); ///< Whether the font is italic.
+@property (nonatomic, readonly) BOOL lf_isMonoSpace NS_AVAILABLE_IOS(7_0); ///< Whether the font is mono space.
+@property (nonatomic, readonly) BOOL lf_isColorGlyphs NS_AVAILABLE_IOS(7_0); ///< Whether the font is color glyphs (such as Emoji).
+@property (nonatomic, readonly) CGFloat lf_fontWeight NS_AVAILABLE_IOS(7_0); ///< Font weight from -1.0 to 1.0. Regular weight is 0.0.
 
 /**
  Create a bold font from receiver.

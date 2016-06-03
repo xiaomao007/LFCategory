@@ -60,9 +60,9 @@ typedef void (^UIAlertControllerCompletionBlock) (UIAlertController * __nonnull 
                      popoverPresentationControllerBlock:(nullable UIAlertControllerPopoverPresentationControllerBlock)popoverPresentationControllerBlock
                                                tapBlock:(nullable UIAlertControllerCompletionBlock)tapBlock;
 
-@property (readonly, nonatomic) BOOL visible;
-@property (readonly, nonatomic) NSInteger cancelButtonIndex;
-@property (readonly, nonatomic) NSInteger firstOtherButtonIndex;
-@property (readonly, nonatomic) NSInteger destructiveButtonIndex;
+@property (readonly, nonatomic) BOOL lf_visible;
+@property (readonly, nonatomic) NSInteger lf_cancelButtonIndex;
+@property (readonly, nonatomic) NSInteger lf_firstOtherButtonIndex;
+@property (readonly, nonatomic) NSInteger lf_destructiveButtonIndex;
 
 @end

@@ -32,10 +32,10 @@ typedef NS_ENUM(NSUInteger, LFBadgeSizeType) {
 
 @interface UIView (LFBadgeAdditons)
 
-@property (nonatomic, strong) UILabel *badge;
-@property (nonatomic) CGFloat badgeOriginX;
-@property (nonatomic) CGFloat badgeOriginY;
-@property (nonatomic) BOOL showAllNumbers;//<展示完整的数字 (默认超过100展示99+)  等于0也展示
+@property (nonatomic, strong) UILabel *lf_badge;
+@property (nonatomic) CGFloat lf_badgeOriginX;
+@property (nonatomic) CGFloat lf_badgeOriginY;
+@property (nonatomic) BOOL lf_showAllNumbers;//<展示完整的数字 (默认超过100展示99+)  等于0也展示
 
 /**
  *  show badge with red dot style and WBadgeAnimTypeNone by default.

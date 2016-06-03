@@ -54,103 +54,103 @@
     }
 }
 
-- (CGFloat)left {
+- (CGFloat)lf_left {
     return self.frame.origin.x;
 }
 
-- (void)setLeft:(CGFloat)x {
+- (void)setLf_left:(CGFloat)x {
     CGRect frame = self.frame;
     frame.origin.x = x;
     self.frame = frame;
 }
 
-- (CGFloat)top {
+- (CGFloat)lf_top {
     return self.frame.origin.y;
 }
 
-- (void)setTop:(CGFloat)y {
+- (void)setLf_top:(CGFloat)y {
     CGRect frame = self.frame;
     frame.origin.y = y;
     self.frame = frame;
 }
 
-- (CGFloat)right {
+- (CGFloat)lf_right {
     return self.frame.origin.x + self.frame.size.width;
 }
 
-- (void)setRight:(CGFloat)right {
+- (void)setLf_right:(CGFloat)right {
     CGRect frame = self.frame;
     frame.origin.x = right - frame.size.width;
     self.frame = frame;
 }
 
-- (CGFloat)bottom {
+- (CGFloat)lf_bottom {
     return self.frame.origin.y + self.frame.size.height;
 }
 
-- (void)setBottom:(CGFloat)bottom {
+- (void)setLf_bottom:(CGFloat)bottom {
     CGRect frame = self.frame;
     frame.origin.y = bottom - frame.size.height;
     self.frame = frame;
 }
 
-- (CGFloat)width {
+- (CGFloat)lf_width {
     return self.frame.size.width;
 }
 
-- (void)setWidth:(CGFloat)width {
+- (void)setLf_width:(CGFloat)width {
     CGRect frame = self.frame;
     frame.size.width = width;
     self.frame = frame;
 }
 
-- (CGFloat)height {
+- (CGFloat)lf_height {
     return self.frame.size.height;
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setLf_height:(CGFloat)height {
     CGRect frame = self.frame;
     frame.size.height = height;
     self.frame = frame;
 }
 
-- (CGPoint)center {
+- (CGPoint)lf_center {
     return CGPointMake(self.frame.origin.x + self.frame.size.width * 0.5,
                        self.frame.origin.y + self.frame.size.height * 0.5);
 }
 
-- (void)setCenter:(CGPoint)center {
+- (void)setLf_center:(CGPoint)center {
     CGRect frame = self.frame;
     frame.origin.x = center.x - frame.size.width * 0.5;
     frame.origin.y = center.y - frame.size.height * 0.5;
     self.frame = frame;
 }
 
-- (CGFloat)centerX {
+- (CGFloat)lf_centerX {
     return self.frame.origin.x + self.frame.size.width * 0.5;
 }
 
-- (void)setCenterX:(CGFloat)centerX {
+- (void)setLf_centerX:(CGFloat)centerX {
     CGRect frame = self.frame;
     frame.origin.x = centerX - frame.size.width * 0.5;
     self.frame = frame;
 }
 
-- (CGFloat)centerY {
+- (CGFloat)lf_centerY {
     return self.frame.origin.y + self.frame.size.height * 0.5;
 }
 
-- (void)setCenterY:(CGFloat)centerY {
+- (void)setLf_centerY:(CGFloat)centerY {
     CGRect frame = self.frame;
     frame.origin.y = centerY - frame.size.height * 0.5;
     self.frame = frame;
 }
 
-- (CGPoint)origin {
+- (CGPoint)lf_origin {
     return self.frame.origin;
 }
 
-- (void)setOrigin:(CGPoint)origin {
+- (void)setLf_origin:(CGPoint)origin {
     CGRect frame = self.frame;
     frame.origin = origin;
     self.frame = frame;
@@ -165,110 +165,110 @@
     frame.size = size;
     self.frame = frame;
 }
-- (CGFloat)transformRotation {
+- (CGFloat)lf_transformRotation {
     NSNumber *v = [self valueForKeyPath:@"transform.rotation"];
     return v.doubleValue;
 }
 
-- (void)setTransformRotation:(CGFloat)v {
+- (void)setLf_transformRotation:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.rotation"];
 }
 
-- (CGFloat)transformRotationX {
+- (CGFloat)lf_transformRotationX {
     NSNumber *v = [self valueForKeyPath:@"transform.rotation.x"];
     return v.doubleValue;
 }
 
-- (void)setTransformRotationX:(CGFloat)v {
+- (void)setLf_transformRotationX:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.rotation.x"];
 }
 
-- (CGFloat)transformRotationY {
+- (CGFloat)lf_transformRotationY {
     NSNumber *v = [self valueForKeyPath:@"transform.rotation.y"];
     return v.doubleValue;
 }
 
-- (void)setTransformRotationY:(CGFloat)v {
+- (void)setLf_transformRotationY:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.rotation.y"];
 }
 
-- (CGFloat)transformRotationZ {
+- (CGFloat)lf_transformRotationZ {
     NSNumber *v = [self valueForKeyPath:@"transform.rotation.z"];
     return v.doubleValue;
 }
 
-- (void)setTransformRotationZ:(CGFloat)v {
+- (void)setLf_transformRotationZ:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.rotation.z"];
 }
 
-- (CGFloat)transformScaleX {
+- (CGFloat)lf_transformScaleX {
     NSNumber *v = [self valueForKeyPath:@"transform.scale.x"];
     return v.doubleValue;
 }
 
-- (void)setTransformScaleX:(CGFloat)v {
+- (void)setLf_transformScaleX:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.scale.x"];
 }
 
-- (CGFloat)transformScaleY {
+- (CGFloat)lf_transformScaleY {
     NSNumber *v = [self valueForKeyPath:@"transform.scale.y"];
     return v.doubleValue;
 }
 
-- (void)setTransformScaleY:(CGFloat)v {
+- (void)setLf_transformScaleY:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.scale.y"];
 }
 
-- (CGFloat)transformScaleZ {
+- (CGFloat)lf_transformScaleZ {
     NSNumber *v = [self valueForKeyPath:@"transform.scale.z"];
     return v.doubleValue;
 }
 
-- (void)setTransformScaleZ:(CGFloat)v {
+- (void)setLf_transformScaleZ:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.scale.z"];
 }
 
-- (CGFloat)transformScale {
+- (CGFloat)lf_transformScale {
     NSNumber *v = [self valueForKeyPath:@"transform.scale"];
     return v.doubleValue;
 }
 
-- (void)setTransformScale:(CGFloat)v {
+- (void)setLf_transformScale:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.scale"];
 }
 
-- (CGFloat)transformTranslationX {
+- (CGFloat)lf_transformTranslationX {
     NSNumber *v = [self valueForKeyPath:@"transform.translation.x"];
     return v.doubleValue;
 }
 
-- (void)setTransformTranslationX:(CGFloat)v {
+- (void)setLf_transformTranslationX:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.translation.x"];
 }
 
-- (CGFloat)transformTranslationY {
+- (CGFloat)lf_transformTranslationY {
     NSNumber *v = [self valueForKeyPath:@"transform.translation.y"];
     return v.doubleValue;
 }
 
-- (void)setTransformTranslationY:(CGFloat)v {
+- (void)setLf_transformTranslationY:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.translation.y"];
 }
 
-- (CGFloat)transformTranslationZ {
+- (CGFloat)lf_transformTranslationZ {
     NSNumber *v = [self valueForKeyPath:@"transform.translation.z"];
     return v.doubleValue;
 }
 
-- (void)setTransformTranslationZ:(CGFloat)v {
+- (void)setLf_transformTranslationZ:(CGFloat)v {
     [self setValue:@(v) forKeyPath:@"transform.translation.z"];
 }
 
-- (CGFloat)transformDepth {
+- (CGFloat)lf_transformDepth {
     return self.transform.m34;
 }
 
-- (void)setTransformDepth:(CGFloat)v {
+- (void)setLf_transformDepth:(CGFloat)v {
     CATransform3D d = self.transform;
     d.m34 = v;
     self.transform = d;

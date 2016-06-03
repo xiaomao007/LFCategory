@@ -50,19 +50,19 @@
 /**
  Returns the view's view controller (may be nil).
  */
-@property (nonatomic, readonly) UIViewController *viewController;
+@property (nonatomic, readonly) UIViewController *lf_viewController;
 
-@property (nonatomic) CGFloat left;    ///< Shortcut for frame.origin.x.
-@property (nonatomic) CGFloat top;     ///< Shortcut for frame.origin.y
-@property (nonatomic) CGFloat right;   ///< Shortcut for frame.origin.x + frame.size.width
-@property (nonatomic) CGFloat bottom;  ///< Shortcut for frame.origin.y + frame.size.height
-@property (nonatomic) CGFloat width;   ///< Shortcut for frame.size.width.
-@property (nonatomic) CGFloat height;  ///< Shortcut for frame.size.height.
-@property (nonatomic) CGFloat centerX; ///< Shortcut for center.x
-@property (nonatomic) CGFloat centerY; ///< Shortcut for center.y
-@property (nonatomic) CGPoint origin;  ///< Shortcut for frame.origin.
-@property (nonatomic) CGSize size;     ///< Shortcut for frame.size.
-@property (nonatomic, readonly) CGRect screenFrame; ///< View frame on the screen, taking into account scroll views.
+@property (nonatomic) CGFloat lf_left;    ///< Shortcut for frame.origin.x.
+@property (nonatomic) CGFloat lf_top;     ///< Shortcut for frame.origin.y
+@property (nonatomic) CGFloat lf_right;   ///< Shortcut for frame.origin.x + frame.size.width
+@property (nonatomic) CGFloat lf_bottom;  ///< Shortcut for frame.origin.y + frame.size.height
+@property (nonatomic) CGFloat lf_width;   ///< Shortcut for frame.size.width.
+@property (nonatomic) CGFloat lf_height;  ///< Shortcut for frame.size.height.
+@property (nonatomic) CGFloat lf_centerX; ///< Shortcut for center.x
+@property (nonatomic) CGFloat lf_centerY; ///< Shortcut for center.y
+@property (nonatomic) CGPoint lf_origin;  ///< Shortcut for frame.origin.
+@property (nonatomic) CGSize lf_size;     ///< Shortcut for frame.size.
+@property (nonatomic, readonly) CGRect lf_screenFrame; ///< View frame on the screen, taking into account scroll views.
 
 /**
  Returns the visible alpha on screen, taking into account superview and window.

@@ -19,20 +19,20 @@
 /// @name 时间部分
 ///=============================================================================
 
-@property (nonatomic, readonly) NSInteger year; ///< Year component
-@property (nonatomic, readonly) NSInteger month; ///< Month component
-@property (nonatomic, readonly) NSInteger day; ///< Day component
-@property (nonatomic, readonly) NSInteger hour; ///< Hour component
-@property (nonatomic, readonly) NSInteger minute; ///< Minute component
-@property (nonatomic, readonly) NSInteger second; ///< Second component
-@property (nonatomic, readonly) NSInteger nanosecond; ///< Nanosecond component
-@property (nonatomic, readonly) NSInteger weekday; ///< Weekday component
-@property (nonatomic, readonly) NSInteger weekdayOrdinal; ///< WeekdayOrdinal component
-@property (nonatomic, readonly) NSInteger weekOfMonth; ///< WeekOfMonth component
-@property (nonatomic, readonly) NSInteger weekOfYear; ///< WeekOfYear component
-@property (nonatomic, readonly) NSInteger yearForWeekOfYear; ///< YearForWeekOfYear component
-@property (nonatomic, readonly) NSInteger quarter; ///< Quarter component
-@property (nonatomic, readonly) BOOL isLeapMonth; ///< 是否闰月
-@property (nonatomic, readonly) BOOL isLeapYear; ///< 是否闰年
+@property (nonatomic, readonly) NSInteger lf_year; ///< Year component
+@property (nonatomic, readonly) NSInteger lf_month; ///< Month component
+@property (nonatomic, readonly) NSInteger lf_day; ///< Day component
+@property (nonatomic, readonly) NSInteger lf_hour; ///< Hour component
+@property (nonatomic, readonly) NSInteger lf_minute; ///< Minute component
+@property (nonatomic, readonly) NSInteger lf_second; ///< Second component
+@property (nonatomic, readonly) NSInteger lf_nanosecond; ///< Nanosecond component
+@property (nonatomic, readonly) NSInteger lf_weekday; ///< Weekday component
+@property (nonatomic, readonly) NSInteger lf_weekdayOrdinal; ///< WeekdayOrdinal component
+@property (nonatomic, readonly) NSInteger lf_weekOfMonth; ///< WeekOfMonth component
+@property (nonatomic, readonly) NSInteger lf_weekOfYear; ///< WeekOfYear component
+@property (nonatomic, readonly) NSInteger lf_yearForWeekOfYear; ///< YearForWeekOfYear component
+@property (nonatomic, readonly) NSInteger lf_quarter; ///< Quarter component
+@property (nonatomic, readonly) BOOL lf_isLeapMonth; ///< 是否闰月
+@property (nonatomic, readonly) BOOL lf_isLeapYear; ///< 是否闰年
 
 @end

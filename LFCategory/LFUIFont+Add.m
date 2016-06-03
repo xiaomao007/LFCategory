@@ -17,27 +17,27 @@
 
 @implementation UIFont (LFAdditions)
 
-- (BOOL)isBold {
+- (BOOL)lf_isBold {
     if (!kiOS7Later) return NO;
     return (self.fontDescriptor.symbolicTraits & UIFontDescriptorTraitBold) > 0;
 }
 
-- (BOOL)isItalic {
+- (BOOL)lf_isItalic {
     if (!kiOS7Later) return NO;
     return (self.fontDescriptor.symbolicTraits & UIFontDescriptorTraitItalic) > 0;
 }
 
-- (BOOL)isMonoSpace {
+- (BOOL)lf_isMonoSpace {
     if (!kiOS7Later) return NO;
     return (self.fontDescriptor.symbolicTraits & UIFontDescriptorTraitMonoSpace) > 0;
 }
 
-- (BOOL)isColorGlyphs {
+- (BOOL)lf_isColorGlyphs {
     if (!kiOS7Later) return NO;
     return (CTFontGetSymbolicTraits((__bridge CTFontRef)self) & kCTFontTraitColorGlyphs) != 0;
 }
 
-- (CGFloat)fontWeight {
+- (CGFloat)lf_fontWeight {
     NSDictionary *traits = [self.fontDescriptor objectForKey:UIFontDescriptorTraitsAttribute];
     return [traits[UIFontWeightTrait] floatValue];
 }

@@ -138,7 +138,7 @@
         }
     } else if (self.lf_isYesterday) {
         return [formatterYesterday stringFromDate:self];
-    } else if (now.year == self.year){
+    } else if (now.lf_year == self.lf_year){
         return [formatterSameYear stringFromDate:self];
     } else {
         return [formatterNormal stringFromDate:self];
@@ -147,14 +147,14 @@
 
 - (BOOL)lf_isToday {
     NSDate *date = [NSDate new];
-    return (date.year == self.year && date.month == self.month && date.day == self.day);
+    return (date.lf_year == self.lf_year && date.lf_month == self.lf_month && date.lf_day == self.lf_day);
 }
 - (BOOL)lf_isYesterday {
     return [[self lf_dateByAddingDays:1] lf_isToday];
 }
 - (BOOL)lf_isTodayBirthday {
     NSDate *date = [NSDate new];
-    return (date.month == self.month && date.day == self.day);
+    return (date.lf_month == self.lf_month && date.lf_day == self.lf_day);
 }
 -(BOOL)lf_isLast30Mins {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

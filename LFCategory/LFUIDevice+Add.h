@@ -24,21 +24,21 @@ typedef void (^ cameraAuthorziedBlock) (void);
 ///=============================================================================
 
 /// Whether the device is iPad/iPad mini.
-@property (nonatomic, readonly) BOOL isPad;
+@property (nonatomic, readonly) BOOL lf_isPad;
 
 /// Whether the device is a simulator.
-@property (nonatomic, readonly) BOOL isSimulator;
+@property (nonatomic, readonly) BOOL lf_isSimulator;
 
 /// Wherher the device can make phone calls.
-@property (nonatomic, readonly) BOOL canMakePhoneCalls;
+@property (nonatomic, readonly) BOOL lf_canMakePhoneCalls;
 
 /// The device's machine model.  e.g. "iPhone6,1" "iPad4,6"
 /// @see http://theiphonewiki.com/wiki/Models
-@property (nonatomic, readonly) NSString *machineModel;
+@property (nonatomic, readonly) NSString *lf_machineModel;
 
 /// The device's machine model name. e.g. "iPhone 5s" "iPad mini 2"
 /// @see http://theiphonewiki.com/wiki/Models
-@property (nonatomic, readonly) NSString *machineModelName;
+@property (nonatomic, readonly) NSString *lf_machineModelName;
 
 /// 屏幕大小，高大于宽
 + (CGSize) lf_screenSize;
@@ -55,13 +55,13 @@ typedef void (^ cameraAuthorziedBlock) (void);
 ///=============================================================================
 
 /// Total disk space in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t diskSpace;
+@property (nonatomic, readonly) int64_t lf_diskSpace;
 
 /// Free disk space in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t diskSpaceFree;
+@property (nonatomic, readonly) int64_t lf_diskSpaceFree;
 
 /// Used disk space in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t diskSpaceUsed;
+@property (nonatomic, readonly) int64_t lf_diskSpaceUsed;
 
 
 #pragma mark - Memory Information
@@ -70,28 +70,28 @@ typedef void (^ cameraAuthorziedBlock) (void);
 ///=============================================================================
 
 /// Total physical memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t memoryTotal;
+@property (nonatomic, readonly) int64_t lf_memoryTotal;
 
 /// Used (active + inactive + wired) memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t memoryUsed;
+@property (nonatomic, readonly) int64_t lf_memoryUsed;
 
 /// Free memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t memoryFree;
+@property (nonatomic, readonly) int64_t lf_memoryFree;
 
 /// Acvite memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t memoryActive;
+@property (nonatomic, readonly) int64_t lf_memoryActive;
 
 /// Inactive memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t memoryInactive;
+@property (nonatomic, readonly) int64_t lf_memoryInactive;
 
 /// Wired memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t memoryWired;
+@property (nonatomic, readonly) int64_t lf_memoryWired;
 
 /// Purgable memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t memoryPurgable;
+@property (nonatomic, readonly) int64_t lf_memoryPurgable;
 
-@property (nonatomic,copy ,readonly) NSString *CPUType;
-@property (nonatomic,copy ,readonly) NSString *CPUSubtype;
+@property (nonatomic,copy ,readonly) NSString *lf_CPUType;
+@property (nonatomic,copy ,readonly) NSString *lf_CPUSubtype;
 
 #pragma mark - System version compare
 ///=============================================================================
@@ -110,7 +110,7 @@ typedef void (^ cameraAuthorziedBlock) (void);
 
 /// 设备是否越狱
 /// Whether the device is jailbroken.
-@property (nonatomic, readonly) BOOL isJailbroken;
+@property (nonatomic, readonly) BOOL lf_isJailbroken;
 
 //
 + (void)lf_cameraAuthorzied:(cameraAuthorziedBlock)authorizedBlock notAuthorized:(cameraAuthorziedBlock)notAuthorizedlock;
