@@ -172,17 +172,17 @@ LF_EXTERN_C_BEGIN
 
 /// 屏幕宽度
 #ifndef kScreenWidth
-#define kScreenWidth [UIDevice screenSize].width
+#define kScreenWidth [UIDevice lf_screenSize].width
 #endif
 
 /// 屏幕高度
 #ifndef kScreenHeight
-#define kScreenHeight [UIDevice screenSize].height
+#define kScreenHeight [UIDevice lf_screenSize].height
 #endif
 
 /// 屏幕大小
 #ifndef kScreenSize
-#define kScreenSize [UIDevice screenSize]
+#define kScreenSize [UIDevice lf_screenSize]
 #endif
 
 /// 屏幕Scale
