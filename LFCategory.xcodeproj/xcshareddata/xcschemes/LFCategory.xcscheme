@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0919ADC41CED6F920092DA5B"
-               BuildableName = "LFCategory.framework"
-               BlueprintName = "LFCategory"
-               ReferencedContainer = "container:LFCategory.xcodeproj">
+               BlueprintIdentifier = "5081222852681BE78B87523E8557A3A7"
+               BuildableName = "libPods-LFCategory.a"
+               BlueprintName = "Pods-LFCategory"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -42,10 +42,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5081222852681BE78B87523E8557A3A7"
-               BuildableName = "libPods-LFCategory.a"
-               BlueprintName = "Pods-LFCategory"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+               BlueprintIdentifier = "0919ADC41CED6F920092DA5B"
+               BuildableName = "LFCategory.framework"
+               BlueprintName = "LFCategory"
+               ReferencedContainer = "container:LFCategory.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
