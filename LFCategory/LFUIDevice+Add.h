@@ -24,21 +24,21 @@ typedef void (^ cameraAuthorziedBlock) (void);
 ///=============================================================================
 
 /// Whether the device is iPad/iPad mini.
-@property (nonatomic, readonly) BOOL lf_isPad;
+@property (nonatomic, readonly, getter=lf_isPad) BOOL isPad;
 
 /// Whether the device is a simulator.
-@property (nonatomic, readonly) BOOL lf_isSimulator;
+@property (nonatomic, readonly, getter=lf_isSimulator) BOOL isSimulator;
 
 /// Wherher the device can make phone calls.
-@property (nonatomic, readonly) BOOL lf_canMakePhoneCalls;
+@property (nonatomic, readonly, getter=lf_canMakePhoneCalls) BOOL canMakePhoneCalls;
 
 /// The device's machine model.  e.g. "iPhone6,1" "iPad4,6"
 /// @see http://theiphonewiki.com/wiki/Models
-@property (nonatomic, readonly) NSString *lf_machineModel;
+@property (nonatomic, readonly, getter=lf_machineModel) NSString *machineModel;
 
 /// The device's machine model name. e.g. "iPhone 5s" "iPad mini 2"
 /// @see http://theiphonewiki.com/wiki/Models
-@property (nonatomic, readonly) NSString *lf_machineModelName;
+@property (nonatomic, readonly, getter=lf_machineModelName) NSString *machineModelName;
 
 /// 屏幕大小，高大于宽
 + (CGSize) lf_screenSize;
@@ -55,13 +55,13 @@ typedef void (^ cameraAuthorziedBlock) (void);
 ///=============================================================================
 
 /// Total disk space in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_diskSpace;
+@property (nonatomic, readonly, getter=lf_diskSpace) int64_t diskSpace;
 
 /// Free disk space in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_diskSpaceFree;
+@property (nonatomic, readonly, getter=lf_diskSpaceFree) int64_t diskSpaceFree;
 
 /// Used disk space in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_diskSpaceUsed;
+@property (nonatomic, readonly, getter=lf_diskSpaceUsed) int64_t diskSpaceUsed;
 
 
 #pragma mark - Memory Information
@@ -70,28 +70,29 @@ typedef void (^ cameraAuthorziedBlock) (void);
 ///=============================================================================
 
 /// Total physical memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_memoryTotal;
+@property (nonatomic, readonly, getter=lf_memoryTotal) int64_t memoryTotal;
 
 /// Used (active + inactive + wired) memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_memoryUsed;
+@property (nonatomic, readonly, getter=lf_memoryUsed) int64_t memoryUsed;
 
 /// Free memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_memoryFree;
+@property (nonatomic, readonly, getter=lf_memoryFree) int64_t memoryFree;
 
 /// Acvite memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_memoryActive;
+@property (nonatomic, readonly, getter=lf_memoryActive) int64_t memoryActive;
 
 /// Inactive memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_memoryInactive;
+@property (nonatomic, readonly, getter=lf_memoryInactive) int64_t memoryInactive;
 
 /// Wired memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_memoryWired;
+@property (nonatomic, readonly, getter=lf_memoryWired) int64_t memoryWired;
 
 /// Purgable memory in byte. (-1 when error occurs)
-@property (nonatomic, readonly) int64_t lf_memoryPurgable;
+@property (nonatomic, readonly, getter=lf_memoryPurgable) int64_t memoryPurgable;
 
-@property (nonatomic,copy ,readonly) NSString *lf_CPUType;
-@property (nonatomic,copy ,readonly) NSString *lf_CPUSubtype;
+@property (nonatomic,copy ,readonly, getter=lf_CPUType) NSString *CPUType;
+@property (nonatomic,copy ,readonly, getter=lf_CPUSubtype) NSString *CPUSubtype;
+
 
 #pragma mark - System version compare
 ///=============================================================================

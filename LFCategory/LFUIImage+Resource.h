@@ -20,4 +20,6 @@
  *  @return 图片对象/如果没有返回空
  */
 + (UIImage*)lf_EmotionWithName:(NSString*)name;
+
++ (UIImage *)lf_imageForKey:(id)key inBundle:(NSBundle *)bundle;
 @end

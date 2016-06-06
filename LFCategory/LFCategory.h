@@ -64,6 +64,11 @@
 #import "LFUIView+Add.h"
 #import "LFUIViewController+Add.h"
 #import "LFCALayer+Add.h"
+#import "LFUIView+MBProgressHUD.h"
+#import "LFNSMutableArray+Add.h"
+#import "LFUIImage+AudioIcon.h"
+#import "LFUIButton+EnlargeEdge.h"
+#import "LFNSString+Currency.h"
 
 // Text
 //#import "NSAttributedString+LFText.h"

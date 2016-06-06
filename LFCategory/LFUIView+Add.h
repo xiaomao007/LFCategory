@@ -50,18 +50,18 @@
 /**
  Returns the view's view controller (may be nil).
  */
-@property (nonatomic, readonly) UIViewController *lf_viewController;
+@property (nonatomic, readonly, getter=lf_viewController) UIViewController *viewController;
 
-@property (nonatomic) CGFloat lf_left;    ///< Shortcut for frame.origin.x.
-@property (nonatomic) CGFloat lf_top;     ///< Shortcut for frame.origin.y
-@property (nonatomic) CGFloat lf_right;   ///< Shortcut for frame.origin.x + frame.size.width
-@property (nonatomic) CGFloat lf_bottom;  ///< Shortcut for frame.origin.y + frame.size.height
-@property (nonatomic) CGFloat lf_width;   ///< Shortcut for frame.size.width.
-@property (nonatomic) CGFloat lf_height;  ///< Shortcut for frame.size.height.
-@property (nonatomic) CGFloat lf_centerX; ///< Shortcut for center.x
-@property (nonatomic) CGFloat lf_centerY; ///< Shortcut for center.y
-@property (nonatomic) CGPoint lf_origin;  ///< Shortcut for frame.origin.
-@property (nonatomic) CGSize lf_size;     ///< Shortcut for frame.size.
+@property (nonatomic, setter=setLf_left:, getter=lf_left) CGFloat left;    ///< Shortcut for frame.origin.x.
+@property (nonatomic, setter=setLf_top:, getter=lf_top) CGFloat top;     ///< Shortcut for frame.origin.y
+@property (nonatomic, setter=setLf_right:, getter=lf_right) CGFloat right;   ///< Shortcut for frame.origin.x + frame.size.width
+@property (nonatomic, setter=setLf_bottom:, getter=lf_bottom) CGFloat bottom;  ///< Shortcut for frame.origin.y + frame.size.height
+@property (nonatomic, setter=setLf_width:, getter=lf_width) CGFloat width;   ///< Shortcut for frame.size.width.
+@property (nonatomic, setter=setLf_height:, getter=lf_height) CGFloat height;  ///< Shortcut for frame.size.height.
+@property (nonatomic, setter=setLf_centerX:, getter=lf_centerX) CGFloat centerX; ///< Shortcut for center.x
+@property (nonatomic, setter=setLf_centerY:, getter=lf_centerY) CGFloat centerY; ///< Shortcut for center.y
+@property (nonatomic, setter=setLf_origin:, getter=lf_origin) CGPoint origin;  ///< Shortcut for frame.origin.
+@property (nonatomic, getter=lf_size, setter=setLf_size: ) CGSize size;     ///< Shortcut for frame.size.
 @property (nonatomic, readonly) CGRect lf_screenFrame; ///< View frame on the screen, taking into account scroll views.
 
 /**

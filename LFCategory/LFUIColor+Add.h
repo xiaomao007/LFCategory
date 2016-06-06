@@ -326,52 +326,51 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
  The color's red component value in RGB color space.
  The value of this property is a float in the range `0.0` to `1.0`.
  */
-@property (nonatomic, readonly) CGFloat lf_red;
+@property (nonatomic, readonly, getter=lf_red) CGFloat red;
 
 /**
  The color's green component value in RGB color space.
  The value of this property is a float in the range `0.0` to `1.0`.
  */
-@property (nonatomic, readonly) CGFloat lf_green;
+@property (nonatomic, readonly, getter=lf_green) CGFloat green;
 
 /**
  The color's blue component value in RGB color space.
  The value of this property is a float in the range `0.0` to `1.0`.
  */
-@property (nonatomic, readonly) CGFloat lf_blue;
+@property (nonatomic, readonly, getter=lf_blue) CGFloat blue;
 
 /**
  The color's hue component value in HSB color space.
  The value of this property is a float in the range `0.0` to `1.0`.
  */
-@property (nonatomic, readonly) CGFloat lf_hue;
+@property (nonatomic, readonly,getter=lf_hue) CGFloat hue;
 
 /**
  The color's saturation component value in HSB color space.
  The value of this property is a float in the range `0.0` to `1.0`.
  */
-@property (nonatomic, readonly) CGFloat lf_saturation;
+@property (nonatomic, readonly, getter=lf_saturation) CGFloat saturation;
 
 /**
  The color's brightness component value in HSB color space.
  The value of this property is a float in the range `0.0` to `1.0`.
  */
-@property (nonatomic, readonly) CGFloat lf_brightness;
+@property (nonatomic, readonly, getter=lf_brightness) CGFloat brightness;
 
 /**
  The color's alpha component value.
  The value of this property is a float in the range `0.0` to `1.0`.
  */
-@property (nonatomic, readonly) CGFloat lf_alpha;
+@property (nonatomic, readonly, getter=lf_alpha) CGFloat alpha;
 
 /**
  The color's colorspace model.
  */
-@property (nonatomic, readonly) CGColorSpaceModel lf_colorSpaceModel;
+@property (nonatomic, readonly, getter=lf_colorSpaceModel) CGColorSpaceModel colorSpaceModel;
 
 /**
  Readable colorspace string.
  */
-@property (nonatomic, readonly) NSString *colorSpaceString;
-
+@property (nonatomic, readonly, getter=lf_colorSpaceString) NSString *colorSpaceString;
 @end
