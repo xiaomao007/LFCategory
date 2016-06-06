@@ -69,7 +69,7 @@ extern void LF_YUV2RGB(CGFloat Y, CGFloat U, CGFloat V,
 #define UIColorCMYKA(c, m, y, k, a) [UIColor colorWithCyan:(c) magenta:(m) yellow:(y) black:(k) alpha:(a)]
 #endif
 #ifndef UIColorHex   //e.g. UIColorHex(#66ccff)  UIColorHex(66CCFF88)  (支持 rgb/rgba/rrggbb/rrggbbaa)
-#define UIColorHex(hex)   [UIColor colorWithHexString:(@#hex)]
+#define UIColorHex(hex)   [UIColor lf_colorWithHexString:(@#hex)]
 #endif
 
 /**

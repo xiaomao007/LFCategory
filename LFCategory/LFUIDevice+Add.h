@@ -111,7 +111,7 @@ typedef void (^ cameraAuthorziedBlock) (void);
 
 /// 设备是否越狱
 /// Whether the device is jailbroken.
-@property (nonatomic, readonly) BOOL lf_isJailbroken;
+@property (nonatomic, readonly, getter=lf_isJailbroken) BOOL isJailbroken;
 
 //
 + (void)lf_cameraAuthorzied:(cameraAuthorziedBlock)authorizedBlock notAuthorized:(cameraAuthorziedBlock)notAuthorizedlock;
