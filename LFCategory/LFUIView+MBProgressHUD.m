@@ -10,6 +10,8 @@
 #import "LFUIView+Add.h"
 #import "LFNSString+Add.h"
 #import "MBProgressHUD.h"
+#import "LFUIImage+Resource.h"
+#import "LFUIImage+Add.h"
 
 @implementation UIView (LFMBProgressHUDAdditions)
 
@@ -147,7 +149,12 @@
     if (image == nil) return;
     
     //自定义图片
-    UIImage *customeImage = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    
+    //获取图片资源
+    NSString *filePath = [[NSBundle mainBundle] bundlePath];
+    NSString *bundlePath = [NSString stringWithFormat:@"%@/%@",filePath, @"skin_common.bundle"];
+    UIImage *customeImage = [UIImage lf_imageForKey:image inBundle:[NSBundle bundleWithPath:bundlePath]];
+    customeImage = [customeImage lf_imageByDecoded];
     
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
     [self addSubview:hud];
