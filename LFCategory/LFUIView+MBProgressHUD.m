@@ -129,6 +129,38 @@
     return hud;
 }
 
+
+/*!
+ @method
+ @abstract
+ @discussion  目前仅是利用MBProgressHUD自带属性，设置view，后期可自定义customeView
+ @param     image
+ @param 	animated
+ @param 	message 	消息内容
+ @param 	time 	延迟时间
+ @result
+ */
+- (void)lf_showHUDMessage:(NSString *)message imageNamed:(NSString *)image animated:(BOOL)animated dalay:(NSTimeInterval)time
+{
+    [self lf_removeAllHUDAnimated:animated];
+    if (message.length == 0) return;
+    if (image == nil) return;
+    
+    //自定义图片
+    UIImage *customeImage = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
+    [self addSubview:hud];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.removeFromSuperViewOnHide = YES;
+    hud.square = YES;
+    hud.customView = [[UIImageView alloc] initWithImage:customeImage];
+    hud.labelText = message;;
+    hud.labelFont = [UIFont boldSystemFontOfSize:10.0f];
+    [hud show:animated];
+    [hud hide:animated afterDelay:time];
+}
+
 /*!
  @method
  @abstract

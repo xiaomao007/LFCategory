@@ -44,6 +44,18 @@
  */
 - (MBProgressHUD *)lf_showHUDAnimated:(BOOL)animated message:(NSString *)message dalayTime:(NSTimeInterval)time;
 
+/*!
+ @method
+ @abstract
+ @discussion
+ @param     image
+ @param 	animated
+ @param 	message 	消息内容
+ @param 	time 	延迟时间
+ @result
+ */
+- (void)lf_showHUDMessage:(NSString *)message imageNamed:(NSString *)image animated:(BOOL)animated dalay:(NSTimeInterval)time;
+
 
 /*!
  	@method
