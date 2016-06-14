@@ -12,7 +12,8 @@
 #import "LFNSCharacterSet+Add.h"
 #import "LFCategoryMacro.h"
 
-
+static BOOL g_allowedCharacters = NO;
+static BOOL g_stringByRemovingPercentEncoding = NO;
 
 @implementation NSString (LFAdditions)
 
@@ -95,27 +96,52 @@
 }
 
 - (NSString *)lf_stringByURLEncode:(NSStringEncoding)encoding {
-    NSString *encoded = (__bridge_transfer NSString *)
-    CFURLCreateStringByAddingPercentEscapes(
-                                            NULL,
-                                            (__bridge CFStringRef)self,
-                                            NULL,
-                                            CFSTR("!#$&'()*+,/:;=?@[]"),
-                                            (CFStringEncoding)encoding);
-    return encoded;
+    
+    static NSString * const  allowedCharacters = @"!*'();:@&=+$,/?%#[]";
+    g_allowedCharacters = [NSString instancesRespondToSelector:@selector(stringByAddingPercentEncodingWithAllowedCharacters:)];
+    if (g_allowedCharacters) {
+        static NSCharacterSet * characterSet = nil;
+        if (characterSet == nil) {
+            characterSet = [NSCharacterSet characterSetWithCharactersInString:allowedCharacters];
+        }
+        return  [self stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
+    } else {
+        CFStringRef escaped = NULL;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        escaped = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                          (CFStringRef)self,
+                                                          NULL,
+                                                          (CFStringRef)allowedCharacters,
+                                                          (CFStringEncoding)encoding);
+#pragma clang diagnostic pop
+        
+#if defined(__has_feature) && __has_feature(objc_arc)
+        return CFBridgingRelease(escaped);
+#else
+        return [(NSString *)escaped autorelease];
+#endif
+    }
 }
 
 - (NSString *)lf_stringByURLDecode:(NSStringEncoding)encoding {
-    CFStringEncoding en = CFStringConvertNSStringEncodingToEncoding(encoding);
-    NSString *decoded = [self stringByReplacingOccurrencesOfString:@"+"
-                                                        withString:@" "];
-    decoded = (__bridge_transfer NSString *)
-    CFURLCreateStringByReplacingPercentEscapesUsingEncoding(
-                                                            NULL,
-                                                            (__bridge CFStringRef)decoded,
-                                                            CFSTR(""),
-                                                            en);
-    return decoded;
+    
+    g_stringByRemovingPercentEncoding = [NSString instancesRespondToSelector:@selector(stringByRemovingPercentEncoding)];
+    NSMutableString *resultString = [NSMutableString stringWithString:self];
+    [resultString replaceOccurrencesOfString:@"+"
+                                  withString:@" "
+                                     options:NSLiteralSearch
+                                       range:NSMakeRange(0, [resultString length])];
+    
+    
+    if (g_stringByRemovingPercentEncoding) {
+        return resultString.stringByRemovingPercentEncoding;
+    }else{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        return [resultString stringByReplacingPercentEscapesUsingEncoding:encoding];
+#pragma clang diagnostic pop
+    }
 }
 
 - (NSString *)lf_stringByEscapingHTML {
