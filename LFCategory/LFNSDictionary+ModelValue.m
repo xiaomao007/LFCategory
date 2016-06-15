@@ -176,7 +176,7 @@ static NSNumber *NSNumberFromID(id value) {
     id value = self[key];
     if (!value || value == [NSNull null]) return def;
     if ([value isKindOfClass:[NSString class]]) return value;
-    if ([value isKindOfClass:[NSNumber class]]) return ((NSNumber *)value).description;
+    if ([value isKindOfClass:[NSNumber class]]) return ((NSNumber *)value).stringValue;
     if ([value isKindOfClass:[NSURL class]]) return ((NSURL *)value).absoluteString;
     return def;
 }
