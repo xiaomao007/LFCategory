@@ -259,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				09ED7F501CEDABA100F0E12F /* libz.tbd */,
+				11F9AFEE1D128E7200324CA1 /* TestCase */,
 				0919ADC71CED6F920092DA5B /* LFCategory */,
 				0919ADC61CED6F920092DA5B /* Products */,
 				E35EB92AC53B5F38DC965CBC /* Pods */,
@@ -407,6 +408,13 @@
 				09ED7E781CED800B00F0E12F /* LFCALayer+Add.m */,
 			);
 			name = UIKit;
+			sourceTree = "<group>";
+		};
+		11F9AFEE1D128E7200324CA1 /* TestCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestCase;
 			sourceTree = "<group>";
 		};
 		95278C1692D38EF63268709B /* Frameworks */ = {
