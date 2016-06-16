@@ -413,8 +413,16 @@
 		11F9AFEE1D128E7200324CA1 /* TestCase */ = {
 			isa = PBXGroup;
 			children = (
+				11F9AFEF1D12912600324CA1 /* Foundation */,
 			);
 			path = TestCase;
+			sourceTree = "<group>";
+		};
+		11F9AFEF1D12912600324CA1 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		95278C1692D38EF63268709B /* Frameworks */ = {
