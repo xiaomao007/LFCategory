@@ -40,8 +40,10 @@ static const void *UIAlertViewDidDismissBlockKey                    = &UIAlertVi
 static const void *UIAlertViewCancelBlockKey                        = &UIAlertViewCancelBlockKey;
 static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertViewShouldEnableFirstOtherButtonBlockKey;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @implementation UIAlertView (Blocks)
-
+#pragma clang diagnostic pop
 + (instancetype)lf_showWithTitle:(NSString *)title
                       message:(NSString *)message
                         style:(UIAlertViewStyle)style
@@ -155,7 +157,8 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
     [self _checkAlertViewDelegate];
     objc_setAssociatedObject(self, UIAlertViewCancelBlockKey, cancelBlock, OBJC_ASSOCIATION_COPY);
 }
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)setShouldEnableFirstOtherButtonBlock:(BOOL(^)(UIAlertView *alertView))shouldEnableFirstOtherButtonBlock {
     [self _checkAlertViewDelegate];
     objc_setAssociatedObject(self, UIAlertViewShouldEnableFirstOtherButtonBlockKey, shouldEnableFirstOtherButtonBlock, OBJC_ASSOCIATION_COPY);
@@ -260,5 +263,5 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
     
     return YES;
 }
-
+#pragma clang diagnostic pop
 @end

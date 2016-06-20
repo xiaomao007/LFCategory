@@ -8,9 +8,10 @@
 
 #import "LFALAsset+Property.h"
 
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @implementation ALAsset (LFALAssetPopertyAdditions)
-
+#pragma clang diagnostic pop
 
 
 // 图片资源唯一的标示

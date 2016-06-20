@@ -12,7 +12,7 @@
  Provides extensions for `UIView`.
  */
 @interface UIView (LFAdditions)
-
+NS_ASSUME_NONNULL_BEGIN
 /**
  Create a snapshot image of the complete view hierarchy.
  This method should be called in main thread.
@@ -67,7 +67,7 @@
 /**
  Returns the visible alpha on screen, taking into account superview and window.
  */
-@property (nonatomic, readonly) CGFloat visibleAlpha;
+@property (nonatomic, readonly) CGFloat lf_visibleAlpha;
 
 
 /**
@@ -129,4 +129,5 @@
 
 /// 在 block 内禁用动画
 + (void)lf_disableAnimationWithBlock:(void (^)(void))block;
+NS_ASSUME_NONNULL_END
 @end

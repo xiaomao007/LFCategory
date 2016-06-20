@@ -27,10 +27,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 typedef void (^UIAlertViewBlock) (UIAlertView * __nonnull alertView);
 typedef void (^UIAlertViewCompletionBlock) (UIAlertView * __nonnull alertView, NSInteger buttonIndex);
-
+#pragma clang diagnostic pop
 @interface UIAlertView (Blocks)
 
 + (nonnull instancetype)lf_showWithTitle:(nullable NSString *)title

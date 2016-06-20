@@ -11,9 +11,10 @@
 #import <ImageIO/ImageIO.h>
 #import "LFUIImage+Scale.h"
 
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 @implementation ALAsset (LFALAssetImageAdditions)
-
+#pragma clang diagnostic pop
 const CGFloat kHDImageMaxLength         = 1204.0f;      // 高清图片最大的长度（长度和宽度）
 const CGFloat kHDImageMaxHeight         = 12040.0f;     // 高清图片最大的高度
 
